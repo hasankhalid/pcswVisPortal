@@ -1,0 +1,209 @@
+html, body {
+  min-height: 100%;
+  height: 100%;
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+.applicationWrap {
+  min-height: 100%;
+}
+
+.landing {
+  height: 100vh;
+  background: rgb(142,36,170);
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+}
+
+.contentContain {
+  height: 100%;
+  position: relative;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.navbar {
+  height: 90px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.pcsw {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 5;
+  align-items: center;
+  color: white;
+}
+
+.pcswlogo {
+  width: 65px;
+  height: 60px;
+  margin-right: 12px;
+}
+
+.pcswName {
+  font-size: 14px;
+  margin: 0px;
+  margin-bottom: 4px;
+}
+
+.bottomBar {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  color: white;
+  height: 70px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landingArrow {
+  font-size: 17px;
+  color: #FFEE58;
+}
+
+.imageTextContainer {
+  height: calc(100vh - 190px);
+  display: flex;
+  align-items: center;
+}
+
+.titleContainer {
+  width: 50%;
+}
+
+.imageContainer {
+  width: 60%;
+  position: absolute;
+  right: 0px;
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.titleContainer {
+  margin-left: 100px;
+  position: relative;
+  z-index: 5;
+  color: white;
+}
+
+.titleImage {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.overlay_black {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 15px;
+}
+
+.titleSmall {
+  font-size: 18px;
+  margin: 0px;
+  font-weight: 400;
+}
+
+#followTitle {
+  margin-top: 5px;
+}
+
+#preTitle {
+  margin-bottom: 5px;
+}
+
+.titleLarge {
+  font-size: 34px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 1000px) {
+  .imageContainer {
+    margin-right: 25px;
+  }
+  .titleContainer {
+    margin-left: 25px;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  .titleLarge {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+
+  .imageTextContainer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .imageContainer {
+    margin: 0px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+
+  .titleContainer {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .contentContain {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .pcswName {
+    display: none;
+  }
+  #followTitle {
+    margin-top: 10px;
+  }
+
+  #preTitle {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .contentContain {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .titleLarge {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .contentContain {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .titleSmall {
+    font-size: 16px;
+  }
+  .titleLarge {
+    font-size: 26px;
+  }
+}
