@@ -1,0 +1,51 @@
+#trail {
+  display:flex;
+  height: 50px;
+  width: 100%;
+}
+
+.labelContainer {
+  max-width: 200px;
+  min-width:  50px;
+  height: 30px;
+  padding: 8px;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.fa-angle-right {
+  color: white;
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+#trailAndPercent {
+  display: flex;
+}
+
+#endlabelDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 8px;
+  margin: 1px;
+}
+
+#endlabel {
+  margin: 0px;
+}
+
+#sequence {
+  height: 50px;
+  display: flex;
+}
+
+#percentage, #percentGlobal {
+  font-size: 20px;
+  font-weight: 450;
+  color: #212121
+}

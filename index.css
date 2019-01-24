@@ -1,8 +1,11 @@
 html, body {
   min-height: 100%;
-  height: 100%;
   margin: 0px;
   font-family: 'Lato', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .applicationWrap {
@@ -13,6 +16,27 @@ html, body {
   height: 100vh;
   background: rgb(142,36,170);
   background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+}
+
+.nav_container {
+  height: 300px;
+  background: rgb(142,36,170);
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+  position: relative;
+}
+
+#granim-canvas, #granim-canvas-footer, #nav_anim-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#granim-canvas {
+  height: 100vh;
 }
 
 .contentContain {
@@ -31,6 +55,75 @@ html, body {
   color: white;
 }
 
+.nav_menu_icon {
+  width: 25px;
+  cursor: pointer;
+}
+
+.nav_section {
+  height: calc(100% - 265px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.nav_link_section {
+  display: flex;
+}
+
+.nav_link {
+  width: 33.3%;
+  font-size: 20px;
+  padding: 2px;
+}
+
+.link_text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: none;
+  transition: 0.5s ease-in;
+}
+
+.link_text:hover {
+  color: #FFEE58;
+}
+
+.copyright {
+  margin-bottom: 0px;
+  margin-top: 11px;
+}
+
+.logos {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.logos_section {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+}
+
+.logos_section_title {
+  font-size: 22px;
+}
+
+.punjabgov {
+  width: 120px;
+}
+
+.dfid {
+  width: 250px;
+  margin: 0px 30px;
+}
+
+.unfpa {
+  width: 200px;
+}
+
 .pcsw {
   height: 100%;
   display: flex;
@@ -38,6 +131,7 @@ html, body {
   z-index: 5;
   align-items: center;
   color: white;
+  cursor: pointer;
 }
 
 .pcswlogo {
@@ -53,8 +147,6 @@ html, body {
 }
 
 .bottomBar {
-  position: absolute;
-  bottom: 0px;
   width: 100%;
   color: white;
   height: 70px;
@@ -62,6 +154,24 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.fadeinup {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+#overlay_menu {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
 }
 
 .landingArrow {
@@ -80,12 +190,16 @@ html, body {
 }
 
 .imageContainer {
+  display: flex;
+  align-items: center;
+}
+
+.fadeMeRight {
   width: 60%;
   position: absolute;
   right: 0px;
   margin-right: 100px;
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 .titleContainer {
@@ -98,14 +212,17 @@ html, body {
 .titleImage {
   width: 100%;
   border-radius: 15px;
+  -webkit-box-shadow: 17px 21px 38px -16px rgba(0,0,0,0.5);
+  -moz-box-shadow: 17px 21px 38px -16px rgba(0,0,0,0.5);
+  box-shadow: 17px 21px 38px -16px rgba(0,0,0,0.5);
 }
 
 .overlay_black {
-  background-color: black;
+  background-color: #000;
   width: 100%;
   height: 100%;
   position: absolute;
-  opacity: 0.2;
+  opacity: 0.15;
   border-radius: 15px;
 }
 
@@ -117,10 +234,12 @@ html, body {
 
 #followTitle {
   margin-top: 5px;
+  display: none;
 }
 
 #preTitle {
   margin-bottom: 5px;
+  display: none;
 }
 
 .titleLarge {
@@ -128,14 +247,210 @@ html, body {
   margin-top: 1px;
   margin-bottom: 1px;
   font-weight: 700;
+  display: none;
 }
 
-@media only screen and (max-width: 1000px) {
-  .imageContainer {
+
+.overlay_sunburst {
+  background-color: #616161;
+  opacity: 0.8;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay_sankey {
+  background: linear-gradient(145deg, rgba(142,36,170,0.95) 0%, rgba(186,104,200,0.8) 100%);
+}
+
+.textOverlay {
+  color: white;
+  margin: 80px;
+  font-size: 20px;
+}
+
+.half {
+  width: 50%;
+  height: 100vh;
+  position: relative;
+}
+
+.imagehalf {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sunburst {
+  display: flex;
+}
+
+.project_image_container {
+  margin: 0px 80px;
+  width: calc(50% - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project_image {
+  width: 60%;
+}
+
+.project_title_description {
+  margin: 15px 0px;
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  color: white;
+  width: 150px;
+  padding: 20px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
+  transition: 2s ease-in;
+}
+
+.footer_contain {
+  margin-top: 50px;
+  position: relative;
+}
+
+.district_link_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0px 80px;
+  position: relative;
+  z-index: 3;
+}
+
+.footer_link_image {
+  width: 300px;
+  border-radius: 15px;
+  -webkit-box-shadow: 17px 21px 38px -16px rgba(0,0,0,0.5);
+  -moz-box-shadow: 17px 21px 38px -16px rgba(0,0,0,0.5);
+  box-shadow: 17px 21px 38px -16px rgba(0,0,0,0.5);
+}
+
+.view_districts {
+  color: white;
+  font-size: 26px;
+  font-weight: 600;
+  margin-left: -20px;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  top: 65px;
+  padding: 150px 80px 40px 80px;
+  width: calc(100% - 160px);
+  z-index: 1;
+}
+
+.footer_item {
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+
+.pcsw_footer, .proj_title {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.proj_title {
+  margin: 0px;
+}
+
+.pcsw_contact {
+  display: flex;
+}
+
+.officeContact {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  color: #eee;
+}
+
+.fa-phone {
+  margin-left: 12px;
+  margin-right: 7px;
+}
+
+.fa-map-marker-alt {
+  margin-right: 7px;
+}
+
+.socIcon, .socMidIcon {
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.footSocIcons {
+  font-size: 18px;
+}
+
+.visualization_title_container {
+  height: 210px;
+  display: flex;
+  align-items: center;
+}
+
+.sunburst_wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#sunburst_container_main {
+  flex-basis: 70%;
+}
+
+#sunburst_controls {
+  flex-basis: 30%;
+}
+
+
+@media only screen and (max-width: 1100px) {
+  .fadeMeRight {
     margin-right: 25px;
   }
   .titleContainer {
     margin-left: 25px;
+  }
+  .textOverlay {
+    margin: 40px;
+  }
+  .project_image_container {
+    margin-left: 40px;
+    margin-right: 40px;
+    width: calc(50% - 80px);
+  }
+  .nav_link {
+    font-size: 16px;
+  }
+  .logos {
+    height: 80px;
+  }
+  .punjabgov {
+    width: 95px;
+  }
+
+  .dfid {
+    width: 180px;
+    margin: 0px 20px;
+  }
+
+  .unfpa {
+    width: 160px;
   }
 }
 
@@ -143,16 +458,36 @@ html, body {
   .titleLarge {
     font-size: 30px;
   }
+  .nav_link {
+    font-size: 14px;
+  }
+  .logos_section_title {
+    font-size: 18px;
+  }
+  .logos {
+    height: 60px;
+  }
+  .punjabgov {
+    width: 75px;
+  }
+
+  .dfid {
+    width: 150px;
+    margin: 0px 20px;
+  }
+
+  .unfpa {
+    width: 140px;
+  }
 }
 
 @media only screen and (max-width: 775px) {
-
   .imageTextContainer {
     flex-direction: column-reverse;
     align-items: flex-start;
     justify-content: center;
   }
-  .imageContainer {
+  .fadeMeRight {
     margin: 0px;
     width: 100%;
     position: relative;
@@ -164,6 +499,27 @@ html, body {
     width: 100%;
     margin-top: 20px;
     margin-left: 0px;
+  }
+  .sunburst {
+    flex-direction: column;
+  }
+  .half {
+    width: 100%;
+  }
+
+  #sunburst {
+    flex-direction: column-reverse;
+  }
+  .textOverlay {
+    margin: 80px;
+  }
+  .project_image_container {
+    margin-left: 80px;
+    margin-right: 80px;
+    width: calc(100% - 160px);
+  }
+  .nav_link {
+    font-size: 12px;
   }
 }
 
@@ -182,6 +538,37 @@ html, body {
   #preTitle {
     margin-bottom: 10px;
   }
+  .textOverlay {
+    margin: 40px;
+  }
+  .project_image_container {
+    margin-left: 40px;
+    margin-right: 40px;
+    width: calc(100% - 80px);
+  }
+  .district_link_container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px 40px;
+  }
+  .view_districts {
+    margin-left: 0px;
+  }
+  .footer {
+    padding: 225px 40px 40px 40px;
+    width: calc(100% - 80px);
+  }
+  .nav_link_section {
+    flex-direction: column;
+  }
+  .nav_link {
+    width: 100%;
+    font-size: 13px;
+  }
+  .copyright {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -193,17 +580,57 @@ html, body {
     margin-top: 3px;
     margin-bottom: 3px;
   }
+  .textOverlay {
+    margin: 20px;
+  }
+  .project_image_container {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+  .district_link_container {
+    margin: 0px 20px;
+  }
+  .footer {
+    padding: 225px 20px 40px 20px;
+    width: calc(100% - 40px);
+  }
+  .logos {
+    flex-wrap: wrap;
+    height: 130px;
+  }
+  .dfid, .unfpa, .punjabgov {
+    height: 50%;
+  }
 }
 
 @media only screen and (max-width: 415px) {
-  .contentContain {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
   .titleSmall {
     font-size: 16px;
   }
   .titleLarge {
     font-size: 26px;
+  }
+  .footer_link_image {
+    width: 95%;
+  }
+  .logos {
+    flex-wrap: wrap;
+    height: 100px;
+  }
+  .dfid, .unfpa, .punjabgov {
+    height: 50%;
+  }
+  .punjabgov {
+    width: 62px;
+  }
+
+  .dfid {
+    width: 110px;
+    margin: 0px 20px;
+  }
+
+  .unfpa {
+    width: 100px;
   }
 }

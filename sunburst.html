@@ -5,11 +5,14 @@
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <script src="//d3js.org/d3.v5.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./sunburst.css">
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -17,7 +20,7 @@
 
   <body>
     <div class='applicationWrap' onclick="void(0)">
-      <div class="landing">
+      <div class="nav_container">
         <div id="overlay_menu">
           <div class="contentContain">
             <div class="navbar">
@@ -65,7 +68,7 @@
             </div>
           </div>
         </div>
-        <canvas id="granim-canvas"></canvas>
+        <canvas id="nav_anim-canvas"></canvas>
         <div class="contentContain">
           <div class="navbar">
             <div class="pcsw">
@@ -77,74 +80,34 @@
             </div>
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
-          <div class="imageTextContainer">
-            <div class="titleContainer">
-              <p class="titleSmall" id="preTitle">GENERATING DATA TO ADVANCE WOMEN’S</p>
-              <p class="titleLarge">SOCIAL & ECONOMIC</p>
-              <p class="titleLarge">WELLBEING</p>
-              <p class="titleSmall" id="followTitle">IN PAKISTAN</p>
-            </div>
-            <div class="fadeMeRight">
-              <div class="imageContainer">
-                <img class="titleImage" src="./resources/landing.jpg"></img>
-                <div class="overlay_black"></div>
-              </div>
-            </div>
-          </div>
-          <div class="fadeinup">
-            <div class="bottomBar">
-              <p class="scrollText">Scroll Down <i class="fas fa-arrow-circle-down landingArrow"></i></p>
-              <div class="socIcons">
-                <i class="fab fa-facebook-f socIcon facebookSoc"></i>
-                <i class="fab fa-twitter socMidIcon socIcon twitterSoc"></i>
-                <i class="fas fa-link socIcon webSoc"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sunburst" id="sunburst">
-        <div class="load_progress">
-        </div>
-        <div class="sunBurstContainer">
-        </div>
-        <div class="half">
-          <img class="imagehalf" src="./resources/sewing.jpg"></img>
-          <div class="overlay_black overlay_sunburst" style="top: 0px;">
-            <p class="textOverlay" data-aos="fade-up" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
-          </div>
-        </div>
-        <div class="half project_image_container">
-          <img class="project_image" src="./resources/sunburst.png"></img>
-          <div class="project_title_description">
-            <p>SUNBURST DIAGRAM SHOWING WOMEN’S PARTICIPATION IN LABOR FORCE</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-          </div>
-          <div class="button" id="sunburstButt">
-            <span>View Visualization</span>
+          <div class="visualization_title_container">
+            <p class="proj_title">SUNBURST DIAGRAM SHOWING WOMEN’S PARTICIPATION IN LABOR FORCE</p>
           </div>
         </div>
       </div>
 
-      <div class="sunburst" id="sankey">
-        <div class="load_progress">
-        </div>
-        <div class="sunBurstContainer">
-        </div>
-        <div class="half project_image_container">
-          <img class="project_image" src="./resources/sunburst.png"></img>
-          <div class="project_title_description">
-            <p>SUNBURST DIAGRAM SHOWING WOMEN’S PARTICIPATION IN LABOR FORCE</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-          </div>
-          <div class="button">
-            <span>View Visualization</span>
-          </div>
-        </div>
-        <div class="half">
-          <img class="imagehalf" src="./resources/sankeyimage.jpg"></img>
-          <div class="overlay_black overlay_sunburst overlay_sankey" style="top: 0px;">
-            <p class="textOverlay" data-aos="fade-up" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="sunburst_wrapper">
+            <div id="sunburst_container_main">
+              <div id="sequence"></div>
+              <div id="NodeTypeDiv">
+                <p id="NodeTypeText" style="opacity: 0;">
+                  Layer Type
+                </p>
+              </div>
+              <div id="sunburst_container"></div>
+            </div>
+            <div id="sunburst_controls">
+              <h2>Controls</h2>
+              <h3>Filter by Age</h3>
+              <div>
+                <div class="button" id="youngerButton" ageGroup="15-24"><span>Age 15-24</span></div>
+                <div style="margin: 10px 0px;" class="button" id="OlderButton" ageGroup="25-64"><span>Age 25-64</span></div>
+                <div class="button" id="AllButton" ageGroup="All"><span>All</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -170,11 +133,12 @@
       </div>
     </div>
 
-
+    <script src="./js/sunburst.js"></script>
     <script src="./menu.js"></script>
+
     <script>
       var granimInstance = new Granim({
-         element: '#granim-canvas',
+         element: '#nav_anim-canvas',
          name: 'granim',
          direction: 'diagonal',
          opacity: [1, 1],
@@ -255,14 +219,9 @@
         window.open('https://pcsw.punjab.gov.pk/', '_blank');
       });
 
-      $("#sunburstButt").click(function() {
-        window.location = "./sunburst.html";
-      });
-
       $(".pcsw").click(function() {
         window.location = "./";
       });
-
     </script>
   </body>
 </html>
