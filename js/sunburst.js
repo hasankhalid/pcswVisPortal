@@ -51,7 +51,7 @@ let arc = d3.arc()
 // async function that reads in data, conducts transforamtions and draws the visualization
 async function readAndDrawSunburst(){
     // read in the data asynchronously
-    let data = await d3.csv('js/files/laborHierarchy.csv');
+    let data = await d3.csv('./js/files/laborHierarchyMS.csv');
 
     // function takes in a sequence csv and converts it into array of arrays
     function convArrOfArr(dataset){
@@ -63,9 +63,9 @@ async function readAndDrawSunburst(){
     }
 
     // list of variables that are part of the sequence
-    let seqVars = ["area", "laborForce", "employment", "industry", "barrier", "empType", "homeBased", "informal"]
+    let seqVars = ["area", "laborForce", "employment", "industry", "barrier", "maritalStatus", "empType", "homeBased", "informal"]
     // give each variable a layer Type to help users read the visual
-    let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Employment Type", "Home based work", "Informal/ formal employment in non-agriculture sectors"];
+    let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Marital Status", "Employment Type", "Home based work", "Informal/ formal employment in non-agriculture sectors"];
 
 
 
@@ -130,8 +130,7 @@ async function readAndDrawSunburst(){
     // interaction with buttons
     d3.select("#ButtonContain")
       .selectAll('div').on("click", function(d, i){
-        console.log(d3.select(this).attr('id'))
-        console.log(this);
+
         let ageGroup = d3.select(this).attr('ageGroup');
 
         let dataFiltered;
@@ -143,7 +142,6 @@ async function readAndDrawSunburst(){
           dataFiltered = data;
         }
 
-        console.log(dataFiltered);
 
         // transform data and draw again
         jsonFiltered = transformData(dataFiltered);
@@ -155,8 +153,9 @@ async function readAndDrawSunburst(){
 
 
         // enable all and then disable the clicked button
-        d3.selectAll('.button').attr('disabled', 'false');
-        d3.select(this).attr('disabled', 'true');
+
+        d3.selectAll('div.button').classed('disabled', false)
+        d3.select(this).classed('disabled', true);
       })
 }
 
@@ -205,7 +204,6 @@ function createVisualization(json, colScale) {
       .attr('r', radius)
       .style('fill', 'url(#radOpacGrad)');
 
-  console.log(json);
 
   // Turn the data into a d3 hierarchy and calculate the sums.
   let root = d3.hierarchy(json)
@@ -226,7 +224,6 @@ function createVisualization(json, colScale) {
           return (d.x1 - d.x0 > 0.005); // 0.005 radians = 0.29 degrees
       });
 
-  console.log(root);
 
 
   let path = vis.data([json]).selectAll("path")
@@ -245,7 +242,7 @@ function createVisualization(json, colScale) {
   // Get total size of the tree = value of root node from partition.
   totalSize = path.datum().value;
 
-  // draw legend
+  /*// draw legend
   SVG.append("g")
     .attr("class", "legendOrdinal")
     .attr("transform", "translate(60 ,60)");
@@ -262,7 +259,7 @@ function createVisualization(json, colScale) {
     .classed('legendTitle', true)
     .text('Layer colors')
     .attr('transform', 'translate(0, -10)');
-
+*/
  };
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.
@@ -306,7 +303,7 @@ function mouseover(d) {
   // showing and styling type of Layer
   d3.select("#NodeTypeText")
     .html(d => {
-      return `<br>Layer Type: <span id ="NodeTypeTextSpan">${layerTypeScale(hoveredName)}</span>`
+      return `<span id ="NodeTypeTextSpan" style="color: #EE5930;">${layerTypeScale(hoveredName)}</span>`
     })
     .style("opacity", 1);
 
@@ -316,7 +313,6 @@ function mouseover(d) {
 
   let sequenceArray = d.ancestors().reverse();
   sequenceArray.shift(); // remove root node from the array
-  console.log("seqArray", sequenceArray);
   // update the breadcrumb trail
   updateBreadcrumbs(sequenceArray, percentageString);
 
@@ -337,8 +333,19 @@ function mouseover(d) {
 function mouseleave(d) {
 
   // Hide the breadcrumb trail
-  d3.select("#trail")
-      .style("visibility", "hidden");
+  /*d3.select("#trail")
+      .style("visibility", "hidden"); */
+
+  d3.selectAll(".labelContainer").remove();
+
+  d3.select('#trail')
+    .append('div')
+    .classed('labelContainer', true)
+    .style('background', 'linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%)')
+    .style('color', 'white')
+    .html(function() {
+      return '<p>Hover the graph for details</p>'
+    });
 
   // Deactivate all segments during transition.
   d3.selectAll("path").on("mouseover", null);
@@ -364,15 +371,15 @@ function mouseleave(d) {
 }
 
 function initializeBreadcrumbTrail() {
-  d3.select("#trailAndPercent").remove();
+  //d3.select("#trailAndPercent").remove();
   // Add the svg area.
-  var trailAndPercent = d3.select("#sequence").append("div")
+/*  var trailAndPercent = d3.select("#sequence").append("div")
       .style("width", '100%')
       .attr("id", "trailAndPercent");
   // Add the label at the end, for the percentage.
   trailAndPercent.append('div')
-                .attr('id', 'trail')
-  trailAndPercent.append('div')
+                .attr('id', 'trail') */
+  d3.select('#trailAndPercent').append('div')
         .attr('id', 'endlabelDiv')
         .append('p')
         .attr('id', 'endlabel')
@@ -382,6 +389,7 @@ function initializeBreadcrumbTrail() {
 
 // Update the breadcrumb trail to show the current sequence and percentage.
 function updateBreadcrumbs(nodeArray, percentageString) {
+  d3.selectAll(".labelContainer").remove();
 
   // Data join; key function combines name and depth (= position in sequence).
   var trail = d3.select("#trail")

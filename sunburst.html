@@ -68,7 +68,6 @@
             </div>
           </div>
         </div>
-        <canvas id="nav_anim-canvas"></canvas>
         <div class="contentContain">
           <div class="navbar">
             <div class="pcsw">
@@ -81,21 +80,60 @@
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
           <div class="visualization_title_container">
-            <p class="proj_title">SUNBURST DIAGRAM SHOWING WOMEN’S PARTICIPATION IN LABOR FORCE</p>
+            <p class="proj_title">Women’s Participation in Labor Force</p>
           </div>
         </div>
       </div>
 
       <div class="vis_wrapper">
         <div class="contentContain">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="section_title">Section Overview</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <div class="sunburst_wrapper">
             <div id="sunburst_container_main">
-              <div id="sequence"></div>
+              <h2 style="margin-bottom: 0px;">Explore Labor Force Composition by Area</h2>
               <div id="NodeTypeDiv">
-                <p id="NodeTypeText" style="opacity: 0;">
-                  Layer Type
-                </p>
+                <h3>
+                  Layer Type: <span id="NodeTypeText"></span>
+                </h3>
+              </div>
+              <div id="sequence">
+                <div id="trailAndPercent">
+                  <div id="trail">
+                    <div class="labelContainer" style="background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%); color: white;">
+                      <p>Hover the graph for details</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="sunburst_legend">
+                <h4 style="margin-bottom: 5px; margin-top: 10px;">Layer Colors</h4>
+                <div class="legend_container">
+                  <div class="legend_element">
+                    <svg height="14" width="14" class="legend_circle">
+                      <circle cx="7" cy="7" r="7" fill="rgb(41, 182, 246)"/>
+                    </svg>
+                    <p class="nomargin">Urban</p>
+                  </div>
+                  <div class="legend_element">
+                    <svg height="14" width="14" class="legend_circle circle_margin">
+                      <circle cx="7" cy="7" r="7" fill="rgb(77, 182, 172)"/>
+                    </svg>
+                    <p class="nomargin">Rural</p>
+                  </div>
+                  <div class="legend_element">
+                    <svg height="14" width="14" class="legend_circle circle_margin">
+                      <circle cx="7" cy="7" r="7" fill="rgb(255, 143, 0)"/>
+                    </svg>
+                    <p class="nomargin">Not in labor force</p>
+                  </div>
+                  <div class="legend_element">
+                    <svg height="14" width="14" class="legend_circle circle_margin">
+                      <circle cx="7" cy="7" r="7" fill="rgb(142, 36, 170)"/>
+                    </svg>
+                    <p class="nomargin">Labor force</p>
+                  </div>
+                </div>
               </div>
               <div id="sunburst_container"></div>
             </div>
@@ -137,22 +175,6 @@
     <script src="./menu.js"></script>
 
     <script>
-      var granimInstance = new Granim({
-         element: '#nav_anim-canvas',
-         name: 'granim',
-         direction: 'diagonal',
-         opacity: [1, 1],
-         states : {
-             "default-state": {
-                 gradients: [
-                     ['#8e24aa', '#ba68c8'],
-                     ['#EE5930', '#FFA726'],
-                     ['#BC3626', '#F6AF32']
-                 ]
-             }
-         }
-      });
-
       var granimInstance = new Granim({
          element: '#granim-canvas-footer',
          name: 'granim',

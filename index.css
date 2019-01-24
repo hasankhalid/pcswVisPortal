@@ -403,6 +403,7 @@ body {
   height: 210px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .sunburst_wrapper {
@@ -416,6 +417,16 @@ body {
 
 #sunburst_controls {
   flex-basis: 30%;
+}
+
+.section_title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.nomargin {
+  margin: 0px;
 }
 
 

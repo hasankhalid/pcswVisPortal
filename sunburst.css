@@ -23,6 +23,7 @@
 }
 
 #trailAndPercent {
+  width: 100%;
   display: flex;
 }
 
@@ -48,4 +49,22 @@
   font-size: 20px;
   font-weight: 450;
   color: #212121
+}
+
+.legend_container {
+  display: flex;
+}
+
+.legend_element {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.legend_circle {
+  margin-right: 6px;
+}
+
+.circle_margin {
+  margin-left: 6px;
 }
