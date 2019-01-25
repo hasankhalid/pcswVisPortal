@@ -109,41 +109,52 @@
               <div id="sunburst_legend">
                 <h4 style="margin-bottom: 5px; margin-top: 10px;">Layer Colors</h4>
                 <div class="legend_container">
-                  <div class="legend_element">
-                    <svg height="14" width="14" class="legend_circle">
-                      <circle cx="7" cy="7" r="7" fill="rgb(41, 182, 246)"/>
-                    </svg>
-                    <p class="nomargin">Urban</p>
+                  <div class="legend_container_two">
+                    <div class="legend_element">
+                      <svg height="14" width="14" class="legend_circle">
+                        <circle cx="7" cy="7" r="7" fill="rgb(41, 182, 246)"/>
+                      </svg>
+                      <p class="nomargin">Urban</p>
+                    </div>
+                    <div class="legend_element">
+                      <svg height="14" width="14" class="legend_circle circle_margin">
+                        <circle cx="7" cy="7" r="7" fill="rgb(77, 182, 172)"/>
+                      </svg>
+                      <p class="nomargin">Rural</p>
+                    </div>
                   </div>
-                  <div class="legend_element">
-                    <svg height="14" width="14" class="legend_circle circle_margin">
-                      <circle cx="7" cy="7" r="7" fill="rgb(77, 182, 172)"/>
-                    </svg>
-                    <p class="nomargin">Rural</p>
-                  </div>
-                  <div class="legend_element">
-                    <svg height="14" width="14" class="legend_circle circle_margin">
-                      <circle cx="7" cy="7" r="7" fill="rgb(255, 143, 0)"/>
-                    </svg>
-                    <p class="nomargin">Not in labor force</p>
-                  </div>
-                  <div class="legend_element">
-                    <svg height="14" width="14" class="legend_circle circle_margin">
-                      <circle cx="7" cy="7" r="7" fill="rgb(142, 36, 170)"/>
-                    </svg>
-                    <p class="nomargin">Labor force</p>
+                  <div class="legend_container_two">
+                    <div class="legend_element">
+                      <svg height="14" width="14" class="legend_circle circle_margin circle_margin_responsive">
+                        <circle cx="7" cy="7" r="7" fill="rgb(255, 143, 0)"/>
+                      </svg>
+                      <p class="nomargin">Not in labor force</p>
+                    </div>
+                    <div class="legend_element">
+                      <svg height="14" width="14" class="legend_circle circle_margin">
+                        <circle cx="7" cy="7" r="7" fill="rgb(142, 36, 170)"/>
+                      </svg>
+                      <p class="nomargin">Labor force</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div id="sunburst_container"></div>
+              <div id="sunburst_container">
+                <div id="explanation" style="visibility: hidden; width: 260px">
+                  <span id="percentage"></span><br/>
+                  Denominator: Parent node<br/>
+                  <span id="percentGlobal"></span><br/>
+                  Denominator: All <span id="UrbRurTitle"></span><br/><br/>
+                </div>
+              </div>
             </div>
             <div id="sunburst_controls">
               <h2>Controls</h2>
               <h3>Filter by Age</h3>
-              <div>
-                <div class="button" id="youngerButton" ageGroup="15-24"><span>Age 15-24</span></div>
-                <div style="margin: 10px 0px;" class="button" id="OlderButton" ageGroup="25-64"><span>Age 25-64</span></div>
-                <div class="button" id="AllButton" ageGroup="All"><span>All</span></div>
+              <div id=ButtonContain>
+                <div class="button sunburst_button" id="youngerButton" ageGroup="15-24"><span>Age 15-24</span></div>
+                <div class="button sunburst_button sunburst_midbutt" id="OlderButton" ageGroup="25-64"><span>Age 25-64</span></div>
+                <div class="button disabled sunburst_button" id="AllButton" ageGroup="All"><span>All</span></div>
               </div>
             </div>
           </div>

@@ -18,6 +18,8 @@ let totalSize;
 let vis = d3.select("#sunburst_container").append("svg:svg")
     .attr("width", width)
     .attr("height", height)
+    .attr("viewBox", "0 0 " + width + " " + height)
+    .attr("preserveAspectRatio", "xMinYMin meet")
     .attr('class', 'chartSVG')
     .append("svg:g")
     .attr("id", "container")
@@ -303,7 +305,7 @@ function mouseover(d) {
   // showing and styling type of Layer
   d3.select("#NodeTypeText")
     .html(d => {
-      return `<span id ="NodeTypeTextSpan" style="color: #EE5930;">${layerTypeScale(hoveredName)}</span>`
+      return `<span id ="NodeTypeTextSpan" style="color: rgb(142, 36, 170);">${layerTypeScale(hoveredName)}</span>`
     })
     .style("opacity", 1);
 

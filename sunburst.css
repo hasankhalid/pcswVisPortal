@@ -55,6 +55,10 @@
   display: flex;
 }
 
+.legend_container_two {
+  display: flex;
+}
+
 .legend_element {
   display: flex;
   align-items: center;
@@ -67,4 +71,41 @@
 
 .circle_margin {
   margin-left: 6px;
+}
+
+#explanation {
+  position: absolute;
+  top: calc(50% - 45px);
+  left: calc(50% - 130px);
+  text-align: center;
+  color: #212121;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 1250px) {
+  #trail {
+    flex-wrap: wrap;
+    height: 90px;
+  }
+  #endlabelDiv {
+    position: absolute;
+    bottom: 0px;
+    right: 25px;
+  }
+  #trailAndPercent {
+    flex-wrap: wrap;
+    position: relative;
+  }
+  #sequence {
+    height: 90px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .legend_container {
+    flex-direction: column
+  }
+  .circle_margin_responsive {
+    margin-left: 0px;
+  }
 }
