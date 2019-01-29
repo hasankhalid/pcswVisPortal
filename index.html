@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="icon" href="./resources/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -33,7 +34,7 @@
             <div class="nav_section">
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link1" class="link_text">WOMEN IN LABOR FORCE</p>
+                  <p id="link1" class="link_text sunburstButt">WOMEN IN LABOR FORCE</p>
                 </div>
                 <div class="nav_link">
                   <p id="link2" class="link_text">SANKEY DIAGRAM SHOWING</p>
@@ -117,10 +118,10 @@
         <div class="half project_image_container">
           <img class="project_image" src="./resources/sunburst.png"></img>
           <div class="project_title_description">
-            <p>SUNBURST DIAGRAM SHOWING WOMEN’S PARTICIPATION IN LABOR FORCE</p>
+            <p>WOMEN’S PARTICIPATION IN LABOR FORCE</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
           </div>
-          <div class="button" id="sunburstButt">
+          <div class="button sunburstButt">
             <span>View Visualization</span>
           </div>
         </div>
@@ -132,12 +133,12 @@
         <div class="sunBurstContainer">
         </div>
         <div class="half project_image_container">
-          <img class="project_image" src="./resources/sunburst.png"></img>
+          <img class="project_image tree_image" src="./resources/tree.png"></img>
           <div class="project_title_description">
-            <p>SUNBURST DIAGRAM SHOWING WOMEN’S PARTICIPATION IN LABOR FORCE</p>
+            <p>EMPLOYED WOMEN IN PUNJAB ACROSS EDUCATION AND INDUSTRIES</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
           </div>
-          <div class="button">
+          <div class="button edutreeButt">
             <span>View Visualization</span>
           </div>
         </div>
@@ -255,8 +256,12 @@
         window.open('https://pcsw.punjab.gov.pk/', '_blank');
       });
 
-      $("#sunburstButt").click(function() {
+      $(".sunburstButt").click(function() {
         window.location = "./sunburst.html";
+      });
+
+      $(".edutreeButt").click(function() {
+        window.location = "./educationIndustry.html";
       });
 
       $(".pcsw").click(function() {
