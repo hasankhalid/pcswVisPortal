@@ -290,7 +290,7 @@ function mouseover(over) {
 
           var percentage = Math.round(d.Perc * 10) / 10;
           if (d.parent) {
-            var percentageParent = Math.round((d.Perc / d.parent.Perc) * 10) / 10;
+            var percentageParent = Math.round(((d.Perc / d.parent.Perc) * 100) * 10) / 10;
           }
 
           d3.select('body').append('div')
