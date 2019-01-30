@@ -35,7 +35,7 @@ let svg = d3.select("#tree_container")
 
 
 async function readDataAndDraw(){
-  let data = await d3.csv('./js/files/laborHierarchyMSTree.csv');
+  let data = await d3.csv('./js/files/laborHierarchyMS.csv');
 
 
   let edu = data.map(d => d.education);
@@ -120,7 +120,11 @@ async function readDataAndDraw(){
   })
 
 
-  root.children.forEach(collapse);
+  root.children.forEach(d => {
+    d.children.forEach(child => {
+      collapse(child);
+    })
+  });
   update(root)
 
 }
@@ -301,25 +305,20 @@ function mouseover(over) {
           // tooltip selection
           var tooltip = d3.select('.tool');
 
-          tooltip.append('div')
-            .classed('text_tool', true)
-            .html(function() {
-                return '<p class="p_margin perc_heading">Percentage Breakdown <i class="fas fa-percentage" style="color: ' + colScale(d.data.name) +'"></i></p>'
-            });
 
           tooltip.append('div')
             .classed('colorTypeBar', true)
-            .style('background-color', colScale(d.data.name))
+            .style('border-color', colScale(d.data.name))
             .html(function() {
-                return '<p class="no_margin">Overall: <span>' + percentage + ' %</span></p>'
+                return '<p class="no_margin">Entire sequence: <span class="percentage">' + percentage + ' %</span></p>'
             });
 
           if (d.parent) {
             tooltip.append('div')
               .classed('colorTypeBar', true)
-              .style('background-color', colScale(d.parent.data.name))
+              .style('border-color', colScale(d.parent.data.name))
               .html(function() {
-                  return '<p class="no_margin">Relative to Parent: <span>' + percentageParent + ' %</span></p>'
+                  return '<p class="no_margin">Relative to Parent: <span class="percentage">' + percentageParent + ' %</span></p>'
               });
             }
 
@@ -331,7 +330,7 @@ function mouseover(over) {
 
               }
               else {
-                return '<p class="p_margin"><i class="fas fa-info-circle"></i> Click for further details</p>'
+                return '<p class="p_margin"><i class="fas fa-info-circle"></i> Click to expand</p>'
               }
             });
 

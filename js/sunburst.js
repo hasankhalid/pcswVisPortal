@@ -65,9 +65,9 @@ async function readAndDrawSunburst(){
     }
 
     // list of variables that are part of the sequence
-    let seqVars = ["area", "laborForce", "employment", "industry", "barrier", "maritalStatus", "empType", "homeBased", "informal"]
+    let seqVars = ["area", "laborForce", "employment", "industry", "barrier", "maritalStatus", "empType", "placeOfWork", "informal"]
     // give each variable a layer Type to help users read the visual
-    let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Marital Status", "Employment Type", "Home based work", "Informal/ formal employment in non-agriculture sectors"];
+    let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Marital Status", "Employment Type", "Place of work", "Informal/ formal employment in non-agriculture sectors"];
 
 
 

@@ -718,12 +718,11 @@ body {
 
 .tool {
   position: absolute;
-  background: white;
+  background: rgba(255,255,255,0.75);
   color: #212121;
   z-index: 1000;
-  border-radius: 15px;
   padding: 4px 0px;
-  width: 235px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
@@ -731,22 +730,23 @@ body {
 }
 
 .text_tool {
-  padding: 5px 15px;
-  font-size: 14px;
+  padding: 5px 7px;
+  font-size: 13px;
 }
 
 .colorTypeBar {
-  border-radius: 10px;
   top: 0;
   left: 0;
-  width: calc(100% - 60px);
-  min-height: 50px;
+  width: calc(100% - 20px);
+  min-height: 20px;
   display: flex;
+  border-right: 9px solid;
   flex-direction: column;
   justify-content: center;
-  padding: 2px 15px;
-  margin: 5px 15px;
-  color: white;
+  padding: 2px 0px;
+  color: #212121;
+  margin-left: 6px;
+  margin-top: 5px;
   font-size: 15px;
 }
 
@@ -756,12 +756,16 @@ body {
 
 .p_margin {
   margin-top: 0px;
-  margin-bottom: 5px;
-  color: #616161;
+  margin-bottom: 4px;
+  color: rgb(142, 36, 170);
 }
 
 .perc_heading {
   padding-top: 15px;
   font-size: 18px;
   color: #212121;
+}
+
+.percentage {
+  font-weight: 700;
 }

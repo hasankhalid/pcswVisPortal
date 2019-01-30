@@ -1335,7 +1335,7 @@
   }
 
   to {
-    opacity: 0.75;
+    opacity: 1;
   }
 }
 
@@ -1345,13 +1345,14 @@
   }
 
   to {
-    opacity: 0.75;
+    opacity: 1;
   }
 }
 
 .fadeInOpac {
   -webkit-animation-name: fadeInOpac;
   animation-name: fadeInOpac;
+  animation-duration: 0.5s;
 }
 
 
