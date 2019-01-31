@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Economic and Social Wellbeing of Women</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <script src="//d3js.org/d3.v5.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+    <script src="https://unpkg.com/d3-sankey@0.7.1"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="./animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./visCSS/eduTree.css">
+    <script src="granim.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      .s-p__tooltip {
+        display: flex;
+          position: fixed;
+          flex-direction: column;
+          width: 260px;
+          background-color: rgba(238, 238, 238, 0.8);
+          padding: 10px;
+          border-radius: 8px;
+          font-size: 17px;
+        z-index: 100;
+        box-shadow: 8px 13px 21px -10px rgba(177,179,178,0.65);
+      }
+
+      .s-p__tooltip-header{
+        background-color: rgba(156, 39, 176, 0.8);
+        color: white;
+        margin: -10px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+      }
+
+      .s-p__tooltip-header h1 {
+          font-size: 18px;
+          font-weight: 500;
+          margin: 5px;
+      }
+
+      .s-p__tooltip-body p {
+          margin: 5px;
+          font-size: 15px;
+      }
+
+      .sp-data {
+        font-weight: 500;
+      }
+
+      #sankey_container{
+        max-width: 1300px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class='applicationWrap' onclick="void(0)">
+      <div class="nav_container">
+        <div id="overlay_menu">
+          <div class="contentContain">
+            <div class="navbar">
+              <div class="pcsw">
+                <img src="./resources/logo.png" alt="Punjab Commission on the status of women" class="pcswlogo"></img>
+                <div>
+                  <p class="pcswName">PUNJAB COMMISSION ON THE</p>
+                  <p class="pcswName">STATUS OF WOMEN</p>
+                </div>
+              </div>
+              <img id="closeIcon" class="nav_menu_icon" src="./resources/close.png"/>
+            </div>
+            <div class="nav_section">
+              <div class="nav_link_section">
+                <div class="nav_link">
+                  <p id="link1" class="link_text">WOMEN IN LABOR FORCE</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link2" class="link_text">SANKEY DIAGRAM SHOWING</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link3" class="link_text">TREE DIAGRAM SHOWING</p>
+                </div>
+              </div>
+              <div class="nav_link_section">
+                <div class="nav_link">
+                  <p id="link4" class="link_text">VIOLENCE AGAINST WOMEN</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link5" class="link_text">TYPES OF AGAINST WOMEN</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link6" class="link_text">DISTRICT LEVEL OVERVIEW</p>
+                </div>
+              </div>
+              <div class="logos_section">
+                <p class="logos_section_title">OUR PARTNERS</p>
+                <div class="logos">
+                  <img class="punjabgov" src="./resources/govpunjab.png"></img>
+                  <img class="dfid" src="./resources/logo-53-dfid.png"></img>
+                  <img class="unfpa" src="./resources/unfpa_logo.png"></img>
+                </div>
+                <p class="copyright">Punjab Commission on the Status of Women | © 2019</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contentContain">
+          <div class="navbar">
+            <div class="pcsw">
+              <img src="./resources/logo.png" alt="Punjab Commission on the status of women" class="pcswlogo"></img>
+              <div>
+                <p class="pcswName">PUNJAB COMMISSION ON THE</p>
+                <p class="pcswName">STATUS OF WOMEN</p>
+              </div>
+            </div>
+            <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
+          </div>
+          <div class="visualization_title_container">
+            <p class="proj_title">Sankey Diagram</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <p class="section_title">Section Overview</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="edu_tree_wrapper">
+            <div id="sankey_container_main">
+              <h2>Explore Employment by Education and Industry</h2>
+              <div id="sankey_container">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer_contain">
+        <div class="district_link_container">
+          <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
+          <p class="view_districts" data-aos="fade-in" data-aos-delay="600">View district level indicator overview</p>
+        </div>
+        <footer class="footer">
+          <p class="footer_item pcsw_footer">Punjab Commision on the Status of Women</p>
+          <div class="pcsw_contact">
+            <p class="officeContact footer_item"><i class="fas fa-map-marker-alt"></i>88 Shadman II, Lahore</p>
+            <p class="officeContact footer_item"><i class="fas fa-phone"></i>+92 42 99268000-4</p>
+          </div>
+          <div class="socIcons footSocIcons">
+            <i class="fab footer_item fa-facebook-f socIcon facebookSoc"></i>
+            <i class="fab footer_item fa-twitter socMidIcon socIcon twitterSoc"></i>
+            <i class="fas footer_item fa-link socIcon webSoc"></i>
+          </div>
+          <canvas id="granim-canvas-footer"></canvas>
+        </footer>
+      </div>
+    </div>
+    <template id="p-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p>Percentage of Source : <span class="s-p__value-source sp-data"></span></p>
+          <p>Percentage of Target : <span class="s-p__value-target sp-data"></span></p>
+          <p>Percentage of Total : <span class="s-p__value-total sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+    <template id="r-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p>Percentage of Total : <span class="s-p__value sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+
+    <script src="./menu.js"></script>
+    <script src="./js/tooltip.js"></script>
+    <script src="./js/sankey.js"></script>
+    <script src="./js/initSankey.js"></script>
+
+    <script>
+      var granimInstance = new Granim({
+         element: '#granim-canvas-footer',
+         name: 'granim',
+         direction: 'diagonal',
+         opacity: [1, 1],
+         states : {
+             "default-state": {
+                 gradients: [
+                     ['#EE5930', '#FFA726'],
+                     ['#8e24aa', '#ba68c8'],
+                     ['#BC3626', '#F6AF32']
+                 ]
+             }
+         }
+      });
+
+      $(window).on("load", function() {
+        if (window.innerWidth > 775) {
+          setTimeout(function () {
+            $('#preTitle').show().addClass('animated fadeIn');}, 75
+          );
+          setTimeout(function () {
+            $('.titleLarge').show().addClass('animated fadeIn');}, 85
+          );
+
+          setTimeout(function () {
+            $('#followTitle').show().addClass('animated fadeIn');}, 95
+          );
+          setTimeout(function () {
+            $('.fadeMeRight').show().addClass('animatedLonger fadeInRightPic');}, 375
+          );
+        }
+        else {
+          setTimeout(function () {
+            $('#preTitle').show().addClass('animated fadeInUp');}, 75
+          );
+          setTimeout(function () {
+            $('.titleLarge').show().addClass('animated fadeInUp');}, 95
+          );
+
+          setTimeout(function () {
+            $('#followTitle').show().addClass('animated fadeInUp');}, 115
+          );
+          setTimeout(function () {
+            $('.fadeMeRight').show().addClass('animatedLonger fadeIn');}, 75
+          );
+        }
+        setTimeout(function () {
+          $('.fadeinup').show().addClass('animated fadeIn');}, 1500
+        );
+
+        AOS.init();
+      });
+
+      $(".facebookSoc").click(function() {
+        window.open('https://www.facebook.com/pcswpb', '_blank');
+      });
+
+      $(".twitterSoc").click(function() {
+        window.open('https://twitter.com/pcswpb', '_blank');
+      });
+
+      $(".webSoc").click(function() {
+        window.open('https://pcsw.punjab.gov.pk/', '_blank');
+      });
+
+      $(".pcsw").click(function() {
+        window.location = "./";
+      });
+    </script>
+  </body>
+</html>
