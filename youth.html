@@ -106,6 +106,16 @@
           <div class="edu_tree_wrapper">
             <div id="sankey_container_main">
               <h2>Young women (15-24 years) not in education employment or training (NEET)</h2>
+              <div class="sankey_filters">
+                <p>
+                  <input type="radio" id="intermediate" name="radio-group" checked>
+                  <label for="intermediate">After Intermediate</label>
+                </p>
+                <p style="margin-left: 10px;">
+                  <input type="radio" id="graduation" name="radio-group">
+                  <label for="graduation">After Graduation</label>
+                </p>
+              </div>
               <div id="sankey_container">
                 <svg></svg>
               </div>
@@ -216,6 +226,14 @@
         );
 
         AOS.init();
+      });
+
+      $("#intermediate").click(function() {
+        createIntermediateSankey();
+      });
+
+      $("#graduation").click(function() {
+        createGradSankey();
       });
 
       $(".facebookSoc").click(function() {
