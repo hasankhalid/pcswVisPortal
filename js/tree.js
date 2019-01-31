@@ -28,8 +28,9 @@ let svg = d3.select("#tree_container")
     .append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
-  //  .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("preserveAspectRatio", "xMinYMin meet")
   //  .attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " " + ( height + margin.top + margin.bottom))
+  //  .attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " 2300")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -310,7 +311,7 @@ function mouseover(over) {
             .classed('colorTypeBar', true)
             .style('border-color', colScale(d.data.name))
             .html(function() {
-                return '<p class="no_margin">Entire sequence: <span class="percentage">' + percentage + ' %</span></p>'
+                return '<p class="no_margin">Entire Sequence: <span class="percentage">' + percentage + ' %</span></p>'
             });
 
           if (d.parent) {

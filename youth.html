@@ -3,6 +3,7 @@
   <head>
     <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
     <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -13,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./visCSS/sunburst.css">
+    <link rel="stylesheet" href="./visCSS/neet.css">
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -81,7 +82,7 @@
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
           <div class="visualization_title_container">
-            <p class="proj_title">Women’s Participation in Labor Force</p>
+            <p class="proj_title">Employed Women in Punjab</p>
           </div>
         </div>
       </div>
@@ -90,72 +91,14 @@
         <div class="contentContain">
           <p class="section_title">Section Overview</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <div class="sunburst_wrapper">
-            <div id="sunburst_container_main">
-              <h2 style="margin-bottom: 0px;">Explore Labor Force Composition by Area</h2>
-              <div id="NodeTypeDiv">
-                <h3>
-                  Layer Type: <span id="NodeTypeText"></span>
-                </h3>
+          <div class="neet_tree_wrapper">
+            <div id="neet_tree_container_main">
+              <h2 style="margin-bottom: 0px;">Young women (15-24 years) not in education employment or training (NEET)</h2>
+              <div id="neet_tree_container">
               </div>
-              <div id="sequence">
-                <div id="trailAndPercent">
-                  <div id="trail">
-                    <div class="labelContainer" style="background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%); color: white;">
-                      <p>Hover the graph for details</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="sunburst_legend">
-                <h4 style="margin-bottom: 5px; margin-top: 10px;">Layer Colors</h4>
-                <div class="legend_container">
-                  <div class="legend_container_two">
-                    <div class="legend_element">
-                      <svg height="14" width="14" class="legend_circle">
-                        <circle cx="7" cy="7" r="7" fill="rgb(41, 182, 246)"/>
-                      </svg>
-                      <p class="nomargin">Urban</p>
-                    </div>
-                    <div class="legend_element">
-                      <svg height="14" width="14" class="legend_circle circle_margin">
-                        <circle cx="7" cy="7" r="7" fill="rgb(77, 182, 172)"/>
-                      </svg>
-                      <p class="nomargin">Rural</p>
-                    </div>
-                  </div>
-                  <div class="legend_container_two">
-                    <div class="legend_element">
-                      <svg height="14" width="14" class="legend_circle circle_margin circle_margin_responsive">
-                        <circle cx="7" cy="7" r="7" fill="rgb(255, 143, 0)"/>
-                      </svg>
-                      <p class="nomargin">Not in labor force</p>
-                    </div>
-                    <div class="legend_element">
-                      <svg height="14" width="14" class="legend_circle circle_margin">
-                        <circle cx="7" cy="7" r="7" fill="rgb(142, 36, 170)"/>
-                      </svg>
-                      <p class="nomargin">Labor force</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="sunburst_container">
-                <div id="explanation" style="visibility: hidden; width: 260px">
-                  <span id="percentage"></span><br/>
-                  Denominator: Parent node<br/>
-                  <span id="percentGlobal"></span><br/>
-                  Denominator: All <span id="UrbRurTitle"></span><br/><br/>
-                </div>
-              </div>
-            </div>
-            <div id="sunburst_controls">
-              <h2>Controls</h2>
-              <h3>Filter by Age</h3>
-              <div id=ButtonContain>
-                <div class="button sunburst_button" id="youngerButton" ageGroup="15-24"><span>Age 15-24</span></div>
-                <div class="button sunburst_button sunburst_midbutt" id="OlderButton" ageGroup="25-64"><span>Age 25-64</span></div>
-                <div class="button disabled sunburst_button" id="AllButton" ageGroup="All"><span>All</span></div>
+              <div id = "categLegend">
+                <div class="title">Barrier/ Reason Types</div>
+                <div class="categs"></div>
               </div>
             </div>
           </div>
@@ -183,7 +126,7 @@
       </div>
     </div>
 
-    <script src="./js/sunburst.js"></script>
+    <script src="./js/neetTree.js"></script>
     <script src="./menu.js"></script>
 
     <script>
