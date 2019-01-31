@@ -458,6 +458,48 @@ body {
   margin-top: 45px;
 }
 
+.s-p__tooltip {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  width: 260px;
+  background-color: rgba(238, 238, 238, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 17px;
+  z-index: 100;
+  box-shadow: 8px 13px 21px -10px rgba(177,179,178,0.65);
+}
+
+.s-p__tooltip-header{
+  background-color: rgba(156, 39, 176, 0.8);
+  color: white;
+  margin: -10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+}
+
+.s-p__tooltip-header h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.s-p__tooltip-body p {
+  margin: 5px;
+  font-size: 15px;
+}
+
+.sp-data {
+  font-weight: 500;
+}
+
+#sankey_container{
+  max-width: 1300px;
+}
+
 @media only screen and (max-width: 1250px) {
   .sunburst_button {
     width: 80px;
