@@ -9,6 +9,7 @@ d3.csv('./js/files/data.csv').then((data)=>{
 	var neetData = data.filter((d)=>d.ageGroup==='15-24')
 						.filter((d)=>{return d.education === "Intermediate" || d.education === "Graduation" || d.education === "Masters or above" ;});
 	state.currData = neetData;
+	state.originalData = neetData;
 	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
 	var res = getLabourForceGraph(state.currData);
 
@@ -278,4 +279,20 @@ function addNodesToGraph(nodesArr, col, graph){
 	nodesArr.forEach(function(d){
 		graph.nodes[d + '-' + col] = {col : col, name : d, value : 0};
 	});
+}
+
+function createGradSankey(){
+	state.currData = state.originalData.filter((d)=>d.education === "Graduation" || d.education === "Masters or above");
+	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
+
+	var res = getLabourForceGraph(state.currData);
+	sankey.update(res);
+}
+
+function createIntermediateSankey(){
+	state.currData = state.originalData;
+	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
+
+	var res = getLabourForceGraph(state.currData);
+	sankey.update(res);
 }
