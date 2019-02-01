@@ -11,7 +11,7 @@ d3.csv('./js/files/data.csv').then((data)=>{
 	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
 
 	//res = buildGraph(data, ['employment', 'empType','industry', 'barrier']);
-	var res = buildGraph(state.currData, ['laborForce', 'employment','industry', 'barrier']);
+	var res = buildGraph(state.currData, ['employment','empType','industry', 'barrier']);
 	//res = getLabourForceGraph(data);
 
 	sankey = SankeyChart({
@@ -21,7 +21,7 @@ d3.csv('./js/files/data.csv').then((data)=>{
 		width : 1300,
 		height : 800,
 		svgSelector : '#sankey_container svg',
-		columnNames : ['Labor Force', 'Employment','Industry', 'Barrier'],
+		columnNames : ['Employment','Employment Type','Industry', 'Barrier'],
 		pToolTipConfig : {
 			idPrefix : 'p-tooltip',
 			dataId : 'index',
@@ -31,13 +31,13 @@ d3.csv('./js/files/data.csv').then((data)=>{
 					return d.source.name + ' → ' + d.target.name;
 				},
 				'.s-p__value-source' : function(d){
-					return ((d.value / d.source.value) * 100).toFixed(2) + '%'; 
+					return ((d.value / d.source.value) * 100).toFixed(2) + '%';
 				},
 				'.s-p__value-target' : function(d){
-					return ((d.value / d.target.value) * 100).toFixed(2) + '%'; 
-				}, 
+					return ((d.value / d.target.value) * 100).toFixed(2) + '%';
+				},
 				'.s-p__value-total' : function(d){
-					return ((parseFloat(d.value) / state.currTotalWeight) * 100).toFixed(2) + '%'; 
+					return ((parseFloat(d.value) / state.currTotalWeight) * 100).toFixed(2) + '%';
 				}
 			}
 		},
@@ -48,9 +48,9 @@ d3.csv('./js/files/data.csv').then((data)=>{
 			selectorDataMap : {
 				'.s-p__tooltip-header h1' : function(d){
 					return d.name;
-				}, 
+				},
 				'.s-p__value' : function(d){
-					return ((parseFloat(d.value) / state.currTotalWeight) * 100).toFixed(2) + '%'; 
+					return ((parseFloat(d.value) / state.currTotalWeight) * 100).toFixed(2) + '%';
 				}
 			}
 		}
@@ -102,7 +102,7 @@ function buildGraph(data,colArr){
 		var endGroup = nodes[i];
 
 		for(var j in startGroup){
-			
+
 			var edgesObj = startGroup[j];
 			var sourceIndex = nodesDict[j + '-' + colArr[i - 1]];
 
@@ -121,7 +121,7 @@ function buildGraph(data,colArr){
 
 function getUniqueValCountObj(colArr, data){
 	var obj = {};
-	
+
 	colArr.forEach(function(col){
 		obj[col] = {};
 	});
@@ -137,7 +137,7 @@ function getUniqueValCountObj(colArr, data){
 }
 
 function buildSankeyGraph(nodes, links,data){
-	
+
 }
 
 function getUniqueValues(col,data){
@@ -222,7 +222,7 @@ function getLabourForceGraph(data){
 			var node = graph.nodes[val + '-' + d];
 			if(node){
 				node.value = node.value + parseFloat(row.weight);
-			} 
+			}
 		});
 
 		columnLinks.forEach((cl)=>{

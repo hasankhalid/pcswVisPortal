@@ -9,7 +9,7 @@ function Tooltip({
 	defaultWidth = 300,
 	defaultHeight = 200
 } = {}){
-	
+
 
 	function createTooltip(d, event){
 		var tooltipElement = document.getElementById(idPrefix + d[dataId]);
@@ -85,7 +85,7 @@ function Tooltip({
 	}
 
 	function cloneTooltipFromTemplate(d){
-		
+
 		var template = document.querySelector(templateSelector);
 		var clone = document.importNode(template.content, true);
 
@@ -118,7 +118,7 @@ function Tooltip({
 				.duration(100)
 				.style('opacity', 0)
 				.remove();
-		}
+		} 
 	}
 
 	return {
