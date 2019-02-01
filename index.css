@@ -783,16 +783,17 @@ body {
 
 .neetTool {
   padding: 0px;
-  width: 80px;
+  width: 90px;
   height: 35px;
   overflow: hidden;
+  background: rgba(255,255,255,0.6);
 }
 
 .neet_tool_percent_bar {
   position: absolute;
   height: 100%;
   left: 0;
-  background: #FFAB91;
+  background: rgba(255, 171, 145, 0.7);
 }
 
 .neet_tool_percent {
