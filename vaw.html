@@ -3,22 +3,25 @@
   <head>
     <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
     <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
-    <script src="https://unpkg.com/d3-sankey@0.7.1"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./visCSS/neet.css">
+    <link rel="stylesheet" href="./visCSS/sunburst.css">
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+    <script src="./js/tools/selectize/js/standalone/selectize.js"></script>
+    <link rel="stylesheet" type="text/css" href="./js/tools/selectize/css/selectize.css">
+
   </head>
 
   <body>
@@ -83,84 +86,50 @@
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
           <div class="visualization_title_container">
-            <p class="proj_title">Employed Women in Punjab</p>
+            <p class="proj_title">Violance Against Women</p>
           </div>
         </div>
       </div>
 
       <div class="vis_wrapper">
         <div class="contentContain">
-          <div class="text_container">
-            <p class="section_text">Providing ample access to education, employment and training opportunities is essential for empowering young women.</p>
-          </div>
-          <div class="questions_wrapper">
-            <div class="questions_header">
-              <p class="guiding_head">Guiding questions for this section</p>
-            </div>
-            <div class="questions_container">
-              <p class="section_question">What is share of young women that are not in education, employment or training in Punjab? </p>
-              <p class="section_question">Why are young women not working, getting an education, enrolled in a training program?</p>
-            </div>
-          </div>
-          <div class="text_container">
-            <p class="section_text">To support evidence based policy making in this area, data on barriers that deter young women aged 15 -24 years to participate in education, employment or training was collected in ESW survey 2018. This data is presented in the first visualization to support decision makers in designing informed programs and policies encouraging young women to participate in education, employment and training.</p>
-          </div>
-          <div class="text_container">
-            <p class="section_text">The visualization contains three layers in a tree layout. The first layer titled ‘Youth NEET’ shows proportion of women aged 15-24 that are not in education, employment or training (NEET). The second layer breaks these into individual categories and indicates proportion of women not in each category. The third and final layer presents the proportion of different barriers that women not in each category reported. The percentages have been sorted in a decreasing order to identify more significant barriers at the top.</p>
-          </div>
-          <div class="text_container">
-            <p class="section_text">The circles in each layer are sized according to the proportions/ percentages. The circles in the third layer titles ‘barriers’ are also colored according to different categories each barrier falls in (such as family related, domestic responsibility related etc). These categories are also listed in a legend at the bottom of the visualization.</p>
-          </div>
-          <div class="neet_tree_wrapper vis_parent">
-            <div id="neet_tree_container_main">
-              <div class="text_container">
-                <h2 class="vis_heading">Young women (15-24 years) not in education employment or training (NEET)</h2>
-              </div>
-              <div id="neet_tree_container">
-              </div>
-              <div id = "categLegend">
-                <div class="title">Barrier/ Reason Types</div>
-                <div class="categs"></div>
+          <p class="section_title">Section Overview</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="vaw_venn_wrapper">
+            <div id="vaw_venn_container_main">
+              <h2>Different forms of Spousal Violence against ever married women are related</h2>
+              <div id="vaw_venn_container">
               </div>
             </div>
           </div>
-          <div class="questions_wrapper">
-            <div class="questions_header">
-              <p class="guiding_head">Guiding questions for this section</p>
+        </div>
+      </div>
+
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <div class="vaw_heat_wrapper">
+            <h2>Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="selectorContain">
+              <select>
+                <option class="updateheat" value="Divisions">By Divisions</option>
+                <option class="updateheat" value="For any of these six reasons">For any of these six reasons</option>
+                <option class="updateheat" value="Physical Violence - Last 12 months">Physical Violence - Last 12 months</option>
+                <option class="updateheat" value="Physical Violence - Ever">Physical Violence - Ever</option>
+              </select>
             </div>
-            <div class="questions_container">
-              <p class="section_question">What proportion of women with at least high school or graduation level education end up in the labor force?</p>
-              <p class="section_question">What are the major barriers to work faced by these women?</p>
-              <p class="section_question">What proportion are employed and which industries do they work in?</p>
-            </div>
-          </div>
-          <div class="text_container">
-            <p class="section_text">To investigate these questions, the second visualization, called a sankey diagram delves deeper into labor force participation data on young women with at least high school (intermediate level) or a graduation degree.</p>
-          </div>
-          <div class="text_container">
-            <p class="section_text">The visualization has multiple layers from the left to right. Each layer has multiple labeled bars (called nodes) that are sized proportional to their percentage share. The bars in the layers are connected through links of various sizes that show the flow or relationship between nodes. For each link, the node to the left is the source and the node to the right is the target.</p>
-          </div>
-          <div class="text_container">
-            <p class="section_text">The circles in each layer are sized according to the proportions / percentages. The circles in the third layer titles ‘barriers’ are also colored according to different categories each barrier falls in (such as family related, domestic responsibility related etc). These categories are also listed in a legend at the bottom of the visualization.</p>
-          </div>
-          <div class="edu_tree_wrapper vis_parent">
-            <div id="sankey_container_main">
-              <div class="text_container">
-                <h2 class="vis_heading">Young women (15-24 years) not in education employment or training (NEET)</h2>
+            <div id="vaw_heat_container_main">
+              <div id="vaw_heat_container">
               </div>
-              <div class="sankey_filters">
-                <p>
-                  <input type="radio" id="intermediate" name="radio-group" checked>
-                  <label for="intermediate">After Intermediate</label>
-                </p>
-                <p style="margin-left: 10px;">
-                  <input type="radio" id="graduation" name="radio-group">
-                  <label for="graduation">After Graduation</label>
-                </p>
-              </div>
-              <div id="sankey_container">
-                <svg></svg>
-              </div>
+              <div id="vaw_heat_description">
+                <div id = "perceptionStuff">
+                  <h4>Attitudes towards physical violence by spouse</h4>
+                  <h5>Percentage of women aged 15-64 years who believe that a husband has a good reason to hit his wife if: </h5>
+                </div>
+                <div id = "violOccurenceStuff">
+                  <h4>Occurence of Physical violence by Spouse</h4>
+                </div>
+                <div id = "legendsContain">
+                </div>
             </div>
           </div>
         </div>
@@ -186,34 +155,10 @@
         </footer>
       </div>
     </div>
-    <template id="p-tooltip">
-      <div class="s-p__tooltip">
-        <div class="s-p__tooltip-header">
-          <h1></h1>
-        </div>
-        <div class="s-p__tooltip-body">
-          <p>Percentage of Source: <span class="s-p__value-source sp-data"></span></p>
-          <p>Percentage of Target: <span class="s-p__value-target sp-data"></span></p>
-          <p>Percentage of Total: <span class="s-p__value-total sp-data"></span></p>
-        </div>
-      </div>
-    </template>
-    <template id="r-tooltip">
-      <div class="s-p__tooltip">
-        <div class="s-p__tooltip-header">
-          <h1></h1>
-        </div>
-        <div class="s-p__tooltip-body">
-          <p>Percentage of Total : <span class="s-p__value sp-data"></span></p>
-        </div>
-      </div>
-    </template>
 
-    <script src="./js/neetTree.js"></script>
+    <script src="./js/heatmapBub.js"></script>
     <script src="./menu.js"></script>
-    <script src="./js/tooltip.js"></script>
-    <script src="./js/sankey.js"></script>
-    <script src="./js/initNeetSankey.js"></script>
+
 
     <script>
       var granimInstance = new Granim({
@@ -268,14 +213,6 @@
         );
 
         AOS.init();
-      });
-
-      $("#intermediate").click(function() {
-        createIntermediateSankey();
-      });
-
-      $("#graduation").click(function() {
-        createGradSankey();
       });
 
       $(".facebookSoc").click(function() {

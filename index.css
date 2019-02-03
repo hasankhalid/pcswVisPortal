@@ -454,6 +454,63 @@ body {
   margin: 0px;
 }
 
+.section_question {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 10px 0px;
+}
+
+.section_note {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.section_text {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.questions_wrapper {
+  margin: 50px 125px;
+  display: flex;
+}
+
+.questions_container {
+  width: 80%;
+  padding-left: 15px;
+  border-left: 3px solid;
+  border-color: rgba(142,36,170,1);
+}
+
+.text_container {
+  margin: 20px 62.5px;
+}
+
+.vis_heading {
+  margin: 50px 0px;
+}
+
+.vis_parent {
+  margin-top: 50px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  margin-bottom: 50px;
+  
+  border-color: rgba(142,36,170,1);
+}
+
+.guiding_head {
+  font-weight: 600;
+  color: rgba(142,36,170,1);
+}
+
+.questions_header {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #neet_tree_container {
   margin-top: 45px;
 }
@@ -504,6 +561,19 @@ body {
 
 .sankey_filters {
   display: flex;
+}
+
+#vaw_heat_container_main {
+  display: flex;
+  flex-direction: row;
+}
+
+#vaw_heat_container {
+  width: 65%;
+}
+
+#vaw_heat_description  {
+  width: 35%;
 }
 
 @media only screen and (max-width: 1250px) {
