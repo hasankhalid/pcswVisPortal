@@ -488,6 +488,7 @@ body {
 
 .vis_heading {
   margin: 50px 0px;
+  text-align: center;
 }
 
 .vis_parent {
@@ -495,7 +496,7 @@ body {
   border-top: 2px solid;
   border-bottom: 2px solid;
   margin-bottom: 50px;
-  
+  padding-bottom: 30px;
   border-color: rgba(142,36,170,1);
 }
 
@@ -561,6 +562,7 @@ body {
 
 .sankey_filters {
   display: flex;
+  justify-content: center;
 }
 
 #vaw_heat_container_main {
