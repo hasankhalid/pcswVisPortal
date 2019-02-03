@@ -1,3 +1,5 @@
+function createSunBurst(){
+
 // defining color and layer type ordinal scale in global scope
 const scalColCateg = d3.scaleOrdinal();
 const layerTypeScale = d3.scaleOrdinal();
@@ -497,4 +499,6 @@ function getUrbRurWeight(datum){
   else {
     return getUrbRurWeight(datum.parent);
   }
+}
+
 }

@@ -15,6 +15,7 @@
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./visCSS/sunburst.css">
+    <link rel="stylesheet" href="./visCSS/eduTree.css">
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -82,18 +83,39 @@
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
           <div class="visualization_title_container">
-            <p class="proj_title">Women’s Participation in Labor Force</p>
+            <p class="proj_title">Labor Force and Employment</p>
           </div>
         </div>
       </div>
 
       <div class="vis_wrapper">
         <div class="contentContain">
-          <p class="section_title">Section Overview</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <div class="sunburst_wrapper">
+          <div class="questions_wrapper">
+            <div class="questions_header">
+              <p class="guiding_head">Guiding questions</p>
+            </div>
+            <div class="questions_container">
+              <p class="section_question">What is the labor force participation rate and employment rate of women in rural and urban areas of Punjab?</p>
+              <p class="section_question">How are the employed women in Punjab distributed across different sectors and industries?</p>
+              <p class="section_question">What is the share of different types of employment in different industries?</p>
+            </div>
+          </div>
+          <div class="text_container">
+            <p class="section_text">The sunburst visualization that follows is designed to answer the above questions and others regarding women labor force in Punjab. The sunburst visualization consists of many concentric layers.</p>
+          </div>
+          <div class="text_container">
+            <ul>
+              <li class="section_text">The first layer represents ‘area’ and is partitioned into a larger arc for Rural and a smaller arc for urban, the size of the arcs proportional to their actual share in Punjab. Each arc also can be referred to as a node.</li>
+              <li class="section_text">The second layer represents ‘labor force participation’ and divides the urban and rural nodes in the previous layer into ‘labor force’ and ‘not in labor force’ nodes.</li>
+              <li class="section_text">Similarly layers are added in the radial direction which continue to partition nodes in the previous ‘parent’ layers. The following diagram gives an overview of the hierarchy of layers for each area (urban and rural). The reader will notice that layers for labor force and not in labor force vary and are colored differently.</li>
+            </ul>
+          </div>
+          <div class="text_container">
+            <p class="section_text">The sunburst helps us analyze the entire population of the survey. The next two visualization focus on the employed women in Punjab.</p>
+          </div>
+          <div class="sunburst_wrapper vis_parent">
             <div id="sunburst_container_main">
-              <h2 style="margin-bottom: 0px;">Explore Labor Force Composition by Area</h2>
+              <h2 class="vis_heading" style="text-align: left;">Explore Labor Force Composition by Area</h2>
               <div id="NodeTypeDiv">
                 <h3>
                   Layer Type: <span id="NodeTypeText"></span>
@@ -151,7 +173,7 @@
               </div>
             </div>
             <div id="sunburst_controls">
-              <h2>Controls</h2>
+              <h2 class="vis_heading" style="text-align: left;">Controls</h2>
               <h3>Filter by Age</h3>
               <div id=ButtonContain>
                 <div class="button sunburst_button" id="youngerButton" ageGroup="15-24"><span>Age 15-24</span></div>
@@ -161,16 +183,25 @@
             </div>
           </div>
 
-          <div class="edu_tree_wrapper">
+          <div class="text_container">
+            <p class="section_text">This tree based visualization explores the participation of employed women in different industries broken down by education levels. The third layer in the visualization breaks down the employed women by their education level. In the fourth layer, employed women in each education level are further broken down by the industries/ sectors they represent. This visualization can be useful to study the relationship of industries and education levels of employed women.</p>
+          </div>
+          <div class="edu_tree_wrapper vis_parent">
             <div id="tree_container_main">
-              <h2 style="margin-bottom: 0px;">Explore Employment by Education and Industry</h2>
+              <h2 class="vis_heading">Explore Employment by Education and Industry</h2>
               <div id="tree_container">
               </div>
             </div>
           </div>
-          <div class="edu_tree_wrapper">
+          <div class="text_container">
+            <p class="section_text">A much more detailed and nuanced analysis of the employed women in Punjab can be conducted by the sankey diagram. The visualization has multiple layers from the left to right. Each layer has multiple labeled bars (called nodes) that are sized proportional to their percentage share. The bars in the layers are connected through links of various sizes that show the flow or relationship between nodes. For each link, the node to the left is the source and the node to the right is the target. The user is also able to change the sequence of the layers as they like to aid in analysis.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_note">Notice that the major barriers to work layer in the sankey diagram presents major barriers reported by employed women whereas in the Sunburst visualization major barriers were only presented for women not in the labor force.	</p>
+          </div>
+          <div class="edu_tree_wrapper vis_parent">
             <div id="sankey_container_main">
-              <h2>Explore Employment by Education and Industry</h2>
+              <h2 class="vis_heading">Explore Employment by Education and Industry</h2>
               <div id="sankey_container">
                 <svg></svg>
               </div>
@@ -200,6 +231,29 @@
       </div>
     </div>
 
+    <template id="p-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p>Percentage of Source: <span class="s-p__value-source sp-data"></span></p>
+          <p>Percentage of Target: <span class="s-p__value-target sp-data"></span></p>
+          <p>Percentage of Total: <span class="s-p__value-total sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+    <template id="r-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p>Percentage of Total : <span class="s-p__value sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+
     <script src="./js/sunburst.js"></script>
     <script src="./menu.js"></script>
     <script src="./js/tooltip.js"></script>
@@ -208,6 +262,10 @@
     <script src="./js/tree.js"></script>
 
     <script>
+
+      createSunBurst();
+      createEmpTree();
+
       var granimInstance = new Granim({
          element: '#granim-canvas-footer',
          name: 'granim',
