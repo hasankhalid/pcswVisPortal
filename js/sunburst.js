@@ -3,9 +3,9 @@ const scalColCateg = d3.scaleOrdinal();
 const layerTypeScale = d3.scaleOrdinal();
 
 // Dimensions of sunburst.
-let width = 850;
-let height = width/5 * 4; // 5:4 aspect ratio
-let radius = Math.min(width, height) / 2;
+let sunWidth = 850;
+let height = sunWidth/5 * 4; // 5:4 aspect ratio
+let radius = Math.min(sunWidth, height) / 2;
 
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
 let b = {
@@ -16,9 +16,9 @@ let b = {
 let totalSize;
 
 let vis = d3.select("#sunburst_container").append("svg:svg")
-    .attr("width", width)
+    .attr("width", sunWidth)
     .attr("height", height)
-    .attr("viewBox", "0 0 " + width + " " + height)
+    .attr("viewBox", "0 0 " + sunWidth + " " + height)
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr('class', 'chartSVG')
     .append("svg:g")
@@ -27,7 +27,7 @@ let vis = d3.select("#sunburst_container").append("svg:svg")
     .attr('mask', 'url(#gradientMask)')
     .style('mask', 'url(#gradientMask)')
     // center the group within the svg
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + sunWidth / 2 + "," + height / 2 + ")");
 
 // define partition function for 2*pi circumference
 let partition = d3.partition()

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/d3-sankey@0.7.1"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./visCSS/sunburst.css">
@@ -159,6 +160,22 @@
               </div>
             </div>
           </div>
+
+          <div class="edu_tree_wrapper">
+            <div id="tree_container_main">
+              <h2 style="margin-bottom: 0px;">Explore Employment by Education and Industry</h2>
+              <div id="tree_container">
+              </div>
+            </div>
+          </div>
+          <div class="edu_tree_wrapper">
+            <div id="sankey_container_main">
+              <h2>Explore Employment by Education and Industry</h2>
+              <div id="sankey_container">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -185,6 +202,10 @@
 
     <script src="./js/sunburst.js"></script>
     <script src="./menu.js"></script>
+    <script src="./js/tooltip.js"></script>
+    <script src="./js/sankey.js"></script>
+    <script src="./js/initEduSankey.js"></script>
+    <script src="./js/tree.js"></script>
 
     <script>
       var granimInstance = new Granim({
