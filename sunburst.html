@@ -265,7 +265,7 @@
 
     <script>
 
-      createSunBurst();
+      //createSunBurst();
       createEmpTree();
 
       var granimInstance = new Granim({
@@ -349,6 +349,12 @@
       $(".pcsw").click(function() {
         window.location = "./";
       });
+
+      d3.csv('./js/files/laborHierarchyMS.csv')
+        .then((data)=>{
+          let sunBurstCTRL = createSunBurst(data);
+          sunBurstCTRL.drawSunburst();
+        });
     </script>
   </body>
 </html>
