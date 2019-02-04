@@ -871,6 +871,9 @@ body {
     width: 50px;
     font-size: 10px;
   }
+  .proj_title {
+    text-align: center;
+  }
 }
 
 
