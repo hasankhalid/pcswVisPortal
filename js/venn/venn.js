@@ -29,8 +29,10 @@ var venn = venn || {'version' : '0.2.5'};
             var svg = selection.selectAll("svg").data([circles]);
             svg.enter().append("svg");
 
-            svg.attr("width", width)
-               .attr("height", height);
+            /*svg.attr("width", width)
+               .attr("height", height);*/
+
+            svg.attr('viewBox', '0 0 '+ width + ' ' + height);
 
             // to properly transition intersection areas, we need the
             // previous circles locations. load from elements
