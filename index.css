@@ -580,6 +580,13 @@ body {
   width: 35%;
 }
 
+@media only screen and (min-width: 1650px) {
+  .contentContain {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+
 @media only screen and (max-width: 1250px) {
   .sunburst_button {
     width: 80px;
@@ -661,7 +668,12 @@ body {
   .unfpa {
     width: 140px;
   }
-  #
+  .text_container {
+    margin: 20px 40px;
+  }
+  .questions_wrapper {
+    margin: 50px 50px;
+  }
 }
 
 @media only screen and (max-width: 775px) {
@@ -721,6 +733,9 @@ body {
   .sunburst_midbutt {
     margin: 10px 5px;
   }
+  .text_container {
+    margin: 20px 30px;
+  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -769,6 +784,22 @@ body {
   .copyright {
     font-size: 14px;
   }
+  .text_container {
+    margin: 20px 20px;
+  }
+  .questions_wrapper {
+    flex-direction: column;
+  }
+  .questions_container {
+    border-top: 2px solid;
+    border-left: 0px;
+    width: 100%;
+    padding-left: 0px;
+  }
+  .questions_header {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -801,6 +832,9 @@ body {
   }
   .dfid, .unfpa, .punjabgov {
     height: 50%;
+  }
+  .text_container {
+    margin: 20px 8px;
   }
 }
 
