@@ -625,6 +625,36 @@ body {
   width: 35%;
 }
 
+.table {
+  border: 2px solid;
+  border-color: rgba(142,36,170,1);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 75%;
+  margin: 10px 0px;
+}
+
+.tableheading {
+  display: flex;
+  padding: 12px 0px;
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+}
+
+.heading {
+  width: 50%;
+  text-align: center;
+}
+
+.tableValues {
+  display: flex;
+}
+
+.tableVal {
+  width: 50%;
+  text-align: center;
+}
 
 @media only screen and (min-width: 1650px) {
   .contentContain {
@@ -855,6 +885,10 @@ body {
   .questions_header {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .table {
+    width: 100%;
   }
 }
 
