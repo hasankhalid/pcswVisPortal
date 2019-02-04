@@ -656,6 +656,14 @@ body {
   text-align: center;
 }
 
+.CategListElem {
+  font-size: 12px;
+}
+
+.categLabel {
+  font-weight: 700;
+}
+
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
