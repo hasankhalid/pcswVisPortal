@@ -509,9 +509,9 @@ function Hover(over){
 
     // add titles for districts
     d3.select(this)
-      .on('mouseout', function(d){
+/*      .on('mouseout', function(d){
         removeTooltip(d);
-      })
+      }) */
       .on('mousemove', function(d){
         createTooltip(d, d3.event);
       })
@@ -521,14 +521,14 @@ function Hover(over){
       .duration(100)
       .style('fill-opacity', over ? 0.2 : 0.65)
 
-    let SVGG = d3.select('svg').select('g');
+    let SVGG = d3.select('#scatter_container svg').select('g');
 
     let lineData = [
       {"x1": xcoord, "y1": ycoord, "x2": xcoord, "y2": height},
       {"x1": xcoord, "y1": ycoord, "x2": 0, "y2": ycoord}
     ]
 
-    if (over == true){
+    if (over === true){
       SVGG.selectAll('line.labelLine')
         .data(lineData)
         .enter()
@@ -544,6 +544,7 @@ function Hover(over){
     }
     else {
       SVGG.selectAll('line').remove();
+      removeTooltip(d);
     }
 
     function addRemTitle(selection){
