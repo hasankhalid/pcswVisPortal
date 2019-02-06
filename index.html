@@ -34,24 +34,24 @@
             <div class="nav_section">
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link1" class="link_text sunburstButt">WOMEN IN LABOR FORCE</p>
+                  <p id="link1" class="link_text sunburstButt">LABOR FORCE AND EMPLOYMENT</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link2" class="link_text edutreeButt">EMPLOYMENT OF WOMEN</p>
+                  <p id="link2" class="link_text vaw">VIOLENCE AGAINST WOMEN</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link3" class="link_text">FINANCIAL INCLUSION</p>
+                  <p id="link3" class="link_text youth">YOUTH</p>
                 </div>
               </div>
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link4" class="link_text">VIOLENCE AGAINST WOMEN</p>
+                  <p id="link4" class="link_text">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link5" class="link_text youth">YOUTH</p>
+                  <p id="link5" class="link_text">MINORITIES</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link6" class="link_text">DISTRICT LEVEL OVERVIEW</p>
+                  <p id="link6" class="link_text districtLevel">DISTRICT LEVEL OVERVIEW</p>
                 </div>
               </div>
               <div class="logos_section">
@@ -167,6 +167,13 @@
             <i class="fas footer_item fa-link socIcon webSoc"></i>
           </div>
           <canvas id="granim-canvas-footer"></canvas>
+          <div class="footer_partners">
+            <img class="footer_icon" src="./resources/footerComm.png"></img>
+            <img class="footer_icon" src="./resources/footerGov.png"></img>
+            <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
+            <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
+            <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+          </div>
         </footer>
       </div>
     </div>
@@ -260,8 +267,12 @@
         window.location = "./sunburst.html";
       });
 
-      $(".edutreeButt").click(function() {
-        window.location = "./educationIndustry.html";
+      $(".vaw").click(function() {
+        window.location = "./vaw.html";
+      });
+
+      $(".districtLevel").click(function() {
+        window.location = "./districts.html";
       });
 
       $(".youth").click(function() {

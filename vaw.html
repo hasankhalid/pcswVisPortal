@@ -6,6 +6,10 @@
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+    <!--<script src="./js/d3v3/d3.js"></script>-->
+    <!--<script src="./js/venn/venn.js"></script>-->
+
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
@@ -17,9 +21,6 @@
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-    <script src="./js/venn/venn.js"></script>
-    <script src="./js/d3v3/d3.js"></script>
 
     <script src="./js/tools/selectize/js/standalone/selectize.js"></script>
     <link rel="stylesheet" type="text/css" href="./js/tools/selectize/css/selectize.css">
@@ -44,24 +45,24 @@
             <div class="nav_section">
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link1" class="link_text sunburstButt">WOMEN IN LABOR FORCE</p>
+                  <p id="link1" class="link_text sunburstButt">LABOR FORCE AND EMPLOYMENT</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link2" class="link_text edutreeButt">EMPLOYMENT OF WOMEN</p>
+                  <p id="link2" class="link_text vaw">VIOLENCE AGAINST WOMEN</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link3" class="link_text">FINANCIAL INCLUSION</p>
+                  <p id="link3" class="link_text youth">YOUTH</p>
                 </div>
               </div>
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link4" class="link_text">VIOLENCE AGAINST WOMEN</p>
+                  <p id="link4" class="link_text">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link5" class="link_text youth">YOUTH</p>
+                  <p id="link5" class="link_text">MINORITIES</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link6" class="link_text">DISTRICT LEVEL OVERVIEW</p>
+                  <p id="link6" class="link_text districtLevel">DISTRICT LEVEL OVERVIEW</p>
                 </div>
               </div>
               <div class="logos_section">
@@ -95,13 +96,28 @@
 
       <div class="vis_wrapper">
         <div class="contentContain">
-          <p class="section_title">Section Overview</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="questions_wrapper">
+            <div class="questions_header">
+              <p class="guiding_head">Guiding questions</p>
+            </div>
+            <div class="questions_container">
+              <p class="section_question">How are physical, sexual and psychological violence by spouse related?</p>
+            </div>
+          </div>
+          <div class="text_container">
+            <p class="section_text">Data collected in ESW 2018 survey reveals that different forms of spousal violence are related. The co-occurrence of physical, sexual and psychological violence by spouse can be studied by the Venn diagram below.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_text">Each circle represents a form of violence and its radius denotes the relative occurrence of that form of violence. The overlapping areas represent the relative co-occurrence between different violence forms.  For example it can be seen that 5% of ever married women in Punjab experienced psychological, physical as well as sexual violence by spouse.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_text">This significant overlaps between different violence forms calls for an urgent need for policy interventions to spread awareness and discourage all forms of spousal violence.</p>
+          </div>
           <div class="vaw_venn_wrapper">
             <div id="vaw_venn_container_main">
-              <h2>Different forms of Spousal Violence against ever married women are related</h2>
-              <div id="vaw_venn_container">
-              </div>
+              <h2 class="vis_heading">Different forms of Spousal Violence against ever married women are related</h2>
+              <iframe data-aos="zoom-out" src="./venn.html" frameBorder="0" scrolling="no" style="width: 100%; height : 550px" id="vennFrame">
+              </iframe>
             </div>
           </div>
         </div>
@@ -109,10 +125,25 @@
 
       <div class="vis_wrapper">
         <div class="contentContain">
+          <div class="questions_wrapper">
+            <div class="questions_header">
+              <p class="guiding_head">Guiding questions</p>
+            </div>
+            <div class="questions_container">
+              <p class="section_question">What are women’s attitudes towards VAW and how do they compare to men’s attitudes?</p>
+            </div>
+          </div>
+          <div class="text_container">
+            <p class="section_text">But while designing interventions that combat all forms of violence against women, discouraging attitudes that support or reinforce violence provides a major policy challenge. In ESW Survey 2018, data was collected on women’s attitudes towards physical and sexual violence by spouse.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_text">Ever-married women were asked if their husband has a good reason to hit them in certain stated situations. Women’s responses at a district level can be investigated through heat map below. The grid has district on the vertical axis and different situations (coded by alphabets) on the horizontal axis. The percentage is encoded by color depth. The visualization also shows the actual incidence of physical violence in the districts through bubbles on the right so that women’s attitudes towards physical violence and incidence of physical spousal violence can be compared.</p>
+          </div>
+
           <div class="vaw_heat_wrapper">
-            <h2>Attitudes of ever married women towards physical violence by spouse</h2>
-            <div id="selectorContain">
-              <select>
+            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
+              <select id="filterHeat" style="width: 250px; border-radius: 8px;">
                 <option class="updateheat" value="Divisions">By Divisions</option>
                 <option class="updateheat" value="For any of these six reasons">For any of these six reasons</option>
                 <option class="updateheat" value="Physical Violence - Last 12 months">Physical Violence - Last 12 months</option>
@@ -120,9 +151,9 @@
               </select>
             </div>
             <div id="vaw_heat_container_main">
-              <div id="vaw_heat_container">
+              <div id="vaw_heat_container" data-aos="fade-right" data-aos-delay="100">
               </div>
-              <div id="vaw_heat_description">
+              <div id="vaw_heat_description" data-aos="fade-left" data-aos-delay="100">
                 <div id = "perceptionStuff">
                   <h4>Attitudes towards physical violence by spouse</h4>
                   <h5>Percentage of women aged 15-64 years who believe that a husband has a good reason to hit his wife if: </h5>
@@ -132,10 +163,60 @@
                 </div>
                 <div id = "legendsContain">
                 </div>
+              </div>
             </div>
+          </div>
+
+          <div class="text_container">
+            <p class="section_text">A similar heatmap for ever married women’s attitudes towards sexual violence by spouse: </p>
           </div>
         </div>
       </div>
+
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <div class="text_container">
+            <p class="section_text">We can also compare women’s attitudes towards spousal violence with those of men. However, a caveat must be shared here, response options for the women and the men survey are slightly different.</p>
+          </div>
+
+          <div class="vaw_carto_wrapper">
+            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="vaw_carto_container_main">
+              <div id="vaw_carto_container">
+              </div>
+              <div id="vaw_carto_controls">
+              </div>
+            </div>
+          </div>
+
+          <div class="text_container" style="display: flex; justify-content: center;">
+            <div class="table" data-aos="fade-in" data-aos-delay="100">
+              <div class="tableheading">
+                <div class="heading">
+                  <p class="nomargin">Men</p>
+                </div>
+                <div class="heading">
+                  <p class="nomargin">Women</p>
+                </div>
+              </div>
+              <div class="tableValues">
+                <div class="tableVal" style="border-right: 2px solid; border-color: rgba(142,36,170,1);">
+                  <p style="margin: 2px 0px; margin-top: 5px;">Agree</p>
+                  <p style="margin: 2px 0px;">Partially agree</p>
+                  <p style="margin: 2px 0px;">Disagree</p>
+                  <p style="margin: 2px 0px; margin-bottom: 5px;">Don’t know</p>
+                </div>
+                <div class="tableVal">
+                  <p style="margin: 2px 0px; margin-top: 5px;">Agree</p>
+                  <p style="margin: 2px 0px;">Neutral</p>
+                  <p style="margin: 2px 0px;">Disagree</p>
+                  <p style="margin: 2px 0px; margin-bottom: 5px;">Don’t know</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
 
       <div class="footer_contain">
         <div class="district_link_container">
@@ -154,11 +235,16 @@
             <i class="fas footer_item fa-link socIcon webSoc"></i>
           </div>
           <canvas id="granim-canvas-footer"></canvas>
+          <div class="footer_partners">
+            <img class="footer_icon" src="./resources/footerComm.png"></img>
+            <img class="footer_icon" src="./resources/footerGov.png"></img>
+            <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
+            <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
+            <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+          </div>
         </footer>
       </div>
     </div>
-
-    <script src="./js/venn/vennDraw.js"></script>
     <script src="./js/heatmapBub.js"></script>
     <script src="./menu.js"></script>
 
@@ -178,6 +264,13 @@
                  ]
              }
          }
+      });
+
+      $('#filterHeat').selectize({
+        onChange: function(value) {
+          let newDat = sortDistDesc(dataToPlayGlob, value);
+          upDate(newDat);
+        }
       });
 
       $(window).on("load", function() {
@@ -234,8 +327,12 @@
         window.location = "./sunburst.html";
       });
 
-      $(".edutreeButt").click(function() {
-        window.location = "./educationIndustry.html";
+      $(".vaw").click(function() {
+        window.location = "./vaw.html";
+      });
+
+      $(".districtLevel").click(function() {
+        window.location = "./districts.html";
       });
 
       $(".youth").click(function() {
@@ -245,6 +342,16 @@
       $(".pcsw").click(function() {
         window.location = "./";
       });
+
+      function resizeIframe(obj){
+         obj.style.height = 0;
+         obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50)+ 'px';
+      }
+
+      //resizeIframe(document.getElementById('vennFrame'));
+      window.onresize = function(){
+        resizeIframe(document.getElementById('vennFrame'));
+      };
     </script>
   </body>
 </html>
