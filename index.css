@@ -456,8 +456,10 @@ body {
 
 .section_question {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   margin: 10px 0px;
+  /*font-family: 'EB Garamond', serif;*/
+  font-family: 'Old Standard TT', serif;
 }
 
 .section_note {
@@ -466,7 +468,7 @@ body {
 }
 
 .section_text {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
