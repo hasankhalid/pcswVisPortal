@@ -664,6 +664,41 @@ body {
   font-weight: 700;
 }
 
+.div_diagram_wrapper {
+  display: flex;
+}
+
+.div_diagram_section {
+  width: 50%;
+  margin: 8px 10px;
+}
+
+.div_diagram_half_section {
+  width: 50%;
+  display: flex; flex-direction: column;
+}
+
+.div_diagram_full_section {
+  width: 100%;
+  text-align: center;
+  border-radius: 50px;
+  margin: 3px 0px;
+  padding: 6px 0px;
+  color: white;
+}
+
+.div_diagram_title {
+  padding: 10px 0px;
+}
+
+.purple {
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+}
+
+.orange {
+  background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
+}
+
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
@@ -768,6 +803,9 @@ body {
   #scatter_controls, #bubble_controls {
     width: 50%;
   }
+  .div_digram_text {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 775px) {
@@ -829,6 +867,9 @@ body {
   }
   .text_container {
     margin: 20px 30px;
+  }
+  .div_digram_text {
+    font-size: 12px;
   }
 }
 
@@ -896,6 +937,12 @@ body {
   }
 
   .table {
+    width: 100%;
+  }
+  .div_diagram_wrapper {
+    flex-direction: column;
+  }
+  .div_diagram_section {
     width: 100%;
   }
 }
