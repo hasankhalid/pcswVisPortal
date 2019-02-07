@@ -245,8 +245,20 @@
         </footer>
       </div>
     </div>
-    <script src="./js/heatmapBub.js"></script>
+    <template id="p-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1><span>District : </span><span class="sp-data"></span></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p>Category: <span class="s-p__value-cat sp-data" style="text-align: end;padding-left: 10px"></span></p>
+          <p>Value: <span class="s-p__value-val sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+    <script src="./js/tooltip.js"></script>
     <script src="./menu.js"></script>
+    <script src="./js/heatmapBub.js"></script>
 
 
     <script>
