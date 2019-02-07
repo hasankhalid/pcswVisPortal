@@ -700,6 +700,11 @@ body {
   background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
 }
 
+#fin_decision_container_main, #fin_pyramid_container_main {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
