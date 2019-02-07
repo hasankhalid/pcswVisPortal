@@ -148,7 +148,13 @@
       .attr('r', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? radScale(d.Value) : 0)
       //.attr('fill', d => d.District == 'Punjab' ? '#E91E63' : divColScale(divisionDict[d.District]))
       .attr('fill', '#E91E63')
-      .attr('fill-opacity', 0.5);
+      .attr('fill-opacity', 0.5)
+      .on('mousemove', function(d){
+        toolTip.createTooltip(d, d3.event);
+      })
+      .on('mouseout', function(d){
+        toolTip.removeTooltip(d);
+      });;
 
     svg_g.append('g')
         .attr('transform', 'translate(0, -15)')
