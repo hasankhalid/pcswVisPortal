@@ -136,7 +136,7 @@
         .attr('x', d => categScale(d) + xInterval/2)
 
 
-    d3.select('#LegendsAndStuff')
+    d3.select('#vaw_heat_description')
       .select('#perceptionStuff')
       .selectAll('p')
       .data(categories.filter(d => !bubCategs.includes(d)))
@@ -265,7 +265,7 @@
     distScale.domain(districts);
     categScale.domain(categories);
 
-    let rows = d3.select('#vizContain svg')
+    let rows = d3.select('#vaw_heat_container svg')
                   .select('g')
                   .selectAll('.row')
                   .data(newArrOfArr, d => d.key)
@@ -313,10 +313,10 @@
     return dists.concat(punjab);
   }
 
-  d3.select('#selectorContain select').on('input', function(d, i){
+/*  d3.select('#selectorContain select').on('input', function(d, i){
     let newDat = sortDistDesc(dataToPlayGlob,  this.value);
     upDate(newDat);
-  });
+  }); */
 
   let divisionDict = {
     'Bahawalpur': 'Bahawalpur',

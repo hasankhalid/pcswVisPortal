@@ -44,21 +44,21 @@
                   <p id="link1" class="link_text sunburstButt">LABOR FORCE AND EMPLOYMENT</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link2" class="link_text edutreeButt">EMPLOYMENT OF WOMEN</p>
+                  <p id="link2" class="link_text vaw">VIOLENCE AGAINST WOMEN</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link3" class="link_text">FINANCIAL INCLUSION</p>
+                  <p id="link3" class="link_text youth">YOUTH</p>
                 </div>
               </div>
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link4" class="link_text">VIOLENCE AGAINST WOMEN</p>
+                  <p id="link4" class="link_text">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link5" class="link_text youth">YOUTH</p>
+                  <p id="link5" class="link_text">MINORITIES</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link6" class="link_text">DISTRICT LEVEL OVERVIEW</p>
+                  <p id="link6" class="link_text districtLevel">DISTRICT LEVEL OVERVIEW</p>
                 </div>
               </div>
               <div class="logos_section">
@@ -111,6 +111,52 @@
               <li class="section_text">The second layer represents ‘labor force participation’ and divides the urban and rural nodes in the previous layer into ‘labor force’ and ‘not in labor force’ nodes.</li>
               <li class="section_text">Similarly layers are added in the radial direction which continue to partition nodes in the previous ‘parent’ layers. The following diagram gives an overview of the hierarchy of layers for each area (urban and rural). The reader will notice that layers for labor force and not in labor force vary and are colored differently.</li>
             </ul>
+          </div>
+          <div class="text_container">
+            <div class="div_diagram_wrapper" data-aos="fade-in" data-aos-delay="50">
+              <div class="div_diagram_section">
+                <div class="div_diagram_full_section div_diagram_title purple">
+                  <p class="no_margin div_digram_text">Labor Force</p>
+                </div>
+                <div style="display: flex;">
+                  <div class="div_diagram_half_section" style="margin-right: 3px;">
+                    <div class="div_diagram_full_section purple">
+                      <p class="no_margin div_digram_text">Employed</p>
+                    </div>
+                    <div class="div_diagram_full_section purple">
+                      <p class="no_margin div_digram_text">Industry/Sector</p>
+                    </div>
+                    <div class="div_diagram_full_section purple">
+                      <p class="no_margin div_digram_text">Employment Type</p>
+                    </div>
+                    <div class="div_diagram_full_section purple">
+                      <p class="no_margin div_digram_text">Place of work</p>
+                    </div>
+                    <div class="div_diagram_full_section purple">
+                      <p class="no_margin div_digram_text">Informal/Formal Employment</p>
+                    </div>
+                  </div>
+                  <div class="div_diagram_half_section" style="margin-left: 3px;">
+                    <div class="div_diagram_full_section purple">
+                      <p class="no_margin div_digram_text">Unemployed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="div_diagram_section">
+                <div class="div_diagram_full_section div_diagram_title orange">
+                  <p class="no_margin div_digram_text">Not in Labor Force</p>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <div class="div_diagram_full_section orange">
+                    <p class="no_margin div_digram_text">Major Barriers to Working</p>
+                  </div>
+                  <div class="div_diagram_full_section orange">
+                    <p class="no_margin div_digram_text">Marital Status</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="text_container">
             <p class="section_text">The sunburst helps us analyze the entire population of the survey. The next two visualization focus on the employed women in Punjab.</p>
@@ -215,7 +261,7 @@
       <div class="footer_contain">
         <div class="district_link_container">
           <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
-          <p class="view_districts" data-aos="fade-in" data-aos-delay="600">View district level indicator overview</p>
+          <p class="view_districts districtLevel" data-aos="fade-in" data-aos-delay="800">View district level indicator overview</p>
         </div>
         <footer class="footer">
           <p class="footer_item pcsw_footer">Punjab Commision on the Status of Women</p>
@@ -229,6 +275,13 @@
             <i class="fas footer_item fa-link socIcon webSoc"></i>
           </div>
           <canvas id="granim-canvas-footer"></canvas>
+          <div class="footer_partners">
+            <img class="footer_icon" src="./resources/footerComm.png"></img>
+            <img class="footer_icon" src="./resources/footerGov.png"></img>
+            <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
+            <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
+            <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+          </div>
         </footer>
       </div>
     </div>
@@ -322,6 +375,17 @@
         AOS.init();
       });
 
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
       $(".facebookSoc").click(function() {
         window.open('https://www.facebook.com/pcswpb', '_blank');
       });
@@ -338,8 +402,12 @@
         window.location = "./sunburst.html";
       });
 
-      $(".edutreeButt").click(function() {
-        window.location = "./educationIndustry.html";
+      $(".vaw").click(function() {
+        window.location = "./vaw.html";
+      });
+
+      $(".districtLevel").click(function() {
+        window.location = "./districts.html";
       });
 
       $(".youth").click(function() {
