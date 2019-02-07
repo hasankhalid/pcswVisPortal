@@ -285,6 +285,17 @@
         AOS.init();
       });
 
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
       $("#intermediate").click(function() {
         createIntermediateSankey();
       });

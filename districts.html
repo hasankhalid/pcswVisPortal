@@ -306,6 +306,17 @@
         AOS.init();
       });
 
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
       $(".facebookSoc").click(function() {
         window.open('https://www.facebook.com/pcswpb', '_blank');
       });
