@@ -60,7 +60,6 @@
     //create tooltip
     var toolTipConfig = {
       idPrefix : 'p-tooltip',
-      dataId : 'District',
       templateSelector : '#p-tooltip',
       selectorDataMap : {
         '.s-p__tooltip-header h1 .sp-data' : function(d){
