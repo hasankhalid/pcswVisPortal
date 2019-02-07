@@ -128,13 +128,16 @@
         return colScale(+d.Value);
       })
       .style('fill-opacity', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? 0: 1)
+      .attr('data-visible', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? 'false': 'true')
       .style('stroke', 'none')
-      .on('mousemove', function(d){
-        toolTip.createTooltip(d, d3.event);
-      })
-      .on('mouseout', function(d){
-        toolTip.removeTooltip(d);
-      });
+
+      rows.selectAll('rect[data-visible = true]')
+        .on('mousemove', function(d){
+          toolTip.createTooltip(d, d3.event);
+        })
+        .on('mouseout', function(d){
+          toolTip.removeTooltip(d);
+        });
 
 
     rows.selectAll('.bubbles')
