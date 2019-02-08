@@ -192,7 +192,7 @@ async function readDataAndDrawDecChart(){
 
 readDataAndDrawDecChart();
 
-// define fore transition function
+// define force transition function
 function fireTransition(duration){
   d3.selectAll('line.compLine')
     .transition()
@@ -202,5 +202,18 @@ function fireTransition(duration){
   d3.selectAll('circle.finIncCirc')
     .transition()
     .duration(duration)
-    .attr('cx', (d, i) => +d.finInc > +d.nonFinInc ? x(d.finInc): x(d.finInc));
+    .attr('cx', (d, i) => x(d.finInc));
+}
+
+// reset function
+function resetTransition(){
+  d3.selectAll('line.compLine')
+    // .transition()
+    // .duration(duration)
+    .attr('x2', (d, i) => x(d.nonFinInc))
+
+  d3.selectAll('circle.finIncCirc')
+    // .transition()
+    // .duration(duration)
+    .attr('cx', (d, i) => x(d.nonFinInc));
 }
