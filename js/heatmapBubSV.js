@@ -160,7 +160,7 @@ function createSVHeatMap() {
         .attr('x', d => categScale(d) + xInterval/2)
 
 
-    d3.select('#LegendsAndStuffSV')
+    d3.select('#vaw_heat_SV_description')
       .select('#perceptionStuffSV')
       .selectAll('p')
       .data(categories.filter(d => !bubCategs.includes(d)))
@@ -171,7 +171,7 @@ function createSVHeatMap() {
       .html(d => `<span class= "categLabel">${categLabelScale(d)}:</span> ${d}`)
 
 
-    d3.select('#LegendsAndStuffSV')
+    d3.select('#vaw_heat_SV_description')
       .select('#violOccurenceStuffSV')
       .selectAll('p')
       .data(categories.filter(d => bubCategs.includes(d)))

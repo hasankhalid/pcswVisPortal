@@ -226,7 +226,7 @@
           <div class="fin_decision_wrapper">
             <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
             <div id="fin_decision_container_main">
-              <div id="fin_decision_container" data-aos="fade-in" data-aos-delay="100" data-aos-id="fin-decision">
+              <div id="fin_decision_container" data-aos="fade-in" data-aos-id="fin-decision">
                 <svg id='decMakComp'>
                   <defs>
                     <marker
@@ -306,20 +306,24 @@
         }
       });
 
-
+      var top_of_element;
+      var bottom_of_element;
+      var bottom_of_screen;
+      var top_of_screen;
 
       $(window).scroll(function() {
-          var top_of_element = $("#fin_decision_container").offset().top;
-          var bottom_of_element = $("#fin_decision_container").offset().top + $("#fin_decision_container").outerHeight();
-          var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
-          var top_of_screen = $(window).scrollTop();
-          if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
-            fireTransition(1500);
-          } else {
-            console.log('animated out');
-              // the element is not visible, do something else
-          }
+           top_of_element = $("#fin_decision_container").offset().top;
+           bottom_of_element = $("#fin_decision_container").offset().top + $("#fin_decision_container").outerHeight();
+           bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+           top_of_screen = $(window).scrollTop();
+           if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+             fireTransition(800);
+           }
+           else {
+             resetTransition();
+           }
       });
+
 
       $(window).on("load", function() {
         if (window.innerWidth > 775) {
