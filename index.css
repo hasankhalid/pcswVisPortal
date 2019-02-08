@@ -177,9 +177,10 @@ body {
 }
 
 #overlay_menu {
-  position: absolute;
+  position: fixed;
   display: none;
   top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -555,7 +556,8 @@ body {
   display: flex;
   position: fixed;
   flex-direction: column;
-  width: 260px;
+  max-width: 335px;
+  min-width: 250px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 8px;
@@ -697,6 +699,11 @@ body {
 
 .orange {
   background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
+}
+
+#fin_decision_container_main, #fin_pyramid_container_main {
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 1650px) {

@@ -45,7 +45,7 @@
               </div>
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link4" class="link_text">FINANCIAL INCLUSION</p>
+                  <p id="link4" class="link_text finInc">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
                   <p id="link5" class="link_text">MINORITIES</p>
@@ -112,17 +112,17 @@
         <div class="half">
           <img class="imagehalf" src="./resources/sewing.jpg"></img>
           <div class="overlay_black overlay_sunburst" style="top: 0px;">
-            <p class="textOverlay" data-aos="fade-up" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
+            <p class="textOverlay" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
           </div>
         </div>
         <div class="half project_image_container">
-          <img class="project_image" src="./resources/sunburst.png"></img>
+          <img class="project_image tree_image" src="./resources/tree.png"></img>
           <div class="project_title_description">
-            <p>WOMEN’S PARTICIPATION IN LABOR FORCE</p>
+            <p>LABOR FORCE AND EMPLOYMENT</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
           </div>
           <div class="button sunburstButt">
-            <span>View Visualization</span>
+            <span>View Section</span>
           </div>
         </div>
       </div>
@@ -133,19 +133,19 @@
         <div class="sunBurstContainer">
         </div>
         <div class="half project_image_container">
-          <img class="project_image tree_image" src="./resources/tree.png"></img>
+          <img class="project_image tree_image" src="./resources/VAW.png"></img>
           <div class="project_title_description">
-            <p>EMPLOYED WOMEN IN PUNJAB ACROSS EDUCATION AND INDUSTRIES</p>
+            <p>VIOLENCE AGAINST WOMEN</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
           </div>
-          <div class="button edutreeButt">
-            <span>View Visualization</span>
+          <div class="button vaw">
+            <span>View Section</span>
           </div>
         </div>
         <div class="half">
           <img class="imagehalf" src="./resources/sankeyimage.jpg"></img>
           <div class="overlay_black overlay_sunburst overlay_sankey" style="top: 0px;">
-            <p class="textOverlay" data-aos="fade-up" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
+            <p class="textOverlay" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@
       <div class="footer_contain">
         <div class="district_link_container">
           <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
-          <p class="view_districts" data-aos="fade-in" data-aos-delay="600">View district level indicator overview</p>
+          <p class="view_districts districtLevel" data-aos="fade-in" data-aos-delay="800">View district level indicator overview</p>
         </div>
         <footer class="footer">
           <p class="footer_item pcsw_footer">Punjab Commision on the Status of Women</p>
@@ -251,6 +251,17 @@
         AOS.init();
       });
 
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
       $(".facebookSoc").click(function() {
         window.open('https://www.facebook.com/pcswpb', '_blank');
       });
@@ -277,6 +288,10 @@
 
       $(".youth").click(function() {
         window.location = "./youth.html";
+      });
+
+      $(".finInc").click(function() {
+        window.location = "./financialInc.html";
       });
 
       $(".pcsw").click(function() {

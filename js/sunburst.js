@@ -1,4 +1,4 @@
-function createSunBurst(){
+function createSunBurst(data){
 
 // defining color and layer type ordinal scale in global scope
 const scalColCateg = d3.scaleOrdinal();
@@ -57,114 +57,121 @@ async function readAndDrawSunburst(){
     // read in the data asynchronously
     let data = await d3.csv('./js/files/laborHierarchyMS.csv');
 
-    // function takes in a sequence csv and converts it into array of arrays
-    function convArrOfArr(dataset){
-      let arrOfArr = dataset.map(d => {
-        // each row is returned as an array of key and value
-        return [d.key, +d.value];
-      })
-      return arrOfArr;
-    }
+    drawSunburst(data);
+}
 
-    // list of variables that are part of the sequence
-    let seqVars = ["area", "laborForce", "employment", "industry", "barrier", "maritalStatus", "empType", "placeOfWork", "informal"]
-    // give each variable a layer Type to help users read the visual
-    let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Marital Status", "Employment Type", "Place of work", "Informal/ formal employment in non-agriculture sectors"];
+//readAndDrawSunburst();
+//drawSunburst(data);
 
-
-
-    ////// Code to assign each category to a layer type
-    let categs = [];
-    let categLayerType = [];
-    let setCategs;
-    let arrCategs;
-    let idx = 0;
-
-    // loop through each var, get all unique categories and assign a layer type
-    seqVars.forEach(varble => {
-      setCategs = new Set(data.map(d => d[varble]));
-      arrCategs = Array.from(setCategs).filter(d => d!= "NA");
-      categLayerType = categLayerType.concat(Array(arrCategs.length).fill(layerTypes[idx]));
-      categs = categs.concat(arrCategs)
-      idx += 1;
+function drawSunburst(data){
+  // function takes in a sequence csv and converts it into array of arrays
+  function convArrOfArr(dataset){
+    let arrOfArr = dataset.map(d => {
+      // each row is returned as an array of key and value
+      return [d.key, +d.value];
     })
+    return arrOfArr;
+  }
 
-    // updating the domain and range of the layer type scale
-    layerTypeScale.domain(categs)
-                  .range(categLayerType);
-
-    // declaring labels and colors
-    let labels = ["Urban", "Rural", "Not in labor force", "Labor force"];
-    let colors = ['#29B6F6','#4DB6AC','#FF8F00','#8E24AA'];
-
-    // setting the domain and range of color scale
-    scalColCateg.domain(labels)
-                .range(colors);
-
-    function transformData(dataset){
-      // group data based on sequences and add the weights
-      let seqValues = d3.nest()
-                        .key(d => d.sequence)
-                        .rollup(v => d3.sum(v.map(d => d.weight)))
-                        .entries(dataset);
-
-      // converting grouped data into and array of arrays
-      let arrOfArr = convArrOfArr(seqValues);
-      // convert the array of arrays into a nested hierarchical json
-      let json = buildHierarchy(arrOfArr);
-      return json
-    }
-
-    let json = transformData(data);
-    // call the createVisualization function to draw the sunburst
-    createVisualization(json, scalColCateg);
-
-    // remove all stuff from chart and trail
-    function removeStuffAndRedraw(data, scale){
-      //d3.select('#sequence').selectAll('*').remove();
-      vis.transition()
-        .duration(250)
-        .style('fill-opacity', 0.0)
-        .on('end', function(){
-          vis.selectAll('*').remove();
-          createVisualization(data, scale)
-        })
-    }
-
-    // interaction with buttons
-    d3.select("#ButtonContain")
-      .selectAll('div').on("click", function(d, i){
-
-        let ageGroup = d3.select(this).attr('ageGroup');
-
-        let dataFiltered;
-        let jsonFiltered;
-        if (ageGroup != "All"){
-          dataFiltered = data.filter(d => d.ageGroup == ageGroup);
-        }
-        else {
-          dataFiltered = data;
-        }
+  // list of variables that are part of the sequence
+  let seqVars = ["area", "laborForce", "employment", "industry", "barrier", "maritalStatus", "empType", "placeOfWork", "informal"]
+  // give each variable a layer Type to help users read the visual
+  let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Marital Status", "Employment Type", "Place of work", "Informal/ formal employment in non-agriculture sectors"];
 
 
-        // transform data and draw again
-        jsonFiltered = transformData(dataFiltered);
 
-        // remove shit
-        removeStuffAndRedraw(jsonFiltered, scalColCateg);
+  ////// Code to assign each category to a layer type
+  let categs = [];
+  let categLayerType = [];
+  let setCategs;
+  let arrCategs;
+  let idx = 0;
 
-        //createVisualization(jsonFiltered, scalColCateg);
+  // loop through each var, get all unique categories and assign a layer type
+  seqVars.forEach(varble => {
+    setCategs = new Set(data.map(d => d[varble]));
+    arrCategs = Array.from(setCategs).filter(d => d!= "NA");
+    categLayerType = categLayerType.concat(Array(arrCategs.length).fill(layerTypes[idx]));
+    categs = categs.concat(arrCategs)
+    idx += 1;
+  })
 
+  // updating the domain and range of the layer type scale
+  layerTypeScale.domain(categs)
+                .range(categLayerType);
 
-        // enable all and then disable the clicked button
+  // declaring labels and colors
+  let labels = ["Urban", "Rural", "Not in labor force", "Labor force"];
+  let colors = ['#29B6F6','#4DB6AC','#FF8F00','#8E24AA'];
 
-        d3.selectAll('div.button').classed('disabled', false)
-        d3.select(this).classed('disabled', true);
+  // setting the domain and range of color scale
+  scalColCateg.domain(labels)
+              .range(colors);
+
+  function transformData(dataset){
+    // group data based on sequences and add the weights
+    let seqValues = d3.nest()
+                      .key(d => d.sequence)
+                      .rollup(v => d3.sum(v.map(d => d.weight)))
+                      .entries(dataset);
+
+    // converting grouped data into and array of arrays
+    let arrOfArr = convArrOfArr(seqValues);
+    // convert the array of arrays into a nested hierarchical json
+    let json = buildHierarchy(arrOfArr);
+    return json
+  }
+
+  let json = transformData(data);
+  // call the createVisualization function to draw the sunburst
+  createVisualization(json, scalColCateg);
+
+  // remove all stuff from chart and trail
+  function removeStuffAndRedraw(data, scale){
+    //d3.select('#sequence').selectAll('*').remove();
+    vis.transition()
+      .duration(250)
+      .style('fill-opacity', 0.0)
+      .on('end', function(){
+        vis.selectAll('*').remove();
+        createVisualization(data, scale);
       })
+  }
+
+  // interaction with buttons
+  d3.select("#ButtonContain")
+    .selectAll('div').on("click", function(d, i){
+
+      let ageGroup = d3.select(this).attr('ageGroup');
+
+      let dataFiltered;
+      let jsonFiltered;
+      if (ageGroup != "All"){
+        dataFiltered = data.filter(d => d.ageGroup == ageGroup);
+      }
+      else {
+        dataFiltered = data;
+      }
+
+
+      // transform data and draw again
+      jsonFiltered = transformData(dataFiltered);
+
+      // remove shit
+      removeStuffAndRedraw(jsonFiltered, scalColCateg);
+
+      //createVisualization(jsonFiltered, scalColCateg);
+
+
+      // enable all and then disable the clicked button
+
+      d3.selectAll('div.button').classed('disabled', false)
+      d3.select(this).classed('disabled', true);
+    })
 }
 
 // call th async function to read in data and draw the visualization
-readAndDrawSunburst();
+//readAndDrawSunburst();
 
 
 // Main function to draw and set up the visualization, once we have the data.
@@ -501,4 +508,9 @@ function getUrbRurWeight(datum){
   }
 }
 
+  return {
+    drawSunburst : function(){
+      drawSunburst(data);
+    }
+  }
 }

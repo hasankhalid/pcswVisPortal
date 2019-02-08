@@ -57,6 +57,25 @@
     let yInterval = height/ distScale.domain().length;
     distScale.range(d3.range(0, height + 1, yInterval));
 
+    //create tooltip
+    var toolTipConfig = {
+      idPrefix : 'p-tooltip',
+      templateSelector : '#p-tooltip',
+      selectorDataMap : {
+        '.s-p__tooltip-header h1 .sp-data' : function(d){
+          return d.District;
+        },
+        '.s-p__value-cat' : function(d){
+          return d.Category;
+        },
+        '.s-p__value-val' : function(d){
+          return parseFloat(d.Value).toFixed(2) + '%';
+        }
+      }
+    };
+
+    var toolTip = Tooltip(toolTipConfig);
+
 
     var svg_g = d3.select("#vaw_heat_container")
                     .append("svg")
@@ -108,7 +127,16 @@
         return colScale(+d.Value);
       })
       .style('fill-opacity', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? 0: 1)
-      .style('stroke', 'none');
+      .attr('data-visible', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? 'false': 'true')
+      .style('stroke', 'none')
+
+      rows.selectAll('rect[data-visible = true]')
+        .on('mousemove', function(d){
+          toolTip.createTooltip(d, d3.event);
+        })
+        .on('mouseout', function(d){
+          toolTip.removeTooltip(d);
+        });
 
 
     rows.selectAll('.bubbles')
@@ -120,7 +148,13 @@
       .attr('r', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? radScale(d.Value) : 0)
       //.attr('fill', d => d.District == 'Punjab' ? '#E91E63' : divColScale(divisionDict[d.District]))
       .attr('fill', '#E91E63')
-      .attr('fill-opacity', 0.5);
+      .attr('fill-opacity', 0.5)
+      .on('mousemove', function(d){
+        toolTip.createTooltip(d, d3.event);
+      })
+      .on('mouseout', function(d){
+        toolTip.removeTooltip(d);
+      });;
 
     svg_g.append('g')
         .attr('transform', 'translate(0, -15)')

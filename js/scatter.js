@@ -89,7 +89,7 @@ async function drawAnimScatter() {
   d3.select('#buttonHolder button').on('click', async function(){
     let reShufArr = shuffle(keys).slice(0,3);
     await transScatterPlot(dataScProm, 2000, reShufArr, true);
-    drawCircVoronoi(d3.select('svg').select('g'), dataScProm, reShufArr, 30);
+    drawCircVoronoi(d3.select('#scatter_container svg').select('g'), dataScProm, reShufArr, 30);
   })
 }
 
@@ -259,7 +259,7 @@ function HoverLegend(over){
 
 function transScatterPlot(data, transDur, reArrArray, scale){
   // remove prior voronoi shit
-  let selection = d3.select('svg').select('g')
+  let selection = d3.select('#scatter_container svg').select('g')
   selection.select("defs").remove()
   selection.selectAll(".circle-catcher").remove()
 
@@ -274,7 +274,7 @@ function transScatterPlot(data, transDur, reArrArray, scale){
   }
 
   return new Promise((resolve, reject) => {
-    let SVGG = d3.select('svg').select('g');
+    let SVGG = d3.select('#scatter_container svg').select('g');
 
     //let reArrData = reArrangeInds(data, reArrArray)
 
@@ -324,7 +324,7 @@ function allTransitionEnd(transition, callback, thisVal, args) {
 
 function makeNestCircLegend(CSSSelect = 'svg', transformArray, bubArray, bubScale, legendTitle){
   // appending a legendgroup
-  let legendGroup = d3.select('svg')
+  let legendGroup = d3.select('#scatter_container svg')
                    .append('g')
                    .classed('legendGroup', true)
                    .attr('transform', `translate(${transformArray[0]}, ${transformArray[1]})`)

@@ -54,7 +54,7 @@
               </div>
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link4" class="link_text">FINANCIAL INCLUSION</p>
+                  <p id="link4" class="link_text finInc">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
                   <p id="link5" class="link_text">MINORITIES</p>
@@ -263,7 +263,7 @@
       <div class="footer_contain">
         <div class="district_link_container">
           <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
-          <p class="view_districts" data-aos="fade-in" data-aos-delay="600">View district level indicator overview</p>
+          <p class="view_districts districtLevel" data-aos="fade-in" data-aos-delay="800">View district level indicator overview</p>
         </div>
         <footer class="footer">
           <p class="footer_item pcsw_footer">Punjab Commision on the Status of Women</p>
@@ -320,7 +320,7 @@
 
     <script>
 
-      createSunBurst();
+      //createSunBurst();
       createEmpTree();
 
       var granimInstance = new Granim({
@@ -377,6 +377,17 @@
         AOS.init();
       });
 
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
       $(".facebookSoc").click(function() {
         window.open('https://www.facebook.com/pcswpb', '_blank');
       });
@@ -405,9 +416,19 @@
         window.location = "./youth.html";
       });
 
+      $(".finInc").click(function() {
+        window.location = "./financialInc.html";
+      });
+
       $(".pcsw").click(function() {
         window.location = "./";
       });
+
+      d3.csv('./js/files/laborHierarchyMS.csv')
+        .then((data)=>{
+          let sunBurstCTRL = createSunBurst(data);
+          sunBurstCTRL.drawSunburst();
+        });
     </script>
   </body>
 </html>

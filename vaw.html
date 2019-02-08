@@ -56,7 +56,7 @@
               </div>
               <div class="nav_link_section">
                 <div class="nav_link">
-                  <p id="link4" class="link_text">FINANCIAL INCLUSION</p>
+                  <p id="link4" class="link_text finInc">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
                   <p id="link5" class="link_text">MINORITIES</p>
@@ -151,9 +151,9 @@
               </select>
             </div>
             <div id="vaw_heat_container_main">
-              <div id="vaw_heat_container" data-aos="fade-right" data-aos-delay="100">
+              <div id="vaw_heat_container" data-aos="fade-in" data-aos-delay="100">
               </div>
-              <div id="vaw_heat_description" data-aos="fade-left" data-aos-delay="100">
+              <div id="vaw_heat_description" data-aos="fade-in" data-aos-delay="100">
                 <div id = "perceptionStuff">
                   <h4>Attitudes towards physical violence by spouse</h4>
                   <h5>Percentage of women aged 15-64 years who believe that a husband has a good reason to hit his wife if: </h5>
@@ -221,7 +221,7 @@
       <div class="footer_contain">
         <div class="district_link_container">
           <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
-          <p class="view_districts" data-aos="fade-in" data-aos-delay="600">View district level indicator overview</p>
+          <p class="view_districts districtLevel" data-aos="fade-in" data-aos-delay="800">View district level indicator overview</p>
         </div>
         <footer class="footer">
           <p class="footer_item pcsw_footer">Punjab Commision on the Status of Women</p>
@@ -245,8 +245,20 @@
         </footer>
       </div>
     </div>
-    <script src="./js/heatmapBub.js"></script>
+    <template id="p-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1><span>District : </span><span class="sp-data"></span></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p style="display: flex">Category: <span class="s-p__value-cat sp-data" style="text-align: end;padding-left: 10px"></span></p>
+          <p>Value: <span class="s-p__value-val sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+    <script src="./js/tooltip.js"></script>
     <script src="./menu.js"></script>
+    <script src="./js/heatmapBub.js"></script>
 
 
     <script>
@@ -311,6 +323,17 @@
         AOS.init();
       });
 
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
       $(".facebookSoc").click(function() {
         window.open('https://www.facebook.com/pcswpb', '_blank');
       });
@@ -341,6 +364,10 @@
 
       $(".pcsw").click(function() {
         window.location = "./";
+      });
+
+      $(".finInc").click(function() {
+        window.location = "./financialInc.html";
       });
 
       function resizeIframe(obj){
