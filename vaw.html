@@ -137,11 +137,11 @@
             <p class="section_text">But while designing interventions that combat all forms of violence against women, discouraging attitudes that support or reinforce violence provides a major policy challenge. In ESW Survey 2018, data was collected on women’s attitudes towards physical and sexual violence by spouse.</p>
           </div>
           <div class="text_container">
-            <p class="section_text">Ever-married women were asked if their husband has a good reason to hit them in certain stated situations. Women’s responses at a district level can be investigated through heat map below. The grid has district on the vertical axis and different situations (coded by alphabets) on the horizontal axis. The percentage is encoded by color depth. The visualization also shows the actual incidence of physical violence in the districts through bubbles on the right so that women’s attitudes towards physical violence and incidence of physical spousal violence can be compared.</p>
+            <p class="section_text">All respondants aged 15-64 were asked if their husband has a good reason to hit them in certain stated situations. Women’s responses at a district level can be investigated through heat map below. The grid has district on the vertical axis and different situations (coded by alphabets) on the horizontal axis. The percentage is encoded by color depth. The visualization also shows the actual incidence of physical violence in the districts through bubbles on the right so that women’s attitudes towards physical violence and incidence of physical spousal violence can be compared.</p>
           </div>
 
           <div class="vaw_heat_wrapper">
-            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <h2 class="vis_heading">Attitudes of women towards physical violence by spouse</h2>
             <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
               <select id="filterHeat" style="width: 250px; border-radius: 8px;">
                 <option class="updateheat" value="Divisions">By Divisions</option>
@@ -170,6 +170,34 @@
           <div class="text_container">
             <p class="section_text">A similar heatmap for ever married women’s attitudes towards sexual violence by spouse: </p>
           </div>
+
+          <div class="vaw_heat_SV_wrapper">
+            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
+              <select id="filterHeatSV" style="width: 250px; border-radius: 8px;">
+                <option value="Divisions">By Divisions</option>
+                <option value="For any of these four reasons">For any of these four reasons</option>
+                <option value="Sexual Violence - Last 12 months">Sexual Violence - Last 12 months</option>
+                <option value="Sexual Violence - Ever">Sexual Violence - Ever</option>
+              </select>
+            </div>
+            <div id="vaw_heat_SV_container_main">
+              <div id="vaw_heat_SV_container" data-aos="fade-in" data-aos-delay="100">
+              </div>
+              <div id="vaw_heat_SV_description" data-aos="fade-in" data-aos-delay="100">
+                <div id = "perceptionStuffSV">
+                  <h4>Attitudes towards sexual violence by spouse</h4>
+                  <h5>In your opinion, can a married woman refuse to have sex with her husband if: </h5>
+                </div>
+                <div id = "violOccurenceStuffSV">
+                  <h4>Occurence of Sexual violence by Spouse</h4>
+                </div>
+                <div id = "legendsContainSV">
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -259,9 +287,12 @@
     <script src="./js/tooltip.js"></script>
     <script src="./menu.js"></script>
     <script src="./js/heatmapBub.js"></script>
+    <script src="./js/heatmapBubSV.js"></script>
 
 
     <script>
+      createSVHeatMap();
+
       var granimInstance = new Granim({
          element: '#granim-canvas-footer',
          name: 'granim',

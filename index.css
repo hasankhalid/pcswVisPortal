@@ -610,16 +610,16 @@ body {
   justify-content: center;
 }
 
-#vaw_heat_container_main {
+#vaw_heat_container_main, #vaw_heat_SV_container_main {
   display: flex;
   flex-direction: row;
 }
 
-#vaw_heat_container {
+#vaw_heat_container, #vaw_heat_SV_container {
   width: 65%;
 }
 
-#vaw_heat_description  {
+#vaw_heat_description, #vaw_heat_SV_description  {
   width: 35%;
 }
 
