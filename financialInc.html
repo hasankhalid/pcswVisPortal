@@ -306,6 +306,14 @@
         }
       });
 
+      document.addEventListener('aos:in', ({ detail }) => {
+        fireTransition(1000);
+      });
+
+      document.addEventListener('aos:out', ({ detail }) => {
+        resetTransition();
+      });
+
       var top_of_element;
       var bottom_of_element;
       var bottom_of_screen;
@@ -317,10 +325,10 @@
            bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
            top_of_screen = $(window).scrollTop();
            if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
-             fireTransition(800);
+             $("#fin_decision_container").attr('data-aos', 'fade-in');
            }
            else {
-             resetTransition();
+             $("#fin_decision_container").attr('data-aos', 'fade-out');
            }
       });
 
