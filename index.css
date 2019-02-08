@@ -721,6 +721,20 @@ body {
   }
 }
 
+@media only screen and (max-width: 1365px) {
+  #vaw_heat_container_main, #vaw_heat_SV_container_main {
+    justify-content: space-between;
+  }
+
+  #vaw_heat_container, #vaw_heat_SV_container {
+    width: 65%;
+  }
+
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    width: 28%;
+  }
+}
+
 @media only screen and (max-width: 1250px) {
   .sunburst_button {
     width: 80px;
@@ -738,8 +752,36 @@ body {
   #sequence {
     height: 80px;
   }
+  #vaw_heat_container, #vaw_heat_SV_container {
+    width: 65%;
+  }
+
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    width: 20%;
+  }
 }
 
+@media only screen and (max-width: 1150px) {
+  #vaw_heat_container_main, #vaw_heat_SV_container_main {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #vaw_heat_container, #vaw_heat_SV_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 90px;
+  }
+}
 
 
 @media only screen and (max-width: 1100px) {
@@ -804,6 +846,9 @@ body {
   }
   .text_container {
     margin: 20px 40px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 45px;
   }
   .questions_wrapper {
     margin: 50px 50px;
@@ -883,6 +928,9 @@ body {
   .text_container {
     margin: 20px 30px;
   }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 35px;
+  }
   .div_digram_text {
     font-size: 12px;
   }
@@ -936,6 +984,9 @@ body {
   }
   .text_container {
     margin: 20px 20px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 25px;
   }
   .questions_wrapper {
     flex-direction: column;
@@ -995,6 +1046,9 @@ body {
   }
   .text_container {
     margin: 20px 8px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 8px;
   }
   #scatter_controls, #bubble_controls {
     width: 80%;

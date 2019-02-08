@@ -184,7 +184,7 @@ function createSVHeatMap() {
     d3.select('#legendsContainSV')
       .append('svg')
       .attr('width', 300)
-      .attr('height', 500)
+      .attr('height', 200)
       .attr('id', 'legendSVG_SV')
 
     //drawCircLegend().updateCellSize(10);

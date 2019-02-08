@@ -143,6 +143,7 @@
       .attr('fill-opacity', 0.5)
       .on('mousemove', function(d){
         toolTip.createTooltip(d, d3.event);
+        console.log(d);
       })
       .on('mouseout', function(d){
         toolTip.removeTooltip(d);
@@ -186,7 +187,7 @@
     d3.select('#legendsContain')
       .append('svg')
       .attr('width', 300)
-      .attr('height', 500)
+      .attr('height', 200)
       .attr('id', 'legendSVG')
 
     //drawCircLegend().updateCellSize(10);
