@@ -3,8 +3,8 @@ function createFinPyramid() {
   // declare variable that will hold the data that is read in
   let finIncComp;
   // define margins for the visualization
-  let heightSVG = 700;
-  let widthSVG = 720;
+  let heightSVG = 760;
+  let widthSVG = 820;
   let margins = {
     top: 50 ,
     bottom: 30,

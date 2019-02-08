@@ -33,6 +33,14 @@ body {
   padding-bottom: 200px;
 }
 
+.stat_container {
+  padding: 20px;
+  background: #eee;
+  border-radius: 10px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
 .district_container {
   background: linear-gradient(145deg, #EE5930 0%, rgba(255, 87, 34, 1) 100%);
 }
