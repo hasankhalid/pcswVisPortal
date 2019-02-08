@@ -33,6 +33,14 @@ body {
   padding-bottom: 200px;
 }
 
+.stat_container {
+  padding: 20px;
+  background: #eee;
+  border-radius: 10px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
 .district_container {
   background: linear-gradient(145deg, #EE5930 0%, rgba(255, 87, 34, 1) 100%);
 }
@@ -602,16 +610,16 @@ body {
   justify-content: center;
 }
 
-#vaw_heat_container_main {
+#vaw_heat_container_main, #vaw_heat_SV_container_main {
   display: flex;
   flex-direction: row;
 }
 
-#vaw_heat_container {
+#vaw_heat_container, #vaw_heat_SV_container {
   width: 65%;
 }
 
-#vaw_heat_description  {
+#vaw_heat_description, #vaw_heat_SV_description  {
   width: 35%;
 }
 

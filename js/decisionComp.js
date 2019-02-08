@@ -117,7 +117,9 @@ async function readDataAndDrawDecChart(){
                               .attr('y', interv/1.4)
                               .attr('x', -10)
                               .style('text-anchor', 'end')
-                              .style('font-weight', d => d.finInc == 0 ? '700': '300');
+                              .style('fill', d => d.finInc == 0 ? 'rgba(142,36,170,1)': 'black')
+                              .style('font-size', '14px')
+                              .style('font-weight', d => d.finInc == 0 ? '700': '400');
 
 
   // draw legends
@@ -140,7 +142,7 @@ async function readDataAndDrawDecChart(){
   // function for nested circle legend
   function makeNestCircLegend(CSSSelect = 'svg', transformArray, bubArray, bubScale, legendTitle){
       // appending a legendgroup
-      let legendGroup = d3.select('svg')
+      let legendGroup = d3.select('#fin_decision_container svg')
                        .append('g')
                        .classed('legendGroup', true)
                        .attr('transform', `translate(${transformArray[0]}, ${transformArray[1]})`)
@@ -186,7 +188,6 @@ async function readDataAndDrawDecChart(){
 
   //call fire transition function
   fireTransition(1500);
-
 }
 
 readDataAndDrawDecChart();

@@ -1,15 +1,15 @@
-
-  let dataToPlayGlob;
+function createSVHeatMap() {
+  let dataToPlayGlobSV;
   let distScale, categScale, colScale, radScale, categLabelScale, divColScale
 
   let Divisions = ["Bahawalpur", "DG Khan", "Faisalabad", "Gujranwala", "Lahore", "Multan", "Rawalpindi","Sahiwal","Sargodha"];
-  let bubCategs = ["Physical Violence - Last 12 months","Physical Violence - Ever"];
+  let bubCategs = ["Sexual Violence - Last 12 months","Sexual Violence - Ever"];
   async function readAndDraw(){
-    let data = await d3.csv('./js/files/attitudesVAW.csv')
+    let data = await d3.csv('./js/files/attitudesVAWSV.csv')
     console.log(data);
     console.log(wide_to_long(data));
 
-    dataToPlayGlob = data;
+    dataToPlayGlobSV = data;
     let arrOfArr = preProcess(data);
 
 
@@ -18,7 +18,7 @@
 
     let districts = arrOfArr.map(d => d.key);
     let categories = arrOfArr[0].values.map(d => d.Category);
-    let everViol = data.map(d => d["Physical Violence - Ever"]);
+    let everViol = data.map(d => d["Sexual Violence - Ever"]);
 
     console.log(districts);
     console.log(categories);
@@ -47,9 +47,9 @@
 
     radScale = d3.scaleSqrt()
                 .domain([0, d3.max(everViol)])
-                .range([0, 20]);
+                .range([0, 10]);
 
-    colScale = d3.scaleLinear().domain([0, 100]).range(['#F5F5F5', '#880E4F'])
+    colScale = d3.scaleLinear().domain([0, 100]).range(['#F5F5F5', '#4A148C'])
 
     let xInterval = width/ categScale.domain().length;
     categScale.range(d3.range(0, width + 1, xInterval));
@@ -57,7 +57,6 @@
     let yInterval = height/ distScale.domain().length;
     distScale.range(d3.range(0, height + 1, yInterval));
 
-    //create tooltip
     var toolTipConfig = {
       idPrefix : 'p-tooltip',
       templateSelector : '#p-tooltip',
@@ -76,13 +75,13 @@
 
     var toolTip = Tooltip(toolTipConfig);
 
-
-    var svg_g = d3.select("#vaw_heat_container")
+    var svg_g = d3.select("#vaw_heat_SV_container")
                     .append("svg")
                     .attr("width", svg_width)
                     .attr("height", svg_height)
                     .append("g")
                     .attr("transform", "translate("+ margins.left + ", "+ margins.top +")");
+
 
     let rows = svg_g.selectAll('.row')
       .data(arrOfArr)
@@ -120,16 +119,15 @@
       })
       .style('fill-opacity', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? 0: 1)
       .attr('data-visible', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? 'false': 'true')
-      .style('stroke', 'none')
+      .style('stroke', 'none');
 
-      rows.selectAll('rect[data-visible = true]')
-        .on('mousemove', function(d){
-          toolTip.createTooltip(d, d3.event);
-        })
-        .on('mouseout', function(d){
-          toolTip.removeTooltip(d);
-        });
-
+    rows.selectAll('rect[data-visible = true]')
+      .on('mousemove', function(d){
+        toolTip.createTooltip(d, d3.event);
+      })
+      .on('mouseout', function(d){
+        toolTip.removeTooltip(d);
+      });
 
     rows.selectAll('.bubbles')
       .data(d => d.values)
@@ -162,8 +160,8 @@
         .attr('x', d => categScale(d) + xInterval/2)
 
 
-    d3.select('#vaw_heat_description')
-      .select('#perceptionStuff')
+    d3.select('#LegendsAndStuffSV')
+      .select('#perceptionStuffSV')
       .selectAll('p')
       .data(categories.filter(d => !bubCategs.includes(d)))
       .enter()
@@ -173,8 +171,8 @@
       .html(d => `<span class= "categLabel">${categLabelScale(d)}:</span> ${d}`)
 
 
-    d3.select('#LegendsAndStuff')
-      .select('#violOccurenceStuff')
+    d3.select('#LegendsAndStuffSV')
+      .select('#violOccurenceStuffSV')
       .selectAll('p')
       .data(categories.filter(d => bubCategs.includes(d)))
       .enter()
@@ -183,21 +181,21 @@
       .attr('class', 'CategListElem')
       .html(d => `<span class= "categLabel">${categLabelScale(d)}:</span> ${d}`)
 
-    d3.select('#legendsContain')
+    d3.select('#legendsContainSV')
       .append('svg')
       .attr('width', 300)
       .attr('height', 500)
-      .attr('id', 'legendSVG')
+      .attr('id', 'legendSVG_SV')
 
     //drawCircLegend().updateCellSize(10);
 
-    var circLegendG = d3.select('#legendSVG')
+    var circLegendG = d3.select('#legendSVG_SV')
       .append('g')
       .attr('id', 'circLegendGroup')
       .attr('transform', 'translate(20, 50)')
       .call(drawCircLegend);
 
-    var contColLegendG = d3.select('#legendSVG')
+    var contColLegendG = d3.select('#legendSVG_SV')
       .append('g')
       .attr('id', 'contColLegGroup')
       .attr('transform', 'translate(20, 140)')
@@ -254,7 +252,7 @@
 
       linGrad.append("stop")
         .attr("offset", "100%")
-        .attr("stop-color", "#880E4F")
+        .attr("stop-color", "#4A148C")
         .attr("stop-opacity", 1);
 
       barG.append('rect')
@@ -282,7 +280,7 @@
 
   readAndDraw();
 
-  function upDate(newData){
+  function upDateSV(newData){
     let newArrOfArr = preProcess(newData);
 
     let districts = newArrOfArr.map(d => d.key);
@@ -291,7 +289,7 @@
     distScale.domain(districts);
     categScale.domain(categories);
 
-    let rows = d3.select('#vaw_heat_container svg')
+    let rows = d3.select('#vaw_heat_SV_container svg')
                   .select('g')
                   .selectAll('.row')
                   .data(newArrOfArr, d => d.key)
@@ -339,10 +337,13 @@
     return dists.concat(punjab);
   }
 
-/*  d3.select('#selectorContain select').on('input', function(d, i){
-    let newDat = sortDistDesc(dataToPlayGlob,  this.value);
-    upDate(newDat);
-  }); */
+  $('#filterHeatSV').selectize({
+    onChange: function(value) {
+      let newDat = sortDistDesc(dataToPlayGlobSV, value);
+      console.log(newDat);
+      upDateSV(newDat);
+    }
+  });
 
   let divisionDict = {
     'Bahawalpur': 'Bahawalpur',
@@ -382,3 +383,4 @@
     'Khushab': 'Sargodha',
     'Mianwali': 'Sargodha'
   }
+}
