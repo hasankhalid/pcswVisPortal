@@ -13,7 +13,6 @@
     let arrOfArr = preProcess(data);
 
 
-
     console.log(arrOfArr);
 
     let districts = arrOfArr.map(d => d.key);
@@ -49,7 +48,7 @@
                 .domain([0, d3.max(everViol)])
                 .range([0, 20]);
 
-    colScale = d3.scaleLinear().domain([0, 100]).range(['#F5F5F5', '#880E4F'])
+    colScale = d3.scaleLinear().domain([0, 100]).range(['#F5F5F5', '#880E4F']);
 
     let xInterval = width/ categScale.domain().length;
     categScale.range(d3.range(0, width + 1, xInterval));
