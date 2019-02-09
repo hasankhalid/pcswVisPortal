@@ -9,9 +9,9 @@ function createEmpTree(){
   let colScale = d3.scaleOrdinal();
 
   // define dimensions
-  let margin = {top: 20, right: 10, bottom: 20, left: 180},
+  let margin = {top: 40, right: 10, bottom: 20, left: 180},
       width = 1560 - margin.right - margin.left,
-      height = 1000 - margin.top - margin.bottom;
+      height = 1020 - margin.top - margin.bottom;
 
   // define counter, duration and root
   let i = 0,
@@ -28,13 +28,25 @@ function createEmpTree(){
 
   let svg = d3.select("#tree_container")
       .append("svg")
-  //    .attr("width", width + margin.right + margin.left)
-  //    .attr("height", height + margin.top + margin.bottom)
-      .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " " +  (height + margin.top + margin.bottom))
-    //  .attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " 2300")
+     .attr("width", width + margin.right + margin.left)
+     .attr("height", height + margin.top + margin.bottom)
+      //.attr("preserveAspectRatio", "xMinYMin meet")
+      //.attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " " +  (height + margin.top + margin.bottom))
+      //.attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " 2300")
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.selectAll('text.layerTitle')
+    .data(["Employed", "Area", "Education", "Industry"])
+    .enter()
+    .append('text')
+    .text(d => d)
+    .attr('x', (d, i) => i * 225)
+    .attr('y', -20)
+    .style('text-anchor', 'middle')
+    .style('font-size', '20px')
+    .style('text-decoration', 'underline')
+    //.style('font-weight', 'bold');
 
 
   async function readDataAndDraw(){
@@ -123,9 +135,9 @@ function createEmpTree(){
     })
 
 
-    root.children.forEach(d => {
-      d.children.forEach(child => {
-        collapse(child);
+    root.children.forEach((d, i) => {
+      d.children.forEach((child, index) => {
+        if (index != 0 | i != 0) { collapse(child) };
       })
     });
     update(root)
@@ -333,7 +345,14 @@ function createEmpTree(){
 
                 }
                 else {
-                  return '<p class="p_margin"><i class="fas fa-info-circle"></i> Click to expand</p>'
+                  let expCon
+                  if (d.children){
+                    expCon = 'collapse';
+                  }
+                  else {
+                    expCon = 'expand';
+                  }
+                  return `<p class="p_margin"><i class="fas fa-info-circle"></i> Click to ${expCon}</p>`
                 }
               });
 
