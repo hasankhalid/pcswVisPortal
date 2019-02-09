@@ -29,8 +29,8 @@ body {
   padding-top: 25px;
   background: #212121;
   color: white;
-  margin-bottom: -200px;
-  padding-bottom: 200px;
+  margin-bottom: -150px;
+  padding-bottom: 150px;
 }
 
 .stat_container {
@@ -627,15 +627,15 @@ body {
   width: 35%;
 }
 
-#scatter_container_main, #bubble_container_main {
+#scatter_container_main, #bubble_container_main, #heat_container_main {
   display: flex;
 }
 
-#scatter_container, #bubble_container {
+#scatter_container, #bubble_container, #heat_container {
   width: 65%;
 }
 
-#scatter_controls, #bubble_controls {
+#scatter_controls, #bubble_controls, #heat_controls {
   width: 35%;
 }
 
@@ -860,14 +860,14 @@ body {
   .questions_wrapper {
     margin: 50px 50px;
   }
-  #bubble_container_main, #scatter_container_main {
+  #bubble_container_main, #scatter_container_main, #heat_container_main {
     flex-direction: column-reverse;
   }
-  #scatter_container, #bubble_container {
+  #scatter_container, #bubble_container, #heat_container {
     width: 100%;
     margin-top: 60px;
   }
-  #scatter_controls, #bubble_controls {
+  #scatter_controls, #bubble_controls, #heat_controls {
     width: 50%;
   }
   .div_digram_text {
@@ -1063,7 +1063,7 @@ body {
   #vaw_heat_description, #vaw_heat_SV_description  {
     margin: 0px 8px;
   }
-  #scatter_controls, #bubble_controls {
+  #scatter_controls, #bubble_controls, #heat_controls {
     width: 80%;
   }
 }
@@ -1112,7 +1112,7 @@ body {
   .footer_icon_small {
     height: 30px;
   }
-  #scatter_controls, #bubble_controls {
+  #scatter_controls, #bubble_controls, #heat_controls {
     width: 100%;
   }
 }
