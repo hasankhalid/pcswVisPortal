@@ -216,6 +216,39 @@
             </div>
           </div>
         </div>
+        <div class="vis_wrapper">
+          <div class="contentContain">
+            <div class="text_container">
+              <p class="section_title" style="margin-top: 0px;">Section Overview</p>
+            </div>
+            <div class="text_container">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="scatter_wrapper vis_parent orange_bar" data-aos="fade-in" data-aos-delay="100">
+              <div class="text_container">
+                <h2 class="vis_heading">Lorem Ipsum</h2>
+              </div>
+              <div id="heat_container_main">
+                <div class="input">
+                  <select id="heat_select">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                </div>
+                <div id="heat_container">
+                </div>
+                <div id="heat_legends">
+                  <div id="heat_color">
+                  </div>
+                  <div id="heat_labels">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -246,8 +279,21 @@
         </footer>
       </div>
     </div>
+    <template id="p-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1><span>District : </span><span class="sp-data"></span></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p style="display: flex">Category: <span class="s-p__value-cat sp-data" style="text-align: end;padding-left: 10px"></span></p>
+          <p>Value: <span class="s-p__value-val sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+    <script type="text/javascript" src="./js/tooltip.js"></script>
     <script src="./js/scatter.js"></script>
     <script src="./js/bubbleMap.js"></script>
+    <script src="./js/heatBubbleMap.js"></script>
     <script src="./menu.js"></script>
 
 
@@ -475,7 +521,7 @@
         );
       });
 
-      function initSelectize(options, excludeObj, selectors, groupName, cb, defaultVals, initFunc){
+      function initSelectize(options, excludeObj, selectors, groupName, cb, defaultVals, initFunc, optionVals){
 
         options = options.filter(function(d){
           return !excludeObj[d];
@@ -488,12 +534,14 @@
 
           el.attr('data-group', groupName);
 
+          optionVals = optionVals || options;
+
           var elOptions = options.map(
-              function(o){
+              function(o,i){
                 if(defaultVals.includes(o) && o !== defaultVals[i]){
-                  return {name : o, text : o, value : o, disable : true};
+                  return {name : o, text : o, value : optionVals[i], disable : true};
                 }else{
-                  return {name : o, text : o, value : o, disable : false};
+                  return {name : o, text : o, value : optionVals[i], disable : false};
                 }
               }
             );
@@ -529,6 +577,82 @@
           initFunc();
         });
       }
+
+      var heatMap;
+      d3.json('./js/files/heatMapData.json')
+      .then(function(data){
+        for(var i in data){
+          var csvData = data[i].data;
+          data[i].heatMapData = csvData.map((d)=>{
+            var rVals = [];
+            for(var i in d){
+              if(i === 'District'){
+                continue;
+              }
+
+              rVals.push({
+                District : d.District,
+                Category : i.trim(),
+                Value : d[i]
+              });
+            }
+
+            return {
+              key : d.District,
+              rValues : rVals
+            };
+          });
+        }
+
+        tData = data;
+
+        var columnNames = Object.values(data).map((d)=>d.title);
+        var columnVals = Object.keys(data);
+
+        initSelectize(columnNames,
+          {},
+          ['#heat_select'],
+          'heat-indicators',
+          function(e){
+            var newData = data[e.target.value].heatMapData;
+
+            heatMap.update(newData);
+          },
+          ['1.12'],
+          function(e){
+            //$('#scatterDivisions').text('Showing All Divisions');
+          },
+          columnVals
+        );
+
+        var toolTipConfig = {
+          idPrefix : 'p-tooltip',
+          templateSelector : '#p-tooltip',
+          selectorDataMap : {
+            '.s-p__tooltip-header h1 .sp-data' : function(d){
+              return d.District;
+            },
+            '.s-p__value-cat' : function(d){
+              return d.Category;
+            },
+            '.s-p__value-val' : function(d){
+              return parseFloat(d.Value).toFixed(2) + '%';
+            }
+          }
+        };
+
+        heatMap = HeatBubbleMap({
+          toolTipConfig : toolTipConfig,
+          containerSelector : '#heat_container',
+          colorLegendSelector : '#heat_color',
+          labelMapSelector : '#heat_labels',
+          colorArr : ['#F5F5F5', '#880E4F'],
+          data : data['1.12'].heatMapData,
+          fontColor : '#fff'
+        });
+
+        heatMap.create(data['1.12'].heatMapData);
+      });
 
     </script>
   </body>
