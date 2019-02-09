@@ -48,7 +48,7 @@
                   <p id="link4" class="link_text finInc">FINANCIAL INCLUSION</p>
                 </div>
                 <div class="nav_link">
-                  <p id="link5" class="link_text">MINORITIES</p>
+                  <p id="link5" class="link_text min">MINORITIES</p>
                 </div>
                 <div class="nav_link">
                   <p id="link6" class="link_text districtLevel">DISTRICT LEVEL OVERVIEW</p>
@@ -83,7 +83,7 @@
               <p class="titleSmall" id="preTitle">GENERATING DATA TO ADVANCE WOMEN’S</p>
               <p class="titleLarge">SOCIAL & ECONOMIC</p>
               <p class="titleLarge">WELLBEING</p>
-              <p class="titleSmall" id="followTitle">IN PAKISTAN</p>
+              <p class="titleSmall" id="followTitle">IN PAKISTAN (ESW)</p>
             </div>
             <div class="fadeMeRight">
               <div class="imageContainer">
@@ -104,6 +104,7 @@
           </div>
         </div>
       </div>
+
       <div class="sunburst" id="sunburst">
         <div class="load_progress">
         </div>
@@ -111,8 +112,10 @@
         </div>
         <div class="half">
           <img class="imagehalf" src="./resources/sewing.jpg"></img>
-          <div class="overlay_black overlay_sunburst" style="top: 0px;">
-            <p class="textOverlay" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"</p>
+          <div class="overlay_black overlay_sunburst" style="top: 0px; flex-direction: column;">
+            <h3 class="textOverlay" style="align-self: flex-start; margin-bottom: 5px;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">ESW 2017-2018</h3>
+            <p class="textOverlay projDesc" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">The ESW project aims to generate provincial and district level representative data on the economic and employment status of women in Punjab and establish a baseline for monitoring of Sustainable Development Goals 5 and 8 to support policy actions based on the evidence generated. The project aims to model evidence-based and targeted interventions to enhance women’s empowerment in Punjab and to reduce their vulnerability to various forms of discrimination and exclusion.</p>
+            <p class="textOverlay projDesc" style="margin-top: 5px;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">This website allows user to explore the collected data through interactive visualisations. </p>
           </div>
         </div>
         <div class="half project_image_container">
@@ -292,6 +295,10 @@
 
       $(".finInc").click(function() {
         window.location = "./financialInc.html";
+      });
+
+      $(".min").click(function() {
+        window.location = "./minorities.html";
       });
 
       $(".pcsw").click(function() {

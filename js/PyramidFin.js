@@ -19,7 +19,9 @@ function createFinPyramid() {
   // defining SVG and SVGG
   let SVG = d3.select('svg#finIncPyramid')
               .attr("height", heightSVG)
-              .attr("width", widthSVG);
+              .attr("width", widthSVG)
+              .attr("preserveAspectRatio", "xMinYMin meet")
+              .attr("viewBox", "0 0 " + widthSVG + " " +  heightSVG);
 
   let SVGG = SVG.append('g')
                 .attr('id', 'chartGroup')
@@ -167,8 +169,6 @@ function createFinPyramid() {
     let textBarsLeft = barGroups.append('text')
                             //.attr('transform', `translate(${gapBwBars}, 0)`)
                             .text(d => {
-                              console.log(round2Dec(d.accessCredit, 1));
-                              console.log(d.accessCredit);
                               return round2Dec(d.accessCredit, 1);
                             })
                             .attr('x', d => -(x(d.accessCredit) + 5))

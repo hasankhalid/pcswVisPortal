@@ -288,8 +288,12 @@ body {
 
 .textOverlay {
   color: white;
-  margin: 80px;
+  margin: 20px 80px;
   font-size: 20px;
+}
+
+.projDesc {
+  font-size: 18px;
 }
 
 .half {
@@ -709,7 +713,7 @@ body {
   background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
 }
 
-#fin_decision_container_main, #fin_pyramid_container_main {
+#fin_decision_container_main, #fin_pyramid_container_main, #radar_container {
   display: flex;
   justify-content: center;
 }
@@ -792,7 +796,10 @@ body {
     margin-left: 25px;
   }
   .textOverlay {
-    margin: 40px;
+    margin: 10px 40px;
+  }
+  .projDesc {
+    font-size: 16px;
   }
   .project_image_container {
     margin-left: 40px;
@@ -897,7 +904,10 @@ body {
     flex-direction: column-reverse;
   }
   .textOverlay {
-    margin: 80px;
+    margin: 20px 80px;
+  }
+  .projDesc {
+    font-size: 16px;
   }
   .project_image_container {
     margin-left: 80px;
@@ -952,7 +962,10 @@ body {
     margin-bottom: 10px;
   }
   .textOverlay {
-    margin: 40px;
+    margin: 10px 40px;
+  }
+  .projDesc {
+    font-size: 16px;
   }
   .project_image_container {
     margin-left: 40px;
@@ -1023,7 +1036,7 @@ body {
     margin-bottom: 3px;
   }
   .textOverlay {
-    margin: 20px;
+    margin: 8px 20px;
   }
   .project_image_container {
     margin-left: 20px;
