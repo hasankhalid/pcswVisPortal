@@ -47,7 +47,15 @@ function HeatBubbleMap({
 	        .domain([0, 100]) //change later
 	        .range([0, 20]);
 
-	    var colorScale = d3.scaleLinear().domain([0, 100]).range(colorArr);
+      // figuring out max for color domain
+      var arrArrVals = data.map(d => d.rValues.map(e => +e.Value));
+      var mergedVals = [].concat.apply([], arrArrVals);
+      var maxVal = d3.max(mergedVals);
+      var roundFactor = 5
+      var maxScale = Math.floor(maxVal/roundFactor) * roundFactor
+
+
+	    var colorScale = d3.scaleLinear().domain([0, maxScale]).range(colorArr);
 
 	    var xInterval = width / colLabelXScale.domain().length;
 	    TESTx = xInterval;
@@ -132,7 +140,7 @@ function HeatBubbleMap({
 	    fadeIn({selection : labels});
 
 	    //create legend
-	    drawContLegend(colorLegendSelector);
+	    drawContLegend(colorLegendSelector, maxScale);
 
 	    d3.select(labelMapSelector)
 	      .selectAll('p')
@@ -156,7 +164,7 @@ function HeatBubbleMap({
         return rVals.map((d) => d.Category).concat(cVals.map((d) => d.Category));
     }
 
-    function drawContLegend(selector) {
+    function drawContLegend(selector, maxScale) {
 
         let rectWidth = 200;
         let rectHeight = 10;
@@ -174,12 +182,12 @@ function HeatBubbleMap({
 
         linGrad.append("stop")
             .attr("offset", "0%")
-            .attr("stop-color", '#F5F5F5')
+            .attr("stop-color", colorArr[0])
             .attr("stop-opacity", 1);
 
         linGrad.append("stop")
             .attr("offset", "100%")
-            .attr("stop-color", "#880E4F")
+            .attr("stop-color", colorArr[1])
             .attr("stop-opacity", 1);
 
         barG.append('rect')
@@ -192,11 +200,11 @@ function HeatBubbleMap({
         //  .style('stroke-width', '0.5px')
 
         barG.selectAll('text')
-            .data([0, 100])
+            .data([0, maxScale])
             .enter()
             .append('text')
             .text(d => d + '%')
-            .attr('transform', d => `translate(${d * 2}, 25)`)
+            .attr('transform', d => d == 0 ? `translate(0, 25)` : `translate(${rectWidth}, 25)`)
             .style('text-anchor', (d,i)=> i === 0 ? 'start' : 'middle')
             .style('fill', fontColor);
     }
@@ -223,7 +231,7 @@ function HeatBubbleMap({
 			.duration(200)
 			.style('opacity',0)
 			.delay((d,i)=>i * (20))
-			.remove(); 
+			.remove();
 
 		return Promise.all([
 			waitForTransitions(gTransition),
@@ -246,20 +254,20 @@ function HeatBubbleMap({
 		t.on('start.sequence', function(){
 			count++;
 		});
-		
+
 		return new Promise(function(resolve){
 			t.on('end.sequence', function(){
 				--count;
 				if(count === 0){
 					resolve(t);
-				}	
+				}
 			});
 		});
 	}
 
-	function fadeIn({selection, 
-		finalOpacity = 1, 
-		duration=250, 
+	function fadeIn({selection,
+		finalOpacity = 1,
+		duration=250,
 		delay = function(){return 0}} = {}){
 		selection.style('opacity', 0)
 				.transition()
