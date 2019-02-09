@@ -21,7 +21,6 @@
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
     <script src="./js/tools/selectize/js/standalone/selectize.js"></script>
     <link rel="stylesheet" type="text/css" href="./js/tools/selectize/css/selectize.css">
 
@@ -275,6 +274,7 @@
         </footer>
       </div>
     </div>
+
     <script src="./js/decisionComp.js"></script>
     <script src="./js/PyramidFin.js"></script>
     <script src="./menu.js"></script>
@@ -310,10 +310,6 @@
         fireTransition(1000);
       });
 
-      document.addEventListener('aos:out', ({ detail }) => {
-        resetTransition();
-      });
-
       var top_of_element;
       var bottom_of_element;
       var bottom_of_screen;
@@ -324,11 +320,8 @@
            bottom_of_element = $("#fin_decision_container").offset().top + $("#fin_decision_container").outerHeight();
            bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
            top_of_screen = $(window).scrollTop();
-           if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
-             $("#fin_decision_container").attr('data-aos', 'fade-in');
-           }
-           else {
-             $("#fin_decision_container").attr('data-aos', 'fade-out');
+           if (!(bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+             resetTransition();
            }
       });
 
