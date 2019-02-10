@@ -77,8 +77,10 @@ function createSVHeatMap() {
 
     var svg_g = d3.select("#vaw_heat_SV_container")
                     .append("svg")
-                    .attr("width", svg_width)
-                    .attr("height", svg_height)
+                  //  .attr("width", svg_width)
+                  //  .attr("height", svg_height)
+                    .attr('viewBox', `0 0 ${svg_width} ${svg_height}`)
+                    .attr("preserveAspectRatio", "xMinYMid meet")
                     .append("g")
                     .attr("transform", "translate("+ margins.left + ", "+ margins.top +")");
 
@@ -183,8 +185,9 @@ function createSVHeatMap() {
 
     d3.select('#legendsContainSV')
       .append('svg')
-      .attr('width', 300)
-      .attr('height', 200)
+      .attr('viewBox', `0 0 300 200`)
+      //.attr('width', 300)
+      //.attr('height', 200)
       .attr('id', 'legendSVG_SV')
 
     //drawCircLegend().updateCellSize(10);

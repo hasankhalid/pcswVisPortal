@@ -713,9 +713,26 @@ body {
   background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
 }
 
-#fin_decision_container_main, #fin_pyramid_container_main, #radar_container {
+#radar_container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+#radar_container {
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+#fin_pyramid_container {
+  max-width: 950px;
+  margin: 0px auto;
+}
+
+#fin_decision_container {
+  max-width: 1100px;
+  margin: 0px auto;
 }
 
 @media only screen and (min-width: 1650px) {
@@ -774,7 +791,13 @@ body {
   #vaw_heat_container, #vaw_heat_SV_container {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 37%;
   }
 
   #vaw_heat_description, #vaw_heat_SV_description  {
@@ -823,6 +846,10 @@ body {
 
   .unfpa {
     width: 160px;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 30%;
   }
 }
 
@@ -1114,6 +1141,10 @@ body {
   }
   #scatter_controls, #bubble_controls, #heat_controls {
     width: 100%;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 40%;
   }
 }
 
