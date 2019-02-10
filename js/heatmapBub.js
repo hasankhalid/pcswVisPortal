@@ -78,8 +78,10 @@
 
     var svg_g = d3.select("#vaw_heat_container")
                     .append("svg")
-                    .attr("width", svg_width)
-                    .attr("height", svg_height)
+                    //.attr("width", svg_width)
+                    //.attr("height", svg_height)
+                    .attr('viewBox', `0 0 ${svg_width} ${svg_height}`)
+                    .attr("preserveAspectRatio", "xMinYMid meet")
                     .append("g")
                     .attr("transform", "translate("+ margins.left + ", "+ margins.top +")");
 
@@ -185,8 +187,10 @@
 
     d3.select('#legendsContain')
       .append('svg')
-      .attr('width', 300)
-      .attr('height', 200)
+      .attr('viewBox', `0 0 300 200`)
+    //  .attr("preserveAspectRatio", "xMinYMid meet")
+      //.attr('width', 300)
+      //.attr('height', 200)
       .attr('id', 'legendSVG')
 
     //drawCircLegend().updateCellSize(10);
