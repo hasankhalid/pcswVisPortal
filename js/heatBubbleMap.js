@@ -36,10 +36,12 @@ function HeatBubbleMap({
 
     var alphArray = ("abcdefghijklmnopqrstuvwxyz").toUpperCase().split("");
 
+    var rowNameYScale;
+
     function create(){
     	var allCategories = getAllCategories(data);
 	    var rowNames = data.map((d) => d.key);
-	    var rowNameYScale = d3.scaleOrdinal().domain(rowNames);
+	    rowNameYScale = d3.scaleOrdinal().domain(rowNames);
 	    var colLabelXScale = d3.scaleOrdinal().domain(allCategories);
 	    var categLabelScale = d3.scaleOrdinal().domain(allCategories).range(alphArray);
 
@@ -75,6 +77,7 @@ function HeatBubbleMap({
 	        .enter()
 	        .append('g')
 	        .attr("class", d => d.key)
+	        .classed('row', true)
 	        .attr('transform', (d) => `translate(0, ${rowNameYScale(d.key)})`);
 	    //.classed('row', true)
 
@@ -276,9 +279,22 @@ function HeatBubbleMap({
 				.style('opacity', finalOpacity);
 	}
 
+	function sort(newData){
+
+		rowNameYScale.domain(newData.map((d)=>d.key));
+
+	    let rows = d3.select(`${containerSelector} svg`)
+	                  .selectAll('.row')
+	                  .data(newData, d => d.key)
+	                  .transition()
+	                  .duration(1500)
+	                  .attr('transform', d =>`translate(0, ${rowNameYScale(d.key)})`);  
+  }
+
 	return {
 		create : create,
 		destroy : destroy,
-		update : update
+		update : update,
+		sort : sort
 	};
 }
