@@ -634,13 +634,14 @@
             //change sort select vals
             var newSortOptions = newData[0].rValues.map((d)=>d.Category);
             newSortOptions.push('District');
-
+            
             newSortOptions = newSortOptions.map(function(o){
               return {name : o, text : o, value : o, disable : false};
             });
 
             var sortSelect = $('#heat_sort_select')[0].selectize;
 
+            sortSelect.clear(true); 
             sortSelect.clearOptions();
 
             sortSelect.addOption(newSortOptions);
