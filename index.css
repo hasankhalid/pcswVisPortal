@@ -750,6 +750,11 @@ body {
   margin: 0px auto;
 }
 
+#vaw_perception_container {
+  max-width: 900px;
+  margin: 0px auto;
+}
+
 .designBy {
   display: flex;
   align-items: center;
