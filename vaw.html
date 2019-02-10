@@ -207,16 +207,6 @@
             <p class="section_text">We can also compare women’s attitudes towards spousal violence with those of men. However, a caveat must be shared here, response options for the women and the men survey are slightly different.</p>
           </div>
 
-          <div class="vaw_carto_wrapper">
-            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
-            <div id="vaw_carto_container_main">
-              <div id="vaw_carto_container">
-              </div>
-              <div id="vaw_carto_controls">
-              </div>
-            </div>
-          </div>
-
           <div class="text_container" style="display: flex; justify-content: center;">
             <div class="table" data-aos="fade-in" data-aos-delay="100">
               <div class="tableheading">
@@ -240,6 +230,23 @@
                   <p style="margin: 2px 0px;">Disagree</p>
                   <p style="margin: 2px 0px; margin-bottom: 5px;">Don’t know</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vaw_perception_wrapper">
+            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="vaw_perception_container_main">
+              <div id="vaw_perception_controls">
+                <div id="selectorContain" style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px;">
+                  <select id="filterArea" style="width: 100px;">
+                    <option class="updateheat" value="Urban">Urban</option>
+                    <option class="updateheat" value="Rural">Rural</option>
+                  </select>
+                  <input type="checkbox" style="margin-left: 8px;" name="partial agree" value="Include Partially Agree">Include Partially Agree<br>
+                </div>
+              </div>
+              <div id="vaw_perception_container">
               </div>
             </div>
           </div>
@@ -269,6 +276,10 @@
             <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
             <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
             <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+            <div class="designBy">
+              <p class="plotree">Designed by Plotree Info Design</p>
+              <img class="footer_icon_p plotree" src="./resources/logoAlone.svg"></img>
+            </div>
           </div>
         </footer>
       </div>
@@ -313,6 +324,12 @@
         onChange: function(value) {
           let newDat = sortDistDesc(dataToPlayGlob, value);
           upDate(newDat);
+        }
+      });
+
+      $('#filterArea').selectize({
+        onChange: function(value) {
+          console.log(value);
         }
       });
 
@@ -375,6 +392,10 @@
 
       $(".webSoc").click(function() {
         window.open('https://pcsw.punjab.gov.pk/', '_blank');
+      });
+
+      $(".plotree").click(function() {
+        window.open('https://plotree.studio', '_blank');
       });
 
       $(".sunburstButt").click(function() {

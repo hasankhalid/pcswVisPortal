@@ -274,8 +274,8 @@ body {
 
 
 .overlay_sunburst {
-  background-color: #616161;
-  opacity: 0.8;
+  background-color: #263238;
+  opacity: 0.875;
   border-radius: 0px;
   display: flex;
   align-items: center;
@@ -446,6 +446,7 @@ body {
   padding-top: 50px;
   display: flex;
   align-items: center;
+  width: calc(100% - 160px);
 }
 
 .footer_icon {
@@ -454,6 +455,12 @@ body {
 
 .footer_icon_small {
   height: 50px;
+}
+
+.footer_icon_p {
+  height: 35px;
+  margin-left: 8px;
+
 }
 
 .visualization_title_container {
@@ -639,6 +646,10 @@ body {
   width: 35%;
 }
 
+#legendsContain, #legendsContainSV {
+  width: 80%;
+}
+
 .table {
   border: 2px solid;
   border-color: rgba(142,36,170,1);
@@ -713,6 +724,10 @@ body {
   background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
 }
 
+.plotree {
+  cursor: pointer;
+}
+
 #radar_container {
   display: flex;
   flex-direction: column;
@@ -735,10 +750,20 @@ body {
   margin: 0px auto;
 }
 
+.designBy {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+}
+
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
     margin-right: 200px;
+  }
+  .footer_partners {
+    width: calc(100% - 400px);
   }
 }
 
@@ -900,6 +925,15 @@ body {
   .div_digram_text {
     font-size: 14px;
   }
+  .designBy {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 0px 11px;
+  }
+  .footer_partners {
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 775px) {
@@ -978,6 +1012,10 @@ body {
     margin-left: 40px;
     margin-right: 40px;
   }
+  .footer_partners {
+    width: calc(100% - 80px);
+  }
+
   .pcswName {
     display: none;
   }
@@ -1053,11 +1091,30 @@ body {
   }
 }
 
+@media only screen and (max-width: 570px) {
+  .footer_icon {
+    height: 50px;
+  }
+
+  .footer_icon_small {
+    height: 30px;
+  }
+
+  .footer_icon_p {
+    height: 20px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .contentContain {
     margin-left: 20px;
     margin-right: 20px;
   }
+
+  .footer_partners {
+    width: calc(100% - 40px);
+  }
+
   .titleLarge {
     margin-top: 3px;
     margin-bottom: 3px;
@@ -1132,13 +1189,6 @@ body {
     text-align: center;
   }
 
-  .footer_icon {
-    height: 50px;
-  }
-
-  .footer_icon_small {
-    height: 30px;
-  }
   #scatter_controls, #bubble_controls, #heat_controls {
     width: 100%;
   }
