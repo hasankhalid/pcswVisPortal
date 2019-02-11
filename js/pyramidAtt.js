@@ -21,7 +21,8 @@ let SVG = d3.select('svg#vaw_perception_svg')
 
 let SVGG = SVG.append('g')
               .attr('id', 'chartGroup')
-              .attr('transform', `translate(${margins.left}, ${margins.top})`);
+              .attr('transform', `translate(${margins.left}, ${margins.top})`)
+
 
 let interv
 
@@ -88,7 +89,7 @@ async function readAndDraw(){
           .attr('y', -8)
           .style('text-anchor', 'start')
           .style('font-size', `${interv - 8}px`)
-          .style('font-weight', d => d.CategoryAlph == "" ? 'bold' : '')
+          .style('font-weight', d => d.CategoryAlph == "" ? 'bold' : '');
 
   let barsLeft = barGroups.append('rect')
                           .attr('transform', `translate(${-gapBwBars}, 0)`)

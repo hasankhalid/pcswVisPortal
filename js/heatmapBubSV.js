@@ -139,7 +139,7 @@ function createSVHeatMap() {
       .attr('cy', d => yInterval/2)
       .attr('r', d => bubCategs.includes(d.Category) | d.District == "Punjab" ? radScale(d.Value) : 0)
       //.attr('fill', d => d.District == 'Punjab' ? '#E91E63' : divColScale(divisionDict[d.District]))
-      .attr('fill', '#E91E63')
+      .attr('fill', d => bubCategs.includes(d.Category) ? '#E91E63' : '#4A148C')
       .attr('fill-opacity', 0.5)
       .on('mousemove', function(d){
         toolTip.createTooltip(d, d3.event);
@@ -194,13 +194,13 @@ function createSVHeatMap() {
 
     var circLegendG = d3.select('#legendSVG_SV')
       .append('g')
-      .attr('id', 'circLegendGroup')
+      .attr('id', 'circLegendGroup_SV')
       .attr('transform', 'translate(20, 50)')
       .call(drawCircLegend);
 
     var contColLegendG = d3.select('#legendSVG_SV')
       .append('g')
-      .attr('id', 'contColLegGroup')
+      .attr('id', 'contColLegGroup_SV')
       .attr('transform', 'translate(20, 140)')
       .call(drawContLegend);
 
@@ -241,7 +241,7 @@ function createSVHeatMap() {
 
       var linGrad = barG.append("defs")
                       .append("svg:linearGradient")
-                      .attr("id", "gradient")
+                      .attr("id", "gradient_SV")
                       .attr("x1", "0%")
                       .attr("y1", "100%")
                       .attr("x2", "100%")
@@ -263,7 +263,7 @@ function createSVHeatMap() {
         .attr('height', rectHeight)
         .attr('rx', 2)
         .attr('ry', 2)
-        .style("fill", "url(#gradient)")
+        .style("fill", "url(#gradient_SV)")
         //.style('stroke', '#212121')
         //  .style('stroke-width', '0.5px')
 
