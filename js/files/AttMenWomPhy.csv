@@ -1,0 +1,47 @@
+﻿CategoryAlph,Category,Men-agree,Men-partially agree,Men-both,Type,Women
+,"In your opinion, does a man have a good reason",0,0,0,Gap,0
+,to hit his wife if:,0,0,0,Gap,0
+A,She does not complete her household work to his satisfaction,9.796946971,15.13851827,24.93546524,Total,20.76513672
+B,She disobeys him,26.68166322,25.05299951,51.73466273,Total,27.39739227
+C,She refuses to have sexual relations with him,14.40233553,18.76368189,33.16601741,Total,24.60458
+D,She asks him whether he has other girlfriends/extra-marital affairs,9.556418491,20.35784822,29.91426671,Total,14.69245434
+E,He suspects that she is unfaithful,11.87863543,24.3668427,36.24547813,Total,15.77589035
+F,He finds out that she has been unfaithful,23.70969494,22.04750398,45.75719892,Total,38.9392662
+G,She does not take care of the children,18.61473934,21.28826514,39.90300448,Total,25.46623611
+H,She goes out without his permission,41.54191919,24.32156692,65.86348611,Total,0
+A,She does not complete her household work to his satisfaction,4.699331159,10.04825521,14.74758637,Urban,13.03542137
+B,She disobeys him,18.683893,20.51514464,39.19903764,Urban,18.18691254
+C,She refuses to have sexual relations with him,10.46556011,14.39398069,24.8595408,Urban,16.25368
+D,She asks him whether he has other girlfriends/extra-marital affairs,4.785447663,13.99795631,18.78340397,Urban,7.85221529
+E,He suspects that she is unfaithful,7.696210101,15.97721983,23.67342993,Urban,8.34731102
+F,He finds out that she has been unfaithful,15.03852227,17.96743251,33.00595478,Urban,31.25139427
+G,She does not take care of the children,12.05897147,16.69263698,28.75160845,Urban,17.78347206
+H,She goes out without his permission,26.83722956,26.19340923,53.03063878,Urban,0
+A,She does not complete her household work to his satisfaction,12.50873338,16.76930667,29.27804005,Rural,25.62136269
+B,She disobeys him,29.48863439,27.52466908,57.01330347,Rural,33.18391418
+C,She refuses to have sexual relations with him,17.24701745,21.89202916,39.1390466,Rural,29.68982
+D,She asks him whether he has other girlfriends/extra-marital affairs,12.67772642,21.57804255,34.25576898,Rural,18.98986244
+E,He suspects that she is unfaithful,15.35977677,22.85573669,38.21551346,Rural,20.44292641
+F,He finds out that she has been unfaithful,23.53239015,22.89717969,46.42956984,Rural,43.76920319
+G,She does not take care of the children,23.07434346,23.15812509,46.23246855,Rural,30.29296494
+H,She goes out without his permission,43.9169399,27.04855045,70.96549035,Rural,0
+,,0,0,0,Gap,0
+,"In your opinion, can a married woman refuse to ",0,0,0,Gap,0
+,have sex with her husband if:,0,0,0,Gap,0
+A,She does not want to,61.1471492,0,61.1471492,Total,48.4
+B,Her husband is intoxicated (drugs etc.),72.20877235,0,72.20877235,Total,59.4
+C,She is sick,75.14630108,0,75.14630108,Total,64
+D,Her husband mistreats her,69.77100507,0,69.77100507,Total,58.5
+A,She does not want to,67.33154342,0,67.33154342,Urban,55.8
+B,Her husband is intoxicated (drugs etc.),80.81327261,0,80.81327261,Urban,66.7
+C,She is sick,83.18685012,0,83.18685012,Urban,70.1
+D,Her husband mistreats her,77.66546885,0,77.66546885,Urban,65.4
+A,She does not want to,61.8064942,0,61.8064942,Rural,43.9
+B,Her husband is intoxicated (drugs etc.),74.28721588,0,74.28721588,Rural,55
+C,She is sick,77.55425473,0,77.55425473,Rural,60.2
+D,Her husband mistreats her,72.31019134,0,72.31019134,Rural,54.3
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,83.18685012,,70.1

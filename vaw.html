@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <title>Economic and Social Wellbeing of Women</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+
+    <script src="//d3js.org/d3.v5.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="./animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./visCSS/sunburst.css">
+    <script src="granim.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script src="./js/tools/selectize/js/standalone/selectize.js"></script>
+    <link rel="stylesheet" type="text/css" href="./js/tools/selectize/css/selectize.css">
+
+  </head>
+
+  <body>
+    <div class='applicationWrap' onclick="void(0)">
+      <div class="nav_container">
+        <div id="overlay_menu">
+          <div class="contentContain">
+            <div class="navbar">
+              <div class="pcsw">
+                <img src="./resources/logo.png" alt="Punjab Commission on the status of women" class="pcswlogo"></img>
+                <div>
+                  <p class="pcswName">PUNJAB COMMISSION ON THE</p>
+                  <p class="pcswName">STATUS OF WOMEN</p>
+                </div>
+              </div>
+              <img id="closeIcon" class="nav_menu_icon" src="./resources/close.png"/>
+            </div>
+            <div class="nav_section">
+              <div class="nav_link_section">
+                <div class="nav_link">
+                  <p id="link1" class="link_text sunburstButt">LABOR FORCE AND EMPLOYMENT</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link2" class="link_text vaw">VIOLENCE AGAINST WOMEN</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link3" class="link_text youth">YOUTH</p>
+                </div>
+              </div>
+              <div class="nav_link_section">
+                <div class="nav_link">
+                  <p id="link4" class="link_text finInc">FINANCIAL INCLUSION</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link5" class="link_text min">MINORITIES</p>
+                </div>
+                <div class="nav_link">
+                  <p id="link6" class="link_text districtLevel">DISTRICT LEVEL OVERVIEW</p>
+                </div>
+              </div>
+              <div class="logos_section">
+                <p class="logos_section_title">OUR PARTNERS</p>
+                <div class="logos">
+                  <img class="punjabgov" src="./resources/govpunjab.png"></img>
+                  <img class="dfid" src="./resources/logo-53-dfid.png"></img>
+                  <img class="unfpa" src="./resources/unfpa_logo.png"></img>
+                </div>
+                <p class="copyright">Punjab Commission on the Status of Women | © 2019</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contentContain">
+          <div class="navbar">
+            <div class="pcsw">
+              <img src="./resources/logo.png" alt="Punjab Commission on the status of women" class="pcswlogo"></img>
+              <div>
+                <p class="pcswName">PUNJAB COMMISSION ON THE</p>
+                <p class="pcswName">STATUS OF WOMEN</p>
+              </div>
+            </div>
+            <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
+          </div>
+          <div class="visualization_title_container">
+            <p class="proj_title">Violance Against Women</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <div class="questions_wrapper">
+            <div class="questions_header">
+              <p class="guiding_head">Guiding questions</p>
+            </div>
+            <div class="questions_container">
+              <p class="section_question">How are physical, sexual and psychological violence by spouse related?</p>
+            </div>
+          </div>
+          <div class="text_container">
+            <p class="section_text">Data collected in ESW 2018 survey reveals that different forms of spousal violence are related. The co-occurrence of physical, sexual and psychological violence by spouse can be studied by the Venn diagram below.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_text">Each circle represents a form of violence and its radius denotes the relative occurrence of that form of violence. The overlapping areas represent the relative co-occurrence between different violence forms.  For example it can be seen that 5% of ever married women in Punjab experienced psychological, physical as well as sexual violence by spouse.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_text">This significant overlaps between different violence forms calls for an urgent need for policy interventions to spread awareness and discourage all forms of spousal violence.</p>
+          </div>
+          <div class="vaw_venn_wrapper">
+            <div id="vaw_venn_container_main">
+              <h2 class="vis_heading">Different forms of Spousal Violence against ever married women are related</h2>
+              <iframe data-aos="zoom-out" src="./venn.html" frameBorder="0" scrolling="no" style="width: 100%; height : 550px" id="vennFrame">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <div class="questions_wrapper">
+            <div class="questions_header">
+              <p class="guiding_head">Guiding questions</p>
+            </div>
+            <div class="questions_container">
+              <p class="section_question">What are women’s attitudes towards VAW and how do they compare to men’s attitudes?</p>
+            </div>
+          </div>
+          <div class="text_container">
+            <p class="section_text">But while designing interventions that combat all forms of violence against women, discouraging attitudes that support or reinforce violence provides a major policy challenge. In ESW Survey 2018, data was collected on women’s attitudes towards physical and sexual violence by spouse.</p>
+          </div>
+          <div class="text_container">
+            <p class="section_text">All respondants aged 15-64 were asked if their husband has a good reason to hit them in certain stated situations. Women’s responses at a district level can be investigated through heat map below. The grid has district on the vertical axis and different situations (coded by alphabets) on the horizontal axis. The percentage is encoded by color depth. The visualization also shows the actual incidence of physical violence in the districts through bubbles on the right so that women’s attitudes towards physical violence and incidence of physical spousal violence can be compared.</p>
+          </div>
+
+          <div class="vaw_heat_wrapper">
+            <h2 class="vis_heading">Attitudes of women towards physical violence by spouse</h2>
+            <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
+              <select id="filterHeat" style="width: 250px; border-radius: 8px;">
+                <option class="updateheat" value="Divisions">By Divisions</option>
+                <option class="updateheat" value="For any of these six reasons">For any of these six reasons</option>
+                <option class="updateheat" value="Physical Violence - Last 12 months">Physical Violence - Last 12 months</option>
+                <option class="updateheat" value="Physical Violence - Ever">Physical Violence - Ever</option>
+              </select>
+            </div>
+            <div id="vaw_heat_container_main">
+              <div id="vaw_heat_container" data-aos="fade-in" data-aos-delay="100">
+              </div>
+              <div id="vaw_heat_description" data-aos="fade-in" data-aos-delay="100">
+                <div id = "perceptionStuff">
+                  <h4>Attitudes towards physical violence by spouse</h4>
+                  <h5>Percentage of women aged 15-64 years who believe that a husband has a good reason to hit his wife if: </h5>
+                </div>
+                <div id = "violOccurenceStuff">
+                  <h4>Occurence of Physical violence by Spouse</h4>
+                </div>
+                <div id = "legendsContain">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text_container">
+            <p class="section_text">A similar heatmap for ever married women’s attitudes towards sexual violence by spouse: </p>
+          </div>
+
+          <div class="vaw_heat_SV_wrapper">
+            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
+              <select id="filterHeatSV" style="width: 250px; border-radius: 8px;">
+                <option value="Divisions">By Divisions</option>
+                <option value="For any of these four reasons">For any of these four reasons</option>
+                <option value="Sexual Violence - Last 12 months">Sexual Violence - Last 12 months</option>
+                <option value="Sexual Violence - Ever">Sexual Violence - Ever</option>
+              </select>
+            </div>
+            <div id="vaw_heat_SV_container_main">
+              <div id="vaw_heat_SV_container" data-aos="fade-in" data-aos-delay="100">
+              </div>
+              <div id="vaw_heat_SV_description" data-aos="fade-in" data-aos-delay="100">
+                <div id = "perceptionStuffSV">
+                  <h4>Attitudes towards sexual violence by spouse</h4>
+                  <h5>In your opinion, can a married woman refuse to have sex with her husband if: </h5>
+                </div>
+                <div id = "violOccurenceStuffSV">
+                  <h4>Occurence of Sexual violence by Spouse</h4>
+                </div>
+                <div id = "legendsContainSV">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="vis_wrapper">
+        <div class="contentContain">
+          <div class="text_container">
+            <p class="section_text">We can also compare women’s attitudes towards spousal violence with those of men. However, a caveat must be shared here, response options for the women and the men survey are slightly different.</p>
+          </div>
+
+          <div class="text_container" style="display: flex; justify-content: center;">
+            <div class="table" data-aos="fade-in" data-aos-delay="100">
+              <div class="tableheading">
+                <div class="heading">
+                  <p class="nomargin">Men</p>
+                </div>
+                <div class="heading">
+                  <p class="nomargin">Women</p>
+                </div>
+              </div>
+              <div class="tableValues">
+                <div class="tableVal" style="border-right: 2px solid; border-color: rgba(142,36,170,1);">
+                  <p style="margin: 2px 0px; margin-top: 5px;">Agree</p>
+                  <p style="margin: 2px 0px;">Partially agree</p>
+                  <p style="margin: 2px 0px;">Disagree</p>
+                  <p style="margin: 2px 0px; margin-bottom: 5px;">Don’t know</p>
+                </div>
+                <div class="tableVal">
+                  <p style="margin: 2px 0px; margin-top: 5px;">Agree</p>
+                  <p style="margin: 2px 0px;">Neutral</p>
+                  <p style="margin: 2px 0px;">Disagree</p>
+                  <p style="margin: 2px 0px; margin-bottom: 5px;">Don’t know</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vaw_perception_wrapper" data-aos="fade-in" data-aos-delay="300">
+            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <div id="vaw_perception_container_main">
+              <div id="vaw_perception_controls">
+                <div id="selectorContain" style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px;">
+                  <select id="filterArea" style="width: 100px;">
+                    <option class="updateheat" value="Total">Total</option>
+                    <option class="updateheat" value="Urban">Urban</option>
+                    <option class="updateheat" value="Rural">Rural</option>
+                  </select>
+                  <input id="partial" type="checkbox" style="margin-left: 8px;" name="partial agree" value="Include Partially Agree">Include Partially Agree<br>
+                </div>
+              </div>
+              <div id="vaw_perception_container">
+                <svg id='vaw_perception_svg' style="font-family: 'Source Sans Pro', sans-serif;">
+                </svg>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="footer_contain">
+        <div class="district_link_container">
+          <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
+          <p class="view_districts districtLevel" data-aos="fade-in" data-aos-delay="800">View district level indicator overview</p>
+        </div>
+        <footer class="footer">
+          <p class="footer_item pcsw_footer">Punjab Commision on the Status of Women</p>
+          <div class="pcsw_contact">
+            <p class="officeContact footer_item"><i class="fas fa-map-marker-alt"></i>88 Shadman II, Lahore</p>
+            <p class="officeContact footer_item"><i class="fas fa-phone"></i>+92 42 99268000-4</p>
+          </div>
+          <div class="socIcons footSocIcons">
+            <i class="fab footer_item fa-facebook-f socIcon facebookSoc"></i>
+            <i class="fab footer_item fa-twitter socMidIcon socIcon twitterSoc"></i>
+            <i class="fas footer_item fa-link socIcon webSoc"></i>
+          </div>
+          <canvas id="granim-canvas-footer"></canvas>
+          <div class="footer_partners">
+            <img class="footer_icon" src="./resources/footerComm.png"></img>
+            <img class="footer_icon" src="./resources/footerGov.png"></img>
+            <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
+            <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
+            <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+            <div class="designBy">
+              <p class="plotree">Designed by Plotree Info Design</p>
+              <img class="footer_icon_p plotree" src="./resources/logoAlone.svg"></img>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <template id="p-tooltip">
+      <div class="s-p__tooltip">
+        <div class="s-p__tooltip-header">
+          <h1><span>District : </span><span class="sp-data"></span></h1>
+        </div>
+        <div class="s-p__tooltip-body">
+          <p style="display: flex">Category: <span class="s-p__value-cat sp-data" style="text-align: end;padding-left: 10px"></span></p>
+          <p>Value: <span class="s-p__value-val sp-data"></span></p>
+        </div>
+      </div>
+    </template>
+    <script src="./js/tooltip.js"></script>
+    <script src="./menu.js"></script>
+    <script src="./js/heatmapBub.js"></script>
+    <script src="./js/heatmapBubSV.js"></script>
+    <script src ="./js/pyramidAtt.js"></script>
+
+
+    <script>
+      createSVHeatMap();
+
+      var granimInstance = new Granim({
+         element: '#granim-canvas-footer',
+         name: 'granim',
+         direction: 'diagonal',
+         opacity: [1, 1],
+         states : {
+             "default-state": {
+                 gradients: [
+                     ['#EE5930', '#FFA726'],
+                     ['#8e24aa', '#ba68c8'],
+                     ['#BC3626', '#F6AF32']
+                 ]
+             }
+         }
+      });
+
+      $('#filterHeat').selectize({
+        onChange: function(value) {
+          let newDat = sortDistDesc(dataToPlayGlob, value);
+          upDate(newDat);
+        }
+      });
+
+      var partialAgree = false;
+      var areaSelect = "Total";
+
+      $("#partial").click(function() {
+        if (partialAgree === true) {
+          partialAgree = false;
+        }
+        else if (partialAgree === false) {
+          partialAgree = true;
+        }
+        transBars(areaSelect, 800, partialAgree);
+      });
+
+      $('#filterArea').selectize({
+        onChange: function(value) {
+          areaSelect = value;
+          transBars(value, 800, partialAgree);
+        }
+      });
+
+
+      $(window).on("load", function() {
+        if (window.innerWidth > 775) {
+          setTimeout(function () {
+            $('#preTitle').show().addClass('animated fadeIn');}, 75
+          );
+          setTimeout(function () {
+            $('.titleLarge').show().addClass('animated fadeIn');}, 85
+          );
+
+          setTimeout(function () {
+            $('#followTitle').show().addClass('animated fadeIn');}, 95
+          );
+          setTimeout(function () {
+            $('.fadeMeRight').show().addClass('animatedLonger fadeInRightPic');}, 375
+          );
+        }
+        else {
+          setTimeout(function () {
+            $('#preTitle').show().addClass('animated fadeInUp');}, 75
+          );
+          setTimeout(function () {
+            $('.titleLarge').show().addClass('animated fadeInUp');}, 95
+          );
+
+          setTimeout(function () {
+            $('#followTitle').show().addClass('animated fadeInUp');}, 115
+          );
+          setTimeout(function () {
+            $('.fadeMeRight').show().addClass('animatedLonger fadeIn');}, 75
+          );
+        }
+        setTimeout(function () {
+          $('.fadeinup').show().addClass('animated fadeIn');}, 1500
+        );
+
+        AOS.init();
+      });
+
+      function resize() {
+        if (window.innerWidth > 875) {
+          $('.footer_link_image').attr('data-aos', 'fade-left');
+        }
+        else {
+          $('.footer_link_image').attr('data-aos', 'fade-in');
+        }
+      }
+      resize();
+      window.onresize = resize;
+
+      $(".facebookSoc").click(function() {
+        window.open('https://www.facebook.com/pcswpb', '_blank');
+      });
+
+      $(".twitterSoc").click(function() {
+        window.open('https://twitter.com/pcswpb', '_blank');
+      });
+
+      $(".webSoc").click(function() {
+        window.open('https://pcsw.punjab.gov.pk/', '_blank');
+      });
+
+      $(".plotree").click(function() {
+        window.open('https://plotree.studio', '_blank');
+      });
+
+      $(".sunburstButt").click(function() {
+        window.location = "./sunburst.html";
+      });
+
+      $(".vaw").click(function() {
+        window.location = "./vaw.html";
+      });
+
+      $(".districtLevel").click(function() {
+        window.location = "./districts.html";
+      });
+
+      $(".youth").click(function() {
+        window.location = "./youth.html";
+      });
+
+      $(".pcsw").click(function() {
+        window.location = "./";
+      });
+
+      $(".finInc").click(function() {
+        window.location = "./financialInc.html";
+      });
+
+      $(".min").click(function() {
+        window.location = "./minorities.html";
+      });
+
+      function resizeIframe(obj){
+         obj.style.height = 0;
+         obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50)+ 'px';
+      }
+
+      //resizeIframe(document.getElementById('vennFrame'));
+      window.onresize = function(){
+        resizeIframe(document.getElementById('vennFrame'));
+      };
+    </script>
+  </body>
+</html>

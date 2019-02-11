@@ -25,6 +25,27 @@ body {
   position: relative;
 }
 
+.inverted_page {
+  padding-top: 25px;
+  background: #212121;
+  color: white;
+  margin-bottom: -150px;
+  padding-bottom: 150px;
+}
+
+.stat_container {
+  padding: 20px;
+  background: #eee;
+  border-radius: 10px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.district_container {
+  background: linear-gradient(145deg, #EE5930 0%, rgba(255, 87, 34, 1) 100%);
+}
+
+
 #granim-canvas, #granim-canvas-footer, #nav_anim-canvas {
   position: absolute;
   top: 0;
@@ -164,9 +185,10 @@ body {
 }
 
 #overlay_menu {
-  position: absolute;
+  position: fixed;
   display: none;
   top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -252,8 +274,8 @@ body {
 
 
 .overlay_sunburst {
-  background-color: #616161;
-  opacity: 0.8;
+  background-color: #263238;
+  opacity: 0.875;
   border-radius: 0px;
   display: flex;
   align-items: center;
@@ -266,8 +288,12 @@ body {
 
 .textOverlay {
   color: white;
-  margin: 80px;
+  margin: 20px 80px;
   font-size: 20px;
+}
+
+.projDesc {
+  font-size: 18px;
 }
 
 .half {
@@ -414,6 +440,29 @@ body {
   font-size: 18px;
 }
 
+.footer_partners {
+  position: absolute;
+  height: 90px;
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 160px);
+}
+
+.footer_icon {
+  height: 80px;
+}
+
+.footer_icon_small {
+  height: 50px;
+}
+
+.footer_icon_p {
+  height: 35px;
+  margin-left: 8px;
+
+}
+
 .visualization_title_container {
   height: 210px;
   display: flex;
@@ -454,6 +503,70 @@ body {
   margin: 0px;
 }
 
+.section_question {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 10px 0px;
+  font-family: 'Frank Ruhl Libre', serif;
+  color: #455A64;
+}
+
+.section_note {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.section_text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.questions_wrapper {
+  margin: 50px 130px;
+  display: flex;
+}
+
+.questions_container {
+  width: 80%;
+  padding-left: 15px;
+  border-left: 3px solid;
+  border-color: rgba(142,36,170,1);
+}
+
+.text_container {
+  margin: 20px 85px;
+}
+
+.vis_heading {
+  margin: 50px 0px;
+  text-align: center;
+}
+
+.vis_parent {
+  margin-top: 50px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-color: rgba(142,36,170,1);
+}
+
+.orange_bar {
+  border-color: #9E9E9E;
+}
+
+.guiding_head {
+  font-weight: 600;
+  color: rgba(142,36,170,1);
+}
+
+.questions_header {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #neet_tree_container {
   margin-top: 45px;
 }
@@ -462,7 +575,8 @@ body {
   display: flex;
   position: fixed;
   flex-direction: column;
-  width: 260px;
+  max-width: 335px;
+  min-width: 250px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 8px;
@@ -504,6 +618,172 @@ body {
 
 .sankey_filters {
   display: flex;
+  justify-content: center;
+}
+
+#vaw_heat_container_main, #vaw_heat_SV_container_main {
+  display: flex;
+  flex-direction: row;
+}
+
+#vaw_heat_container, #vaw_heat_SV_container {
+  width: 65%;
+}
+
+#vaw_heat_description, #vaw_heat_SV_description  {
+  width: 35%;
+}
+
+#scatter_container_main, #bubble_container_main, #heat_container_main {
+  display: flex;
+}
+
+#scatter_container, #bubble_container, #heat_container {
+  width: 65%;
+}
+
+#scatter_controls, #bubble_controls, #heat_controls {
+  width: 35%;
+}
+
+#legendsContain, #legendsContainSV {
+  width: 80%;
+}
+
+.table {
+  border: 2px solid;
+  border-color: rgba(142,36,170,1);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 75%;
+  margin: 10px 0px;
+}
+
+.tableheading {
+  display: flex;
+  padding: 12px 0px;
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+}
+
+.heading {
+  width: 50%;
+  text-align: center;
+}
+
+.tableValues {
+  display: flex;
+}
+
+.tableVal {
+  width: 50%;
+  text-align: center;
+}
+
+.CategListElem {
+  font-size: 12px;
+}
+
+.categLabel {
+  font-weight: 700;
+}
+
+.div_diagram_wrapper {
+  display: flex;
+}
+
+.div_diagram_section {
+  width: 50%;
+  margin: 8px 10px;
+}
+
+.div_diagram_half_section {
+  width: 50%;
+  display: flex; flex-direction: column;
+}
+
+.div_diagram_full_section {
+  width: 100%;
+  text-align: center;
+  border-radius: 50px;
+  margin: 3px 0px;
+  padding: 6px 0px;
+  color: white;
+}
+
+.div_diagram_title {
+  padding: 10px 0px;
+}
+
+.purple {
+  background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
+}
+
+.orange {
+  background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
+}
+
+.plotree {
+  cursor: pointer;
+}
+
+#radar_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#radar_container {
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+#fin_pyramid_container {
+  max-width: 950px;
+  margin: 0px auto;
+}
+
+#fin_decision_container {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+#vaw_perception_container {
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+.designBy {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+}
+
+@media only screen and (min-width: 1650px) {
+  .contentContain {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  .footer_partners {
+    width: calc(100% - 400px);
+  }
+}
+
+@media only screen and (max-width: 1365px) {
+  #vaw_heat_container_main, #vaw_heat_SV_container_main {
+    justify-content: space-between;
+  }
+
+  #vaw_heat_container, #vaw_heat_SV_container {
+    width: 65%;
+  }
+
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    width: 28%;
+  }
 }
 
 @media only screen and (max-width: 1250px) {
@@ -523,8 +803,42 @@ body {
   #sequence {
     height: 80px;
   }
+  #vaw_heat_container, #vaw_heat_SV_container {
+    width: 65%;
+  }
+
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    width: 20%;
+  }
 }
 
+@media only screen and (max-width: 1150px) {
+  #vaw_heat_container_main, #vaw_heat_SV_container_main {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #vaw_heat_container, #vaw_heat_SV_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 37%;
+  }
+
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 90px;
+  }
+}
 
 
 @media only screen and (max-width: 1100px) {
@@ -535,7 +849,10 @@ body {
     margin-left: 25px;
   }
   .textOverlay {
-    margin: 40px;
+    margin: 10px 40px;
+  }
+  .projDesc {
+    font-size: 16px;
   }
   .project_image_container {
     margin-left: 40px;
@@ -559,6 +876,10 @@ body {
 
   .unfpa {
     width: 160px;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 30%;
   }
 }
 
@@ -587,7 +908,37 @@ body {
   .unfpa {
     width: 140px;
   }
-  #
+  .text_container {
+    margin: 20px 40px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 45px;
+  }
+  .questions_wrapper {
+    margin: 50px 50px;
+  }
+  #bubble_container_main, #scatter_container_main, #heat_container_main {
+    flex-direction: column-reverse;
+  }
+  #scatter_container, #bubble_container, #heat_container {
+    width: 100%;
+    margin-top: 60px;
+  }
+  #scatter_controls, #bubble_controls, #heat_controls {
+    width: 50%;
+  }
+  .div_digram_text {
+    font-size: 14px;
+  }
+  .designBy {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 0px 11px;
+  }
+  .footer_partners {
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 775px) {
@@ -619,7 +970,10 @@ body {
     flex-direction: column-reverse;
   }
   .textOverlay {
-    margin: 80px;
+    margin: 20px 80px;
+  }
+  .projDesc {
+    font-size: 16px;
   }
   .project_image_container {
     margin-left: 80px;
@@ -647,6 +1001,15 @@ body {
   .sunburst_midbutt {
     margin: 10px 5px;
   }
+  .text_container {
+    margin: 20px 30px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 35px;
+  }
+  .div_digram_text {
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -654,6 +1017,10 @@ body {
     margin-left: 40px;
     margin-right: 40px;
   }
+  .footer_partners {
+    width: calc(100% - 80px);
+  }
+
   .pcswName {
     display: none;
   }
@@ -665,7 +1032,10 @@ body {
     margin-bottom: 10px;
   }
   .textOverlay {
-    margin: 40px;
+    margin: 10px 40px;
+  }
+  .projDesc {
+    font-size: 16px;
   }
   .project_image_container {
     margin-left: 40px;
@@ -695,6 +1065,49 @@ body {
   .copyright {
     font-size: 14px;
   }
+  .text_container {
+    margin: 20px 20px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 25px;
+  }
+  .questions_wrapper {
+    flex-direction: column;
+  }
+  .questions_container {
+    border-top: 2px solid;
+    border-left: 0px;
+    width: 100%;
+    padding-left: 0px;
+  }
+  .questions_header {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .table {
+    width: 100%;
+  }
+  .div_diagram_wrapper {
+    flex-direction: column;
+  }
+  .div_diagram_section {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .footer_icon {
+    height: 50px;
+  }
+
+  .footer_icon_small {
+    height: 30px;
+  }
+
+  .footer_icon_p {
+    height: 20px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -702,12 +1115,17 @@ body {
     margin-left: 20px;
     margin-right: 20px;
   }
+
+  .footer_partners {
+    width: calc(100% - 40px);
+  }
+
   .titleLarge {
     margin-top: 3px;
     margin-bottom: 3px;
   }
   .textOverlay {
-    margin: 20px;
+    margin: 8px 20px;
   }
   .project_image_container {
     margin-left: 20px;
@@ -727,6 +1145,15 @@ body {
   }
   .dfid, .unfpa, .punjabgov {
     height: 50%;
+  }
+  .text_container {
+    margin: 20px 8px;
+  }
+  #vaw_heat_description, #vaw_heat_SV_description  {
+    margin: 0px 8px;
+  }
+  #scatter_controls, #bubble_controls, #heat_controls {
+    width: 80%;
   }
 }
 
@@ -762,6 +1189,17 @@ body {
   .sunburst_button {
     width: 50px;
     font-size: 10px;
+  }
+  .proj_title {
+    text-align: center;
+  }
+
+  #scatter_controls, #bubble_controls, #heat_controls {
+    width: 100%;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 40%;
   }
 }
 

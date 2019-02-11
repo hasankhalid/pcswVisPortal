@@ -1,7 +1,7 @@
 /*jshint esversion: 6*/
 function Tooltip({
 	idPrefix = 'tooltip',
-	dataId,
+	dataId = 'ttIndex',
 	templateSelector,
 	selectorDataMap,
 	stylingFunc = function(){},
@@ -10,8 +10,23 @@ function Tooltip({
 	defaultHeight = 200
 } = {}){
 
+	function getCounter(){
+		var val = 1;
+
+		return {
+			getVal : function(){
+				return val++;
+			}
+		};
+	}
+
+	var counter = getCounter();
 
 	function createTooltip(d, event){
+		if(!d[dataId]){
+			d[dataId] = counter.getVal();
+		}
+
 		var tooltipElement = document.getElementById(idPrefix + d[dataId]);
 		if(!tooltipElement){
 
@@ -33,6 +48,7 @@ function Tooltip({
 			let finalPos = getToolTipPosition(event, tooltip.node());
 
 			tooltip
+					.style('z-index',10000)
 					.style('left', finalPos[0] + 'px')
 					.style('top', finalPos[1] + 'px')
 					.transition()

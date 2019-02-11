@@ -7,7 +7,7 @@ d3.csv('./js/files/data.csv').then((data)=>{
 
 	state.originalData = data;
 	var neetData = data.filter((d)=>d.ageGroup==='15-24')
-						.filter((d)=>{return d.education === "Intermediate" || d.education === "Graduation" || d.education === "Masters or above" ;});
+						.filter((d)=>{return ["Intermediate","Graduation","Masters or above"].includes(d.education);});
 	state.currData = neetData;
 	state.originalData = neetData;
 	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
