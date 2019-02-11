@@ -6,7 +6,7 @@
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
 
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
@@ -106,10 +106,10 @@
             <p class="section_text">Data collected in ESW 2018 survey reveals that different forms of spousal violence are related. The co-occurrence of physical, sexual and psychological violence by spouse can be studied by the Venn diagram below.</p>
           </div>
           <div class="text_container">
-            <p class="section_text">Each circle represents a form of violence and its radius denotes the relative occurrence of that form of violence. The overlapping areas represent the relative co-occurrence between different violence forms.  For example it can be seen that 5% of ever married women in Punjab experienced psychological, physical as well as sexual violence by spouse.</p>
+            <p class="section_text">Each circle represents a form of violence and its area denotes the relative occurrence of that form of violence. The overlapping areas represent the relative co-occurrence between different violence forms.  For example it can be seen that 5.2% of ever married women in Punjab experienced psychological, physical as well as sexual violence by spouse.</p>
           </div>
           <div class="text_container">
-            <p class="section_text">This significant overlaps between different violence forms calls for an urgent need for policy interventions to spread awareness and discourage all forms of spousal violence.</p>
+            <p class="section_text">This significant overlap between different violence forms calls for an urgent need for policy interventions to spread awareness and discourage all forms of spousal violence.</p>
           </div>
           <div class="vaw_venn_wrapper">
             <div id="vaw_venn_container_main">
@@ -128,20 +128,21 @@
               <p class="guiding_head">Guiding questions</p>
             </div>
             <div class="questions_container">
-              <p class="section_question">What are women’s attitudes towards VAW and how do they compare to men’s attitudes?</p>
+              <p class="section_question">What are women’s attitudes towards 'violence against women' and how do they compare to men’s attitudes?</p>
             </div>
           </div>
           <div class="text_container">
-            <p class="section_text">But while designing interventions that combat all forms of violence against women, discouraging attitudes that support or reinforce violence provides a major policy challenge. In ESW Survey 2018, data was collected on women’s attitudes towards physical and sexual violence by spouse.</p>
+            <p class="section_text">While designing interventions that combat all forms of violence against women, it is also important to discourage attitudes that support or reinforce violence against women. In ESW Survey 2018, data was collected on women’s (woman baseline survey) as well as men's (men's survey) attitudes towards physical and sexual violence by spouse.</p>
           </div>
           <div class="text_container">
-            <p class="section_text">All respondants aged 15-64 were asked if their husband has a good reason to hit them in certain stated situations. Women’s responses at a district level can be investigated through heat map below. The grid has district on the vertical axis and different situations (coded by alphabets) on the horizontal axis. The percentage is encoded by color depth. The visualization also shows the actual incidence of physical violence in the districts through bubbles on the right so that women’s attitudes towards physical violence and incidence of physical spousal violence can be compared.</p>
+            <p class="section_text">For example, all women respondants aged 15-64 were asked if in their opinion, a husband had a good reason to hit their wives in certain specific situations. Women’s responses at a district level can be investigated through heat map below. The grid has district on the vertical axis and specific situations (coded by alphabets) on the horizontal axis. The percentage (who agree) is encoded by color depth. The visualization also shows the actual incidence of physical violence in the districts through bubbles on the right.</p>
           </div>
 
           <div class="vaw_heat_wrapper">
             <h2 class="vis_heading">Attitudes of women towards physical violence by spouse</h2>
             <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
-              <select id="filterHeat" style="width: 250px; border-radius: 8px;">
+              <p style="font-size: 12px; font-weight: 700; margin-right: 8px">Sort By</p>
+              <select id="filterHeat" style="width: 225px; border-radius: 8px;">
                 <option class="updateheat" value="Divisions">By Divisions</option>
                 <option class="updateheat" value="For any of these six reasons">For any of these six reasons</option>
                 <option class="updateheat" value="Physical Violence - Last 12 months">Physical Violence - Last 12 months</option>
@@ -154,10 +155,10 @@
               <div id="vaw_heat_description" data-aos="fade-in" data-aos-delay="100">
                 <div id = "perceptionStuff">
                   <h4>Attitudes towards physical violence by spouse</h4>
-                  <h5>Percentage of women aged 15-64 years who believe that a husband has a good reason to hit his wife if: </h5>
+                  <h5>Percentage of women aged 15-64 years who agree that a husband has a good reason to hit his wife if: </h5>
                 </div>
                 <div id = "violOccurenceStuff">
-                  <h4>Occurence of Physical violence by Spouse</h4>
+                  <h4>Occurence of physical violence by spouse</h4>
                 </div>
                 <div id = "legendsContain">
                 </div>
@@ -172,7 +173,8 @@
           <div class="vaw_heat_SV_wrapper">
             <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
             <div id="selectorContain" style="display: flex; justify-content: center; margin-bottom: 25px;">
-              <select id="filterHeatSV" style="width: 250px; border-radius: 8px;">
+              <p style="font-size: 12px; font-weight: 700; margin-right: 8px">Sort By</p>
+              <select id="filterHeatSV" style="width: 225px; border-radius: 8px;">
                 <option value="Divisions">By Divisions</option>
                 <option value="For any of these four reasons">For any of these four reasons</option>
                 <option value="Sexual Violence - Last 12 months">Sexual Violence - Last 12 months</option>
@@ -185,10 +187,10 @@
               <div id="vaw_heat_SV_description" data-aos="fade-in" data-aos-delay="100">
                 <div id = "perceptionStuffSV">
                   <h4>Attitudes towards sexual violence by spouse</h4>
-                  <h5>In your opinion, can a married woman refuse to have sex with her husband if: </h5>
+                  <h5>Percentage of ever-married women aged 15-64 years who agree that a married woman can refuse to have sex with her husband if: </h5>
                 </div>
                 <div id = "violOccurenceStuffSV">
-                  <h4>Occurence of Sexual violence by Spouse</h4>
+                  <h4>Occurence of sexual violence by spouse</h4>
                 </div>
                 <div id = "legendsContainSV">
                 </div>
@@ -202,7 +204,8 @@
       <div class="vis_wrapper">
         <div class="contentContain">
           <div class="text_container">
-            <p class="section_text">We can also compare women’s attitudes towards spousal violence with those of men. However, a caveat must be shared here, response options for the women and the men survey are slightly different.</p>
+            <p class="section_text">A comparison can also be made between women's and men's responses.</p>
+            <p class="section_text">However, a caveat must be shared here. Both men and women were asked the question, "In your opinion, does a husband have a good reason to hit his wife if:" for different specific situations. For each situation, response options for the women and the men survey were slightly different (listed below).</p>
           </div>
 
           <div class="text_container" style="display: flex; justify-content: center;">
@@ -232,21 +235,26 @@
             </div>
           </div>
 
+          <div class="text_container">
+            <p class="section_text">Given the difference in response options for men and women, the readers have also been given the option to include 'partially agree' responses for men while making comparisons.</p>
+          </div>
+
           <div class="vaw_perception_wrapper" data-aos="fade-in" data-aos-delay="300">
-            <h2 class="vis_heading">Attitudes of ever married women towards physical violence by spouse</h2>
+            <h2 class="vis_heading">Comaparing men's and women's attitude towards spousal violence</h2>
             <div id="vaw_perception_container_main">
               <div id="vaw_perception_controls">
                 <div id="selectorContain" style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px;">
+                  <p style="font-size: 12px; font-weight: 700; margin-right: 8px">Area</p>
                   <select id="filterArea" style="width: 100px;">
                     <option class="updateheat" value="Total">Total</option>
                     <option class="updateheat" value="Urban">Urban</option>
                     <option class="updateheat" value="Rural">Rural</option>
                   </select>
-                  <input id="partial" type="checkbox" style="margin-left: 8px;" name="partial agree" value="Include Partially Agree">Include Partially Agree<br>
+                  <input id="partial" type="checkbox" style="margin-left: 8px;" name="partial agree" value="Include Partially Agree"><span style="font-family: 'Open Sans Condensed', sans-serif; font-size: 12px; font-weight: 600;">Include Partially Agree (For men)</span><br>
                 </div>
               </div>
               <div id="vaw_perception_container">
-                <svg id='vaw_perception_svg' style="font-family: 'Source Sans Pro', sans-serif;">
+                <svg id='vaw_perception_svg' style="font-family: 'Open Sans Condensed', sans-serif;">
                 </svg>
               </div>
             </div>
@@ -304,6 +312,7 @@
 
 
     <script>
+      createPVHeatmap();
       createSVHeatMap();
 
       var granimInstance = new Granim({

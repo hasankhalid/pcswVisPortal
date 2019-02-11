@@ -1,4 +1,4 @@
-
+function createPVHeatmap(){
   let dataToPlayGlob;
   let distScale, categScale, colScale, radScale, categLabelScale, divColScale
 
@@ -386,3 +386,4 @@
     'Khushab': 'Sargodha',
     'Mianwali': 'Sargodha'
   }
+}

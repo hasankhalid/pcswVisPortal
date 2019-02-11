@@ -664,6 +664,7 @@ body {
   display: flex;
   padding: 12px 0px;
   color: white;
+  width: 100.1%;
   font-size: 20px;
   background: linear-gradient(145deg, rgba(142,36,170,1) 0%, rgba(186,104,200,1) 100%);
 }
