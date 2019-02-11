@@ -21,7 +21,7 @@ d3.csv('./js/files/data.csv').then((data)=>{
 		width : 1300,
 		height : 800,
 		svgSelector : '#sankey_container svg',
-		columnNames : ['Employment','Employment Type','Industry', 'Barrier'],
+		columnNames : ['Employment','Employment Type','Industry', 'Major barrier'],
 		pToolTipConfig : {
 			idPrefix : 'p-tooltip',
 			dataId : 'index',

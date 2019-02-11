@@ -274,8 +274,8 @@ body {
 
 
 .overlay_sunburst {
-  background-color: #616161;
-  opacity: 0.8;
+  background-color: #263238;
+  opacity: 0.875;
   border-radius: 0px;
   display: flex;
   align-items: center;
@@ -446,6 +446,7 @@ body {
   padding-top: 50px;
   display: flex;
   align-items: center;
+  width: calc(100% - 160px);
 }
 
 .footer_icon {
@@ -454,6 +455,12 @@ body {
 
 .footer_icon_small {
   height: 50px;
+}
+
+.footer_icon_p {
+  height: 35px;
+  margin-left: 8px;
+
 }
 
 .visualization_title_container {
@@ -639,6 +646,10 @@ body {
   width: 35%;
 }
 
+#legendsContain, #legendsContainSV {
+  width: 80%;
+}
+
 .table {
   border: 2px solid;
   border-color: rgba(142,36,170,1);
@@ -713,15 +724,51 @@ body {
   background: linear-gradient(145deg, #EE5930 0%, #FFA726 100%);
 }
 
-#fin_decision_container_main, #fin_pyramid_container_main, #radar_container {
+.plotree {
+  cursor: pointer;
+}
+
+#radar_container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+#radar_container {
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+#fin_pyramid_container {
+  max-width: 950px;
+  margin: 0px auto;
+}
+
+#fin_decision_container {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+#vaw_perception_container {
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+.designBy {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0px;
 }
 
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
     margin-right: 200px;
+  }
+  .footer_partners {
+    width: calc(100% - 400px);
   }
 }
 
@@ -774,7 +821,13 @@ body {
   #vaw_heat_container, #vaw_heat_SV_container {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 37%;
   }
 
   #vaw_heat_description, #vaw_heat_SV_description  {
@@ -824,6 +877,10 @@ body {
   .unfpa {
     width: 160px;
   }
+
+  #legendsContain, #legendsContainSV {
+    width: 30%;
+  }
 }
 
 @media only screen and (max-width: 875px) {
@@ -872,6 +929,15 @@ body {
   }
   .div_digram_text {
     font-size: 14px;
+  }
+  .designBy {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 0px 11px;
+  }
+  .footer_partners {
+    flex-wrap: wrap;
   }
 }
 
@@ -951,6 +1017,10 @@ body {
     margin-left: 40px;
     margin-right: 40px;
   }
+  .footer_partners {
+    width: calc(100% - 80px);
+  }
+
   .pcswName {
     display: none;
   }
@@ -1026,11 +1096,30 @@ body {
   }
 }
 
+@media only screen and (max-width: 570px) {
+  .footer_icon {
+    height: 50px;
+  }
+
+  .footer_icon_small {
+    height: 30px;
+  }
+
+  .footer_icon_p {
+    height: 20px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .contentContain {
     margin-left: 20px;
     margin-right: 20px;
   }
+
+  .footer_partners {
+    width: calc(100% - 40px);
+  }
+
   .titleLarge {
     margin-top: 3px;
     margin-bottom: 3px;
@@ -1105,15 +1194,12 @@ body {
     text-align: center;
   }
 
-  .footer_icon {
-    height: 50px;
-  }
-
-  .footer_icon_small {
-    height: 30px;
-  }
   #scatter_controls, #bubble_controls, #heat_controls {
     width: 100%;
+  }
+
+  #legendsContain, #legendsContainSV {
+    width: 40%;
   }
 }
 

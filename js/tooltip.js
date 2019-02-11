@@ -48,6 +48,7 @@ function Tooltip({
 			let finalPos = getToolTipPosition(event, tooltip.node());
 
 			tooltip
+					.style('z-index',10000)
 					.style('left', finalPos[0] + 'px')
 					.style('top', finalPos[1] + 'px')
 					.transition()

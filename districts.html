@@ -230,10 +230,11 @@
                   <p class="subSectionHeading">Select Indicator</p>
                   <div class="input" style="margin-bottom: 20px">
                     <select id="heat_select">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="audi">Audi</option>
+                    </select>
+                  </div>
+                  <p class="subSectionHeading">Sort by Column</p>
+                  <div class="input" style="margin-bottom: 20px">
+                    <select id="heat_sort_select">
                     </select>
                   </div>
                   <div id="heat_legends">
@@ -272,6 +273,10 @@
             <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
             <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
             <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+            <div class="designBy">
+              <p class="plotree">Designed by Plotree Info Design</p>
+              <img class="footer_icon_p plotree" src="./resources/logoAlone.svg"></img>
+            </div>
           </div>
         </footer>
       </div>
@@ -370,6 +375,10 @@
 
       $(".webSoc").click(function() {
         window.open('https://pcsw.punjab.gov.pk/', '_blank');
+      });
+
+      $(".plotree").click(function() {
+        window.open('https://plotree.studio', '_blank');
       });
 
       $(".sunburstButt").click(function() {
@@ -542,11 +551,11 @@
           optionVals = optionVals || options;
 
           var elOptions = options.map(
-              function(o,i){
+              function(o,j){
                 if(defaultVals.includes(o) && o !== defaultVals[i]){
-                  return {name : o, text : o, value : optionVals[i], disable : true};
+                  return {name : o, text : o, value : optionVals[j], disable : true};
                 }else{
-                  return {name : o, text : o, value : optionVals[i], disable : false};
+                  return {name : o, text : o, value : optionVals[j], disable : false};
                 }
               }
             );
@@ -584,51 +593,14 @@
       }
 
       var heatMap;
-      d3.json('./js/files/heatMapData.json')
+      d3.json('./js/files/heatMapData1.json')
       .then(function(data){
         for(var i in data){
           var csvData = data[i].data;
-          data[i].heatMapData = csvData.map((d)=>{
-            var rVals = [];
-            for(var i in d){
-              if(i === 'District'){
-                continue;
-              }
-
-              rVals.push({
-                District : d.District,
-                Category : i.trim(),
-                Value : d[i]
-              });
-            }
-
-            return {
-              key : d.District,
-              rValues : rVals
-            };
-          });
+          data[i].heatMapData = getHeatMapData(csvData);
         }
 
         tData = data;
-
-        var columnNames = Object.values(data).map((d)=>d.title);
-        var columnVals = Object.keys(data);
-
-        initSelectize(columnNames,
-          {},
-          ['#heat_select'],
-          'heat-indicators',
-          function(e){
-            var newData = data[e.target.value].heatMapData;
-
-            heatMap.update(newData);
-          },
-          ['1.12'],
-          function(e){
-            //$('#scatterDivisions').text('Showing All Divisions');
-          },
-          columnVals
-        );
 
         var toolTipConfig = {
           idPrefix : 'p-tooltip',
@@ -657,8 +629,97 @@
           fontColor : '#fff'
         });
 
+        var columnNames = Object.values(data).map((d)=>d.title);
+        var columnVals = Object.keys(data);
+
+        initSelectize(columnNames,
+          {},
+          ['#heat_select'],
+          'heat-indicators',
+          function(e){
+            var newData = data[e.target.value].heatMapData;
+
+            //change sort select vals
+            var newSortOptions = newData[0].rValues.map((d)=>d.Category);
+            newSortOptions.push('District');
+            
+            newSortOptions = newSortOptions.map(function(o){
+              return {name : o, text : o, value : o, disable : false};
+            });
+
+            var sortSelect = $('#heat_sort_select')[0].selectize;
+
+            sortSelect.clear(true); 
+            sortSelect.clearOptions();
+
+            sortSelect.addOption(newSortOptions);
+
+            sortSelect.setValue('District', false);
+
+            heatMap.update(newData);
+          },
+          ['1.12'],
+          function(e){
+            //$('#scatterDivisions').text('Showing All Divisions');
+          },
+          columnVals
+        );
+
+        var initialSortOptions = data['1.12'].heatMapData[0].rValues.map((d)=>d.Category);
+        initialSortOptions.push('District');
+
+        initSelectize(initialSortOptions,
+          {},
+          ['#heat_sort_select'],
+          'heat-sort-indicators',
+          function(e){
+            var category = $('#heat_select').val();
+            var column = e.target.value; 
+
+            var newData;
+            if(column === 'District'){
+              newData = data[category].heatMapData;
+            }else{
+              var csvData = data[category].data;
+              csvData.sort(function(a,b){
+                return parseFloat(b[column]) - parseFloat(a[column]);
+              });
+
+              newData = getHeatMapData(csvData);
+            }
+
+            heatMap.sort(newData);
+          },
+          ['District'],
+          function(e){
+            //$('#scatterDivisions').text('Showing All Divisions');
+          }
+        );
+
         heatMap.create(data['1.12'].heatMapData);
       });
+
+      function getHeatMapData(data){
+        return data.map((d)=>{
+            var rVals = [];
+            for(var i in d){
+              if(i === 'District'){
+                continue;
+              }
+
+              rVals.push({
+                District : d.District,
+                Category : i.trim(),
+                Value : d[i]
+              });
+            }
+
+            return {
+              key : d.District,
+              rValues : rVals
+            };
+          });
+      }
 
     </script>
   </body>

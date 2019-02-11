@@ -100,8 +100,8 @@
             </div>
             <div class="questions_container">
               <p class="section_question">What is the labor force participation rate and employment rate of women in rural and urban areas of Punjab?</p>
-              <p class="section_question">How are the employed women in Punjab distributed across different sectors and industries?</p>
-              <p class="section_question">What is the share of different types of employment in different industries?</p>
+              <p class="section_question">How are the employed women in Punjab distributed across different education levels and industries?</p>
+              <p class="section_question">What is the share of different types of employment across industries?</p>
             </div>
           </div>
           <div class="text_container">
@@ -109,7 +109,7 @@
           </div>
           <div class="text_container">
             <ul>
-              <li class="section_text">The first layer represents ‘area’ and is partitioned into a larger arc for Rural and a smaller arc for urban, the size of the arcs proportional to their actual share in Punjab. Each arc also can be referred to as a node.</li>
+              <li class="section_text">The first layer represents ‘area’ and is partitioned into a larger arc for rural and a smaller arc for urban area, the size of the arcs proportional to their actual share in Punjab. Each arc also can be referred to as a node.</li>
               <li class="section_text">The second layer represents ‘labor force participation’ and divides the urban and rural nodes in the previous layer into ‘labor force’ and ‘not in labor force’ nodes.</li>
               <li class="section_text">Similarly layers are added in the radial direction which continue to partition nodes in the previous ‘parent’ layers. The following diagram gives an overview of the hierarchy of layers for each area (urban and rural). The reader will notice that layers for labor force and not in labor force vary and are colored differently.</li>
             </ul>
@@ -159,9 +159,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="text_container">
-            <p class="section_text">The sunburst helps us analyze the entire population of the survey. The next two visualization focus on the employed women in Punjab.</p>
           </div>
           <div class="sunburst_wrapper vis_parent" data-aos="fade-in" data-aos-delay="400">
             <div id="sunburst_container_main">
@@ -234,7 +231,9 @@
           </div>
 
           <div class="text_container">
-            <p class="section_text">This tree based visualization explores the participation of employed women in different industries broken down by education levels. The third layer in the visualization breaks down the employed women by their education level. In the fourth layer, employed women in each education level are further broken down by the industries/ sectors they represent. This visualization can be useful to study the relationship of industries and education levels of employed women.</p>
+            <p class="section_text">The sunburst helps us analyze the entire population of the survey. The next two visualizations focus on the employed women in Punjab.</p>
+            <p class="section_text">This tree based visualization explores the participation of employed women in different industries, broken down by education levels. The third layer in the tree splits the urban and rural area nodes (in the second layer) by education levels. The fourth layer further splits employed women in each education level by industries/ sectors they represent. This visualization is useful to study the relationship between employment industries and education levels of women in Punjab.</p>
+            <p class="section_note">The user can click on the nodes to expand or collapse the tree</p>
           </div>
           <div class="edu_tree_wrapper vis_parent">
             <div id="tree_container_main">
@@ -244,7 +243,7 @@
             </div>
           </div>
           <div class="text_container">
-            <p class="section_text">A much more detailed and nuanced analysis of the employed women in Punjab can be conducted by the sankey diagram. The visualization has multiple layers from the left to right. Each layer has multiple labeled bars (called nodes) that are sized proportional to their percentage share. The bars in the layers are connected through links of various sizes that show the flow or relationship between nodes. For each link, the node to the left is the source and the node to the right is the target. The user is also able to change the sequence of the layers as they like to aid in analysis.</p>
+            <p class="section_text">A much more detailed and nuanced analysis of the employed women in Punjab can be conducted by the sankey diagram. The visualization has multiple layers from the left to right. Each layer has multiple labeled bars (called nodes) that are sized proportional to their percentage share. The bars in the layers are connected through links of various sizes that show the flow or relationship between nodes. For each link, the node to the left is the source and the node to the right is the target. The user is also able to change to a sequence of layers of choice to aid in analysis.</p>
           </div>
           <div class="text_container">
             <p class="section_note">Notice that the major barriers to work layer in the sankey diagram presents major barriers reported by employed women whereas in the Sunburst visualization major barriers were only presented for women not in the labor force.	</p>
@@ -283,6 +282,10 @@
             <img class="footer_icon_small" src="./resources/logo-53-dfid.png"></img>
             <img class="footer_icon_small" src="./resources/unfpa_logo.png"></img>
             <img class="footer_icon_small" src="./resources/ESW-Hover.png"></img>
+            <div class="designBy">
+              <p class="plotree">Designed by Plotree Info Design</p>
+              <img class="footer_icon_p plotree" src="./resources/logoAlone.svg"></img>
+            </div>
           </div>
         </footer>
       </div>
@@ -398,6 +401,10 @@
 
       $(".webSoc").click(function() {
         window.open('https://pcsw.punjab.gov.pk/', '_blank');
+      });
+
+      $(".plotree").click(function() {
+        window.open('https://plotree.studio', '_blank');
       });
 
       $(".sunburstButt").click(function() {

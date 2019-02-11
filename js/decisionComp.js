@@ -16,8 +16,10 @@ let height = heightSVG - margins.top - margins.bottom;
 
 // defining SVG and SVGG
 let SVG = d3.select('svg#decMakComp')
-            .attr("height", heightSVG)
-            .attr("width", widthSVG);
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + widthSVG + " " +  heightSVG)
+          //  .attr("height", heightSVG)
+          //  .attr("width", widthSVG);
 
 let SVGG = SVG.append('g')
               .attr('id', 'chartGroup')
