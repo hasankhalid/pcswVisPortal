@@ -5,11 +5,11 @@ var sankey;
 
 d3.csv('./js/files/data.csv').then((data)=>{
 
-	state.originalData = data;
-	var neetData = data.filter((d)=>d.ageGroup==='15-24')
-						.filter((d)=>{return ["Intermediate","Graduation","Masters or above"].includes(d.education);});
-	state.currData = neetData;
+	//state.originalData = data;
+	var neetData = data.filter((d)=>parseFloat(d.age) > 17 && parseFloat(d.age) < 35)
+						.filter((d)=>{return d.education === "Intermediate" || d.education === "Graduation" || d.education === "Masters or above" ;});
 	state.originalData = neetData;
+	state.currData = neetData.filter((d)=>parseFloat(d.age) > 17 && parseFloat(d.age) < 30);
 	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
 	var res = getLabourForceGraph(state.currData);
 
@@ -282,7 +282,9 @@ function addNodesToGraph(nodesArr, col, graph){
 }
 
 function createGradSankey(){
-	state.currData = state.originalData.filter((d)=>d.education === "Graduation" || d.education === "Masters or above");
+	state.currData = state.originalData
+		.filter((d)=>parseFloat(d.age) > 19)
+		.filter((d)=>d.education === "Graduation" || d.education === "Masters or above");
 	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
 
 	var res = getLabourForceGraph(state.currData);
@@ -290,7 +292,7 @@ function createGradSankey(){
 }
 
 function createIntermediateSankey(){
-	state.currData = state.originalData;
+	state.currData = state.originalData.filter((d)=>parseFloat(d.age) > 17 && parseFloat(d.age) < 30);
 	state.currTotalWeight = state.currData.reduce((a,d)=>a + parseFloat(d.weight),0);
 
 	var res = getLabourForceGraph(state.currData);
