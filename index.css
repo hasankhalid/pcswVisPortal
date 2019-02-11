@@ -292,6 +292,10 @@ body {
   font-size: 20px;
 }
 
+.titleOverlay {
+  font-size: 24px;
+}
+
 .projDesc {
   font-size: 18px;
 }
