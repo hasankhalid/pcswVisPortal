@@ -10,6 +10,8 @@ function Tooltip({
 	defaultHeight = 200
 } = {}){
 
+	var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+
 	function getCounter(){
 		var val = 1;
 
@@ -21,6 +23,7 @@ function Tooltip({
 	}
 
 	var counter = getCounter();
+	var currTooltip;
 
 	function createTooltip(d, event){
 		if(!d[dataId]){
@@ -32,7 +35,7 @@ function Tooltip({
 
 			var tooltip = d3.select(cloneTooltipFromTemplate(d));
 
-			tTooltip = tooltip;
+			currTooltip = tooltip;
 
 			tooltip
 					.attr('id',idPrefix + d[dataId])
@@ -45,7 +48,7 @@ function Tooltip({
 				return tooltip.node();
 			});
 
-			let finalPos = getToolTipPosition(event, tooltip.node());
+			let finalPos = getTooltipPosition(event, tooltip.node());
 
 			tooltip
 					.style('z-index',10000)
@@ -55,17 +58,35 @@ function Tooltip({
 					.duration(300)
 					.style('opacity', 1);
 
+			if(isTouch){
+				window.addEventListener('touchend', touchListener);
+				/*tooltip.node().addEventListener('touchend', function(e){
+					e.preventDefault();
+					e.stopPropagation();
+				});*/
+			}
+
 		}else{
-			let finalPos = getToolTipPosition(event, tooltipElement);
+			let finalPos = getTooltipPosition(event, tooltipElement);
 
 			tooltipElement.style.left = finalPos[0] + 'px';
 			tooltipElement.style.top = finalPos[1] + 'px';
 		}
 	}
 
-	function getToolTipPosition(event, tooltip){
+	function getTooltipPosition(event,tooltip){
 
 		tooltip = tooltip.children[0];
+
+
+		if((tooltip.offsetWidth * 2) > window.innerWidth){
+			return getMobileTooltipPosition(event, tooltip);
+		}else{
+			return getLargeTooltipPosition(event, tooltip);
+		}
+	}
+
+	function getLargeTooltipPosition(event, tooltip){
 
 		var x = event.clientX,
 			y = event.clientY,
@@ -98,6 +119,29 @@ function Tooltip({
 		}
 
 		return [finalX, finalY];
+	}
+
+	function getMobileTooltipPosition(event, tooltip){
+
+		var x = event.clientX,
+			y = event.clientY,
+			windowWidth = window.innerWidth,
+			windowHeight = window.innerHeight,
+			elemWidth = tooltip.offsetWidth,
+			elemHeight = tooltip.offsetHeight,
+			offset = 20;
+
+			var finalX, finalY;
+
+			finalX = (windowWidth - elemWidth)/2;
+
+			if(y + elemHeight  + offset < windowHeight){
+				finalY = y + offset;
+			}else{
+				finalY = y - elemHeight - offset;
+			}
+
+			return [finalX, finalY];
 	}
 
 	function cloneTooltipFromTemplate(d){
@@ -133,8 +177,29 @@ function Tooltip({
 				.transition()
 				.duration(100)
 				.style('opacity', 0)
+				.on('end', function(){
+					currTooltip = null;
+				})
 				.remove();
+		}
+
+		if(isTouch){
+			window.removeEventListener('touchend', touchListener);
 		} 
+	}
+
+	function touchListener(e){
+		if(currTooltip){
+			currTooltip
+				.transition()
+				.duration(100)
+				.style('opacity', 0)
+				.on('end', function(){
+					currTooltip = null;
+				})
+				.remove();
+				window.removeEventListener('touchend', touchListener);
+		}
 	}
 
 	return {
