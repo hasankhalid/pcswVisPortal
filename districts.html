@@ -626,7 +626,8 @@
           //colorArr : ['#F5F5F5', '#880E4F'],
           colorArr : ['#424242', '#FFB74D'],
           data : data['1.12'].heatMapData,
-          fontColor : '#fff'
+          fontColor : '#fff',
+          highlightRows : {"Bahawalpur":true,"DG Khan":true,"Faisalabad":true,"Gujranwala":true,"Lahore":true,"Multan":true,"Rawalpindi":true,"Sahiwal":true,"Sargodha":true}
         });
 
         var columnNames = Object.values(data).map((d)=>d.title);
@@ -641,7 +642,7 @@
 
             //change sort select vals
             var newSortOptions = newData[0].rValues.map((d)=>d.Category);
-            newSortOptions.push('District');
+            newSortOptions.push('Division');
 
             newSortOptions = newSortOptions.map(function(o){
               return {name : o, text : o, value : o, disable : false};
@@ -654,7 +655,7 @@
 
             sortSelect.addOption(newSortOptions);
 
-            sortSelect.setValue('District', false);
+            sortSelect.setValue('Division', false);
 
             heatMap.update(newData);
           },
@@ -666,7 +667,7 @@
         );
 
         var initialSortOptions = data['1.12'].heatMapData[0].rValues.map((d)=>d.Category);
-        initialSortOptions.push('District');
+        initialSortOptions.push('Division');
 
         initSelectize(initialSortOptions,
           {},
@@ -677,7 +678,7 @@
             var column = e.target.value;
 
             var newData;
-            if(column === 'District'){
+            if(column === 'Division'){
               newData = data[category].heatMapData;
             }else{
               var csvData = data[category].data;
@@ -690,7 +691,7 @@
 
             heatMap.sort(newData);
           },
-          ['District'],
+          ['Division'],
           function(e){
             //$('#scatterDivisions').text('Showing All Divisions');
           }
