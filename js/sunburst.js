@@ -55,7 +55,7 @@ let arc = d3.arc()
 // async function that reads in data, conducts transforamtions and draws the visualization
 async function readAndDrawSunburst(){
     // read in the data asynchronously
-    let data = await d3.csv('./js/files/laborHierarchyMS.csv');
+    let data = await d3.csv('./js/files/laborHierarchyWOFormal.csv');
 
     drawSunburst(data);
 }
@@ -300,8 +300,16 @@ function mouseover(d) {
   d3.select("#percentage")
       .text(percRelParString);
 
+  let logFirstTwoLayers = ["Rural", "Urban", "Labor force", "Not in labor force"].includes(d.data.name);
+
+
   d3.select("#percentGlobal")
-      .text(`${percArea}%`);
+      .text(`${percArea}%`)
+      .style("opacity", logFirstTwoLayers ? 0 : 1);
+
+  d3.select('#denUrbRur')
+    .style("opacity", logFirstTwoLayers ? 0 : 1);
+
 
   d3.select("#UrbRurTitle")
       .text(area);

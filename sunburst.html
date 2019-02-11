@@ -215,7 +215,7 @@
                   <span id="percentage"></span><br/>
                   <span class="reduceFont">Denominator: Parent node</span><br/>
                   <span id="percentGlobal"></span><br/>
-                  <span class="reduceFont">Denominator: All <span id="UrbRurTitle"></span></span><br/><br/>
+                  <span class="reduceFont" id="denUrbRur">Denominator: All <span id="UrbRurTitle"></span></span><br/><br/>
                 </div>
               </div>
             </div>
@@ -436,7 +436,7 @@
         window.location = "./";
       });
 
-      d3.csv('./js/files/laborHierarchyMS.csv')
+      d3.csv('./js/files/laborHierarchyWOFormal.csv')
         .then((data)=>{
           let sunBurstCTRL = createSunBurst(data);
           sunBurstCTRL.drawSunburst();
