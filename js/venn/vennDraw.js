@@ -35,7 +35,7 @@ div.selectAll("g")
         venn.sortAreas(div, d);
 
         // Display a tooltip with the current size
-        tooltip.transition().duration(40).style("opacity", 1);
+        tooltip.transition().duration(20).style("opacity", 1);
         tooltip.text(d.size + "% of ever married women experienced " + d.labels + " violence from Spouse");
 
         // highlight the current path
@@ -53,7 +53,7 @@ div.selectAll("g")
     })
 
     .on("mouseout", function(d, i) {
-        tooltip.transition().duration(2000).style("opacity", 0);
+        tooltip.transition().duration(750).style("opacity", 0);
         var selection = d3v3.select(this).transition("tooltip").duration(400);
         selection.select("path")
             .style("stroke-width", 1)

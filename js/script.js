@@ -79,7 +79,7 @@ RadarChart.draw("#radar_container", d, mycfg);
 /////////// Initiate legend ////////////////
 ////////////////////////////////////////////
 
-var svg = d3.select('#body')
+var svg = d3.select('#radar_container')
 	.selectAll('svg')
 	.append('svg')
 	.attr("width", w+300)
@@ -88,10 +88,10 @@ var svg = d3.select('#body')
 //Create the title for the legend
 var text = svg.append("text")
 	.attr("class", "title")
-	.attr('transform', 'translate(160,0)')
+	.attr('transform', 'translate(133,0)')
 	.attr("x", w - 70)
 	.attr("y", 10)
-	.attr("font-size", "12px")
+	.attr("font-size", "10px")
 	.attr("fill", "#404040")
 	.text("Difference between indicators");
 
@@ -100,7 +100,7 @@ var legend = svg.append("g")
 	.attr("class", "legend")
 	.attr("height", 100)
 	.attr("width", 200)
-	.attr('transform', 'translate(160,20)')
+	.attr('transform', 'translate(130,20)')
 	;
 	//Create colour squares
 	legend.selectAll('rect')
