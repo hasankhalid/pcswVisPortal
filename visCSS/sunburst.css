@@ -101,11 +101,70 @@
   }
 }
 
+@media only screen and (max-width: 1100px) {
+  #percentage, #percentGlobal {
+    font-size: 16px;
+    font-weight: 450;
+    color: #212121
+  }
+  .reduceFont {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .reduceFont {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .reduceFont {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  #percentage, #percentGlobal {
+    font-size: 12px;
+    font-weight: 450;
+    color: #212121
+  }
+  .reduceFont {
+    font-size: 10px;
+  }
+  #sunburst_legend {
+    margin-top: 60px;
+  }
+}
+
+@media only screen and (max-width: 535px) {
+  #percentage, #percentGlobal {
+    font-size: 10px;
+    font-weight: 450;
+    color: #212121;
+    margin: 0px;
+  }
+  .reduceFont {
+    font-size: 9px;
+    margin: 0px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .legend_container {
     flex-direction: column
   }
   .circle_margin_responsive {
     margin-left: 0px;
+  }
+  #percentage, #percentGlobal {
+    font-size: 9px;
+    font-weight: 450;
+    color: #212121;
+    margin: 0px;
+  }
+  .reduceFont {
+    font-size: 7px;
   }
 }

@@ -18,8 +18,8 @@ let b = {
 let totalSize;
 
 let vis = d3.select("#sunburst_container").append("svg:svg")
-    .attr("width", sunWidth)
-    .attr("height", height)
+  //  .attr("width", sunWidth)
+  //  .attr("height", height)
     .attr("viewBox", "0 0 " + sunWidth + " " + height)
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr('class', 'chartSVG')
@@ -377,8 +377,8 @@ function mouseleave(d) {
   d3.select("#NodeTypeText")
       .style("opacity", 0);
 
-  d3.select("#endlabel")
-      .style("opacity", 0);
+/*  d3.select("#endlabel")
+      .style("opacity", 0); */
 }
 
 function initializeBreadcrumbTrail() {
@@ -389,12 +389,12 @@ function initializeBreadcrumbTrail() {
       .attr("id", "trailAndPercent");
   // Add the label at the end, for the percentage.
   trailAndPercent.append('div')
-                .attr('id', 'trail') */
+                .attr('id', 'trail')
   d3.select('#trailAndPercent').append('div')
         .attr('id', 'endlabelDiv')
         .append('p')
         .attr('id', 'endlabel')
-        .style('color', 'black')
+        .style('color', 'black')*/
 }
 
 
@@ -422,13 +422,13 @@ function updateBreadcrumbs(nodeArray, percentageString) {
   });
 
   // Now move and update the percentage at the end.
-  d3.select("#trailAndPercent").select("#endlabel")
+  /*d3.select("#trailAndPercent").select("#endlabel")
       .attr("x", (nodeArray.length + 0.5) * (b.w + b.s))
       .attr("y", b.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
       .style('opacity', 1)
-      .text(percentageString + " (Punjab)");
+      .text(percentageString + " (Punjab)"); */
 
   // Make the breadcrumb trail visible, if it's hidden.
   d3.select("#trail")

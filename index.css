@@ -485,6 +485,7 @@ body {
 #sunburst_container {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -966,7 +967,7 @@ body {
   .half {
     width: 100%;
   }
-  #sunburst {
+  #sankey {
     flex-direction: column-reverse;
   }
   .textOverlay {
