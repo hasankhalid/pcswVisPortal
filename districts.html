@@ -252,7 +252,7 @@
 
       <div class="footer_contain">
         <div class="district_link_container">
-          <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.png"></img>
+          <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/footerwomen.jpg"></img>
           <p class="view_districts pcsw" data-aos="fade-in" data-aos-delay="800">Browse other sections</p>
         </div>
         <footer class="footer">
@@ -642,14 +642,14 @@
             //change sort select vals
             var newSortOptions = newData[0].rValues.map((d)=>d.Category);
             newSortOptions.push('District');
-            
+
             newSortOptions = newSortOptions.map(function(o){
               return {name : o, text : o, value : o, disable : false};
             });
 
             var sortSelect = $('#heat_sort_select')[0].selectize;
 
-            sortSelect.clear(true); 
+            sortSelect.clear(true);
             sortSelect.clearOptions();
 
             sortSelect.addOption(newSortOptions);
@@ -674,7 +674,7 @@
           'heat-sort-indicators',
           function(e){
             var category = $('#heat_select').val();
-            var column = e.target.value; 
+            var column = e.target.value;
 
             var newData;
             if(column === 'District'){
