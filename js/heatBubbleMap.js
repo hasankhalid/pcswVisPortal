@@ -6,7 +6,8 @@ function HeatBubbleMap({
     colorArr,
     labelMapSelector,
     colorLegendSelector,
-    fontColor = '#000'
+    fontColor = '#000',
+    highlightRows  = {}
 } = {}) {
 
     var toolTip = Tooltip(toolTipConfig);
@@ -87,7 +88,10 @@ function HeatBubbleMap({
 	        //.classed('dist-label', 'true')
 	        .text(d => d.key)
 	        .style('text-anchor', 'end')
-	        .style('fill', fontColor);
+	        .style('fill', fontColor)
+	        .style('font-weight',function(d){
+	        	return highlightRows[d.key] ? 700 : 500;
+	        });
 
 	    fadeIn({selection : rowLabels});
 
