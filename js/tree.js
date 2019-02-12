@@ -31,7 +31,7 @@ function createEmpTree(){
     // .attr("width", width + margin.right + margin.left)
     // .attr("height", height + margin.top + margin.bottom)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 " + (width- 100) + " " +  (height))
+      .attr("viewBox", "0 0 " + (width) + " " +  (height + margin.top + margin.bottom))
       //.attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " 2300")
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");

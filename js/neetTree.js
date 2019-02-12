@@ -36,7 +36,7 @@ let svg = d3.select("#neet_tree_container")
   //  .attr("width", width + margin.right + margin.left)
   //  .attr("height", height + margin.top + margin.bottom)
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " " +  (height))
+    .attr("viewBox", "0 0 " + (width + margin.right + margin.left) + " " +  (height + margin.top + margin.bottom))
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
