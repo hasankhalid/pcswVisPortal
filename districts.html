@@ -5,10 +5,6 @@
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-
-    <!--<script src="./js/d3v3/d3.js"></script>-->
-    <!--<script src="./js/venn/venn.js"></script>-->
-
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
@@ -438,7 +434,7 @@
             }
         });
 
-        rFilter = $("#indOneMinMax").data("ionRangeSlider");
+        var rFilter = $("#indOneMinMax").data("ionRangeSlider");
 
         $("#indTwoMinMax").ionRangeSlider({
             type: "double",
@@ -456,7 +452,7 @@
             }
         });
 
-        cFilter = $("#indTwoMinMax").data("ionRangeSlider");
+        var cFilter = $("#indTwoMinMax").data("ionRangeSlider");
 
 
         initSelectize(mapData.columns,
@@ -597,8 +593,6 @@
           var csvData = data[i].data;
           data[i].heatMapData = getHeatMapData(csvData);
         }
-
-        tData = data;
 
         var toolTipConfig = {
           idPrefix : 'p-tooltip',

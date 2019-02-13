@@ -307,12 +307,11 @@
         fireTransition(1000);
       });
 
-      var top_of_element;
-      var bottom_of_element;
-      var bottom_of_screen;
-      var top_of_screen;
-
       $(window).scroll(function() {
+           var top_of_element;
+           var bottom_of_element;
+           var bottom_of_screen;
+           var top_of_screen;
            top_of_element = $("#fin_decision_container").offset().top;
            bottom_of_element = $("#fin_decision_container").offset().top + $("#fin_decision_container").outerHeight();
            bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();

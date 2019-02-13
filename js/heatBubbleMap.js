@@ -61,7 +61,6 @@ function HeatBubbleMap({
 	    var colorScale = d3.scaleLinear().domain([0, maxScale]).range(colorArr);
 
 	    var xInterval = width / colLabelXScale.domain().length;
-	    TESTx = xInterval;
 	    colLabelXScale.range(d3.range(0, width + 1, xInterval));
 
 	    let yInterval = height / rowNameYScale.domain().length;
@@ -292,7 +291,7 @@ function HeatBubbleMap({
 	                  .data(newData, d => d.key)
 	                  .transition()
 	                  .duration(1500)
-	                  .attr('transform', d =>`translate(0, ${rowNameYScale(d.key)})`);  
+	                  .attr('transform', d =>`translate(0, ${rowNameYScale(d.key)})`);
   }
 
 	return {

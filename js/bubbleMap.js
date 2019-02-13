@@ -107,7 +107,6 @@ function getBubbleMapCreator(csvData, outerGJ,innerGJ,svgSelector, rLegendSelect
 
 	var filterSeq = new filterModule.FilterSequence();
 
-	testFS = filterSeq;
 
 	function addNumericFilter(min,max,ind){
 		var filterFunc = (d)=>{
