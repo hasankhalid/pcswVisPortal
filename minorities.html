@@ -188,40 +188,6 @@
 
 
       $(window).on("load", function() {
-        if (window.innerWidth > 775) {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeIn');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeIn');}, 85
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeIn');}, 95
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeInRightPic');}, 375
-          );
-        }
-        else {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeInUp');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeInUp');}, 95
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeInUp');}, 115
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeIn');}, 75
-          );
-        }
-        setTimeout(function () {
-          $('.fadeinup').show().addClass('animated fadeIn');}, 1500
-        );
-
         AOS.init();
       });
 
