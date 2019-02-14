@@ -86,7 +86,7 @@
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
           <div class="visualization_title_container">
-            <p class="proj_title">District Level Overview</p>
+            <p class="proj_title">District Analysis</p>
           </div>
         </div>
       </div>
@@ -202,6 +202,8 @@
                       </select>
                     </div>
                   </div>
+                  <p style="font-size: 14px; color: #FFEE58; align-self: flex-start;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500"><i class="fas fa-info-circle"></i> Click the division name to filter by division</p>
+                  <p id="resetDivision" style="font-size: 14px; color: #FFEE58; align-self: flex-start; text-decoration: underline; cursor: pointer;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">Reset Division Filter</p>
                 </div>
               </div>
             </div>
@@ -311,40 +313,6 @@
       });
 
       $(window).on("load", function() {
-        if (window.innerWidth > 775) {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeIn');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeIn');}, 85
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeIn');}, 95
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeInRightPic');}, 375
-          );
-        }
-        else {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeInUp');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeInUp');}, 95
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeInUp');}, 115
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeIn');}, 75
-          );
-        }
-        setTimeout(function () {
-          $('.fadeinup').show().addClass('animated fadeIn');}, 1500
-        );
-
         AOS.init();
       });
 
