@@ -212,6 +212,9 @@ function drawScatterPlot(data, indArray, scale){
 
 }
 
+var filteredScatter = false;
+var filteredDivision;
+
 function drawDivLegend(selection, translate, legendScale, titleText) {
   selection.append("g")
     .attr("class", "legendOrdinal")
@@ -237,24 +240,54 @@ function drawDivLegend(selection, translate, legendScale, titleText) {
           .attr('transform', 'translate(0, -10)');
 
   // activating interaction with the legendCells
-  legendDiv.selectAll('.cell').on('mouseover', HoverLegend(true))
-  legendDiv.selectAll('.cell').on('mouseout', HoverLegend(false))
+  legendDiv.selectAll('.cell').on('mouseover', function(d) {
+    if (filteredScatter === false) {
+      HoverLegend(d, true);
+    }
+  });
+
+  legendDiv.selectAll('.cell').on('click', function(d) {
+    FilterLegend(d, true);
+  })
+
+  legendDiv.selectAll('.cell').on('mouseout', function(d) {
+    if (filteredScatter === false) {
+      FilterLegend(d, false);
+    }
+  });
+  d3.select('#resetDivision').on('click', function(d) {
+    FilterLegend(d, false);
+  });
 }
 
-function HoverLegend(over){
-  return function(d, i){
-    d3.selectAll('circle.dataEnc')
-      .filter(dat => dat.Division == d)
-      .transition()
-      .duration(50)
-      .style('fill-opacity', over ? 1 : 0.65)
+function HoverLegend(d, over){
+  d3.selectAll('circle.dataEnc')
+    .filter(dat => dat.Division == d)
+    .transition()
+    .duration(50)
+    .style('fill-opacity', over ? 1 : 0.65)
 
-    d3.selectAll('circle.dataEnc')
-      .filter(dat => dat.Division != d)
-      .transition()
-      .duration(50)
-      .style('fill-opacity', over ? 0.2 : 0.65)
-  }
+  d3.selectAll('circle.dataEnc')
+    .filter(dat => dat.Division != d)
+    .transition()
+    .duration(50)
+    .style('fill-opacity', over ? 0.2 : 0.65)
+}
+
+function FilterLegend(division, over){
+  filteredDivision = division;
+  filteredScatter = over;
+  d3.selectAll('circle.dataEnc')
+    .filter(dat => dat.Division == division)
+    .transition()
+    .duration(50)
+    .style('fill-opacity', over ? 1 : 0.65)
+
+  d3.selectAll('circle.dataEnc')
+    .filter(dat => dat.Division != division)
+    .transition()
+    .duration(50)
+    .style('fill-opacity', over ? 0.2 : 0.65);
 }
 
 function transScatterPlot(data, transDur, reArrArray, scale){
@@ -421,6 +454,7 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 
 
 	function getTooltipPosition(event,tooltip){
+<<<<<<< HEAD
 
     if((tooltip.offsetWidth * 2) > window.innerWidth){
       return getMobileTooltipPosition(event, tooltip);
@@ -449,6 +483,36 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 
     var finalX, finalY;
 
+=======
+
+    if((tooltip.offsetWidth * 2) > window.innerWidth){
+      return getMobileTooltipPosition(event, tooltip);
+    }else{
+      return getLargeTooltipPosition(event, tooltip);
+    }
+  }
+
+  function getLargeTooltipPosition(event, tooltip){
+
+    var x = event.clientX,
+      y = event.clientY,
+      windowWidth = window.innerWidth,
+      windowHeight = window.innerHeight,
+      elemWidth = tooltip.offsetWidth,
+      elemHeight = tooltip.offsetHeight,
+      offset = 20;
+
+    if(!elemHeight || !elemWidth){
+      var style = window.getComputedStyle(tooltip);
+      elemWidth = style.width;
+      elemHeight = style.height;
+      console.log(elemWidth, elemWidth);
+      console.log('Not defined');
+    }
+
+    var finalX, finalY;
+
+>>>>>>> f52826fa1edd4ef2f9942b4cfa6f4610c8c5cb95
     if(x + elemWidth  + offset < windowWidth){
       finalX = x + offset;
     }else{
@@ -531,6 +595,10 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
         .duration(100)
         .style('opacity', 0)
         .remove();
+    }
+
+    if (filteredScatter === true) {
+      FilterLegend(filteredDivision, filteredScatter);
     }
   }
 
