@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
@@ -83,11 +81,11 @@
               <p class="titleSmall" id="preTitle">GENERATING DATA TO ADVANCE WOMEN’S</p>
               <p class="titleLarge">SOCIAL & ECONOMIC</p>
               <p class="titleLarge">WELLBEING</p>
-              <p class="titleSmall" id="followTitle">IN PUNJAB (ESW)</p>
+              <p class="titleSmall" id="followTitle">IN PAKISTAN (ESW)</p>
             </div>
             <div class="fadeMeRight">
               <div class="imageContainer">
-                <img class="titleImage" src="./resources/landing.jpg"></img>
+                <img id="landingImage" class="titleImage" src="./resources/landing.jpg"></img>
                 <div class="overlay_black"></div>
               </div>
             </div>
@@ -222,7 +220,7 @@
          }
       });
 
-      $(window).on("load", function() {
+      $("#landingImage").on("load", function() {
         if (window.innerWidth > 775) {
           setTimeout(function () {
             $('#preTitle').show().addClass('animated fadeIn');}, 75

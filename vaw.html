@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
-    <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
-
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
@@ -19,7 +16,6 @@
     <script src="granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
     <script src="./js/tools/selectize/js/standalone/selectize.js"></script>
     <link rel="stylesheet" type="text/css" href="./js/tools/selectize/css/selectize.css">
 
@@ -240,7 +236,7 @@
           </div>
 
           <div class="vaw_perception_wrapper" data-aos="fade-in" data-aos-delay="300">
-            <h2 class="vis_heading">Comaparing men's and women's attitude towards spousal violence</h2>
+            <h2 class="vis_heading">Comparing men's and women's attitude towards spousal violence</h2>
             <div id="vaw_perception_container_main">
               <div id="vaw_perception_controls">
                 <div id="selectorContain" style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px;">
@@ -360,41 +356,8 @@
 
 
       $(window).on("load", function() {
-        if (window.innerWidth > 775) {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeIn');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeIn');}, 85
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeIn');}, 95
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeInRightPic');}, 375
-          );
-        }
-        else {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeInUp');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeInUp');}, 95
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeInUp');}, 115
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeIn');}, 75
-          );
-        }
-        setTimeout(function () {
-          $('.fadeinup').show().addClass('animated fadeIn');}, 1500
-        );
-
         AOS.init();
+        resizeIframe(document.getElementById('vennFrame'));
       });
 
       function resize() {
@@ -457,7 +420,6 @@
          obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50)+ 'px';
       }
 
-      //resizeIframe(document.getElementById('vennFrame'));
       window.onresize = function(){
         resizeIframe(document.getElementById('vennFrame'));
       };

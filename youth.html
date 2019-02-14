@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="shortcut icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
-    <link rel="icon" href="https://pcsw.punjab.gov.pk/sites/pcsw7.pitb.gov.pk/governmentofpunjab.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Economic and Social Wellbeing of Women</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +10,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
     <script src="https://unpkg.com/d3-sankey@0.7.1"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
@@ -253,40 +251,6 @@
       });
 
       $(window).on("load", function() {
-        if (window.innerWidth > 775) {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeIn');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeIn');}, 85
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeIn');}, 95
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeInRightPic');}, 375
-          );
-        }
-        else {
-          setTimeout(function () {
-            $('#preTitle').show().addClass('animated fadeInUp');}, 75
-          );
-          setTimeout(function () {
-            $('.titleLarge').show().addClass('animated fadeInUp');}, 95
-          );
-
-          setTimeout(function () {
-            $('#followTitle').show().addClass('animated fadeInUp');}, 115
-          );
-          setTimeout(function () {
-            $('.fadeMeRight').show().addClass('animatedLonger fadeIn');}, 75
-          );
-        }
-        setTimeout(function () {
-          $('.fadeinup').show().addClass('animated fadeIn');}, 1500
-        );
-
         AOS.init();
       });
 

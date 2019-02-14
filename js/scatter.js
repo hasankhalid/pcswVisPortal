@@ -420,31 +420,72 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 }
 
 
-	function getToolTipPosition(event, tooltip){
-		var x = event.clientX,
-			y = event.clientY,
-			windowWidth = window.innerWidth,
-			windowHeight = window.innerHeight,
-			elemWidth = tooltip.offsetWidth,
-			elemHeight = tooltip.offsetHeight,
-			offset = 20;
+	function getTooltipPosition(event,tooltip){
 
-		var finalX, finalY;
+    if((tooltip.offsetWidth * 2) > window.innerWidth){
+      return getMobileTooltipPosition(event, tooltip);
+    }else{
+      return getLargeTooltipPosition(event, tooltip);
+    }
+  }
 
-		if(x + elemWidth  + offset < windowWidth){
-			finalX = x + offset;
-		}else{
-			finalX = x - elemWidth - offset;
-		}
+  function getLargeTooltipPosition(event, tooltip){
 
-		if(y + elemHeight  + offset < windowHeight){
-			finalY = y + offset;
-		}else{
-			finalY = y - elemHeight - offset;
-		}
+    var x = event.clientX,
+      y = event.clientY,
+      windowWidth = window.innerWidth,
+      windowHeight = window.innerHeight,
+      elemWidth = tooltip.offsetWidth,
+      elemHeight = tooltip.offsetHeight,
+      offset = 20;
 
-		return [finalX, finalY];
-	}
+    if(!elemHeight || !elemWidth){
+      var style = window.getComputedStyle(tooltip);
+      elemWidth = style.width;
+      elemHeight = style.height;
+      console.log(elemWidth, elemWidth);
+      console.log('Not defined');
+    }
+
+    var finalX, finalY;
+
+    if(x + elemWidth  + offset < windowWidth){
+      finalX = x + offset;
+    }else{
+      finalX = x - elemWidth - offset;
+    }
+
+    if(y + elemHeight  + offset < windowHeight){
+      finalY = y + offset;
+    }else{
+      finalY = y - elemHeight - offset;
+    }
+
+    return [finalX, finalY];
+  }
+
+  function getMobileTooltipPosition(event, tooltip){
+
+    var x = event.clientX,
+      y = event.clientY,
+      windowWidth = window.innerWidth,
+      windowHeight = window.innerHeight,
+      elemWidth = tooltip.offsetWidth,
+      elemHeight = tooltip.offsetHeight,
+      offset = 20;
+
+      var finalX, finalY;
+
+      finalX = (windowWidth - elemWidth)/2;
+
+      if(y + elemHeight  + offset < windowHeight){
+        finalY = y + offset;
+      }else{
+        finalY = y - elemHeight - offset;
+      }
+
+      return [finalX, finalY];
+  }
 
   function createTooltip(d, event){
 		window.ev = event;
@@ -465,7 +506,7 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 					.classed('c-tooltip-body', true)
 					.html(`<div class="tooltipValContainer"><p class="indTitle indHead">Indicator</p><p class="indVal valHead">Value</p></div><div class="tooltipValContainer"><p class="indTitle">${$('#threeIndOne').val()}</p><p class="indVal">${d[$('#threeIndOne').val()]}</p></div><div class="tooltipValContainer"><p class="indTitle">${$('#threeIndTwo').val()}</p><p class="indVal">${d[$('#threeIndTwo').val()]}</p></div><div class="tooltipValContainer"><p class="indTitle">${$('#threeIndThree').val()}</p><p class="indVal">${d[$('#threeIndThree').val()]}</p></div>`);
 
-			var finalPos = getToolTipPosition(event, tooltip.node());
+			var finalPos = getTooltipPosition(event, tooltip.node());
 
 			tooltip.style('left', finalPos[0] + 'px')
 					.style('top', finalPos[1] + 'px');
@@ -474,7 +515,7 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 					.duration(300)
 					.style('opacity', 1);
 		}else{
-			var finalPos = getToolTipPosition(event, tooltipElement);
+			var finalPos = getTooltipPosition(event, tooltipElement);
 
 			tooltipElement.style.left = finalPos[0] + 'px';
 			tooltipElement.style.top = finalPos[1] + 'px';

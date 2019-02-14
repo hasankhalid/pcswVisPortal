@@ -114,7 +114,7 @@ function SankeyChart({
 			fadeOutRects(rects.filter(function(e){
 				return this !== currEl && !connectedRects[e.index];
 			}));
-			
+
 			fadeOutPaths(link.filter(function(e){
 				return !links[e.index];
 			}));
@@ -157,7 +157,7 @@ function SankeyChart({
 	    		.style('text-anchor', (d,i)=>i > 0 ? 'middle':'')
 	    		.text((d)=>d.text);
 	    }
-	
+
 	 	d3.selectAll(svgSelector + ' > g')
 			.transition()
 			.duration(400)
@@ -238,19 +238,19 @@ function SankeyChart({
 		t.on('start.sequence', function(){
 			count++;
 		});
-		
+
 		return new Promise(function(resolve){
 			t.on('end.sequence', function(){
 				--count;
 				if(count === 0){
 					resolve(t);
-				}	
+				}
 			});
 		});
 	}
 
 	function getMinXValues(nodes){
-		minDepths = [];
+		var minDepths = [];
 		nodes.forEach((d)=>{
 		    if(!minDepths[d.depth]){
 		        minDepths[d.depth] = Number.POSITIVE_INFINITY;

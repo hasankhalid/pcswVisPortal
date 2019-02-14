@@ -6,7 +6,8 @@ function HeatBubbleMap({
     colorArr,
     labelMapSelector,
     colorLegendSelector,
-    fontColor = '#000'
+    fontColor = '#000',
+    highlightRows  = {}
 } = {}) {
 
     var toolTip = Tooltip(toolTipConfig);
@@ -60,7 +61,6 @@ function HeatBubbleMap({
 	    var colorScale = d3.scaleLinear().domain([0, maxScale]).range(colorArr);
 
 	    var xInterval = width / colLabelXScale.domain().length;
-	    TESTx = xInterval;
 	    colLabelXScale.range(d3.range(0, width + 1, xInterval));
 
 	    let yInterval = height / rowNameYScale.domain().length;
@@ -87,7 +87,10 @@ function HeatBubbleMap({
 	        //.classed('dist-label', 'true')
 	        .text(d => d.key)
 	        .style('text-anchor', 'end')
-	        .style('fill', fontColor);
+	        .style('fill', fontColor)
+	        .style('font-weight',function(d){
+	        	return highlightRows[d.key] ? 700 : 500;
+	        });
 
 	    fadeIn({selection : rowLabels});
 
@@ -288,7 +291,7 @@ function HeatBubbleMap({
 	                  .data(newData, d => d.key)
 	                  .transition()
 	                  .duration(1500)
-	                  .attr('transform', d =>`translate(0, ${rowNameYScale(d.key)})`);  
+	                  .attr('transform', d =>`translate(0, ${rowNameYScale(d.key)})`);
   }
 
 	return {

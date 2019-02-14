@@ -85,8 +85,6 @@ function buildGraph(data,colArr){
 		}
 	});
 
-	tNodes = nodes;
-
 	var nodesArr = nodes.reduce((a,d,i)=>{
 		return a.concat(Object.keys(d).map((d)=>{return {name: d, col : colArr[i]};}));
 		}, []);

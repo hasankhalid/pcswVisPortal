@@ -48,8 +48,13 @@ div.selectAll("g")
     })
 
     .on("mousemove", function() {
-        tooltip.style("left", (d3v3.event.pageX +10) + "px")
-               .style("top", (d3v3.event.pageY - 28) + "px");
+      tooltip.style("top", (d3v3.event.pageY - 28) + "px");
+      if (d3v3.event.pageX < window.innerWidth/2) {
+        tooltip.style("left", (d3v3.event.pageX +10) + "px");
+      }
+      else {
+        tooltip.style("left", (d3v3.event.pageX - 175) + "px")
+      }
     })
 
     .on("mouseout", function(d, i) {

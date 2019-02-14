@@ -107,7 +107,6 @@ function getBubbleMapCreator(csvData, outerGJ,innerGJ,svgSelector, rLegendSelect
 
 	var filterSeq = new filterModule.FilterSequence();
 
-	testFS = filterSeq;
 
 	function addNumericFilter(min,max,ind){
 		var filterFunc = (d)=>{
@@ -337,7 +336,7 @@ function getBubbleMapCreator(csvData, outerGJ,innerGJ,svgSelector, rLegendSelect
 					.classed('c-tooltip-body', true)
 					.html(`<div style="font-weight: 600">${currentIdicators.rIndicator}: ${d[currentIdicators.rIndicator]}</div><div style="font-weight: 600">${currentIdicators.cIndicator}: ${d[currentIdicators.cIndicator]}</div>`);
 
-			var finalPos = getToolTipPosition(event, tooltip.node());
+			var finalPos = getTooltipPosition(event, tooltip.node());
 
 			tooltip.style('left', finalPos[0] + 'px')
 					.style('top', finalPos[1] + 'px');
@@ -346,14 +345,24 @@ function getBubbleMapCreator(csvData, outerGJ,innerGJ,svgSelector, rLegendSelect
 					.duration(300)
 					.style('opacity', 1);
 		}else{
-			var finalPos = getToolTipPosition(event, tooltipElement);
+			var finalPos = getTooltipPosition(event, tooltipElement);
 
 			tooltipElement.style.left = finalPos[0] + 'px';
 			tooltipElement.style.top = finalPos[1] + 'px';
 		}
 	}
 
-	function getToolTipPosition(event, tooltip){
+	function getTooltipPosition(event,tooltip){
+
+		if((tooltip.offsetWidth * 2) > window.innerWidth){
+			return getMobileTooltipPosition(event, tooltip);
+		}else{
+			return getLargeTooltipPosition(event, tooltip);
+		}
+	}
+
+	function getLargeTooltipPosition(event, tooltip){
+
 		var x = event.clientX,
 			y = event.clientY,
 			windowWidth = window.innerWidth,
@@ -361,6 +370,14 @@ function getBubbleMapCreator(csvData, outerGJ,innerGJ,svgSelector, rLegendSelect
 			elemWidth = tooltip.offsetWidth,
 			elemHeight = tooltip.offsetHeight,
 			offset = 20;
+
+		if(!elemHeight || !elemWidth){
+			var style = window.getComputedStyle(tooltip);
+			elemWidth = style.width;
+			elemHeight = style.height;
+			console.log(elemWidth, elemWidth);
+			console.log('Not defined');
+		}
 
 		var finalX, finalY;
 
@@ -377,6 +394,29 @@ function getBubbleMapCreator(csvData, outerGJ,innerGJ,svgSelector, rLegendSelect
 		}
 
 		return [finalX, finalY];
+	}
+
+	function getMobileTooltipPosition(event, tooltip){
+
+		var x = event.clientX,
+			y = event.clientY,
+			windowWidth = window.innerWidth,
+			windowHeight = window.innerHeight,
+			elemWidth = tooltip.offsetWidth,
+			elemHeight = tooltip.offsetHeight,
+			offset = 20;
+
+			var finalX, finalY;
+
+			finalX = (windowWidth - elemWidth)/2;
+
+			if(y + elemHeight  + offset < windowHeight){
+				finalY = y + offset;
+			}else{
+				finalY = y - elemHeight - offset;
+			}
+
+			return [finalX, finalY];
 	}
 
 	function removeTooltip(d){

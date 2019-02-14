@@ -91,7 +91,9 @@ var RadarChart = {
 	   .text(FormatAxis((j+1)*cfg.maxValue/cfg.levels) + '%');
 	}
 
-	series = 0;
+	var series = 0;
+  var dataValues;
+
 
 	var axis = g.selectAll(".axis")
 			.data(allAxis)
