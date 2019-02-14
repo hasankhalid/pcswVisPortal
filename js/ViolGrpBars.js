@@ -30,7 +30,7 @@ function drawBars() {
   }
 
   // Color scale
-  var color = d3.scaleOrdinal().range(['#FFA726', '#8E24AA']);
+  var color = d3.scaleOrdinal().range(['#F06292', '#8E24AA']);
   var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 
   var x = d3.scaleLinear()
