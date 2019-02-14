@@ -114,6 +114,15 @@
               </iframe>
             </div>
           </div>
+          <div class="text_container">
+            <p class="section_text">The data also indicates that among the ever-married women, the 'divorced, separated or widowed' (combined) are more likely to have suffered violence from their spouse in their lifetime</p>
+          </div>
+          <div class="vaw_bar_wrapper vis_parent" style="padding-bottom: 10px; border-top: none;">
+            <div id="vaw_bar_container_main">
+              <iframe data-aos="zoom-out" src="./bar.html" frameBorder="0" scrolling="no" style="width: 100%; height: 250px" id="barFrame">
+              </iframe>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -305,6 +314,7 @@
     <script src="./js/heatmapBub.js"></script>
     <script src="./js/heatmapBubSV.js"></script>
     <script src ="./js/pyramidAtt.js"></script>
+    <script src ="./js/ViolGrpBars.js"></script>
 
 
     <script>
@@ -422,6 +432,8 @@
 
       window.onresize = function(){
         resizeIframe(document.getElementById('vennFrame'));
+        resizeIframe(document.getElementById('barFrame'));
+
       };
     </script>
   </body>
