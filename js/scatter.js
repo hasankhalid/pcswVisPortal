@@ -454,7 +454,6 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 
 
 	function getTooltipPosition(event,tooltip){
-<<<<<<< HEAD
 
     if((tooltip.offsetWidth * 2) > window.innerWidth){
       return getMobileTooltipPosition(event, tooltip);
@@ -483,36 +482,6 @@ function drawCircVoronoi(selection, data, indArray, circCatchRad){
 
     var finalX, finalY;
 
-=======
-
-    if((tooltip.offsetWidth * 2) > window.innerWidth){
-      return getMobileTooltipPosition(event, tooltip);
-    }else{
-      return getLargeTooltipPosition(event, tooltip);
-    }
-  }
-
-  function getLargeTooltipPosition(event, tooltip){
-
-    var x = event.clientX,
-      y = event.clientY,
-      windowWidth = window.innerWidth,
-      windowHeight = window.innerHeight,
-      elemWidth = tooltip.offsetWidth,
-      elemHeight = tooltip.offsetHeight,
-      offset = 20;
-
-    if(!elemHeight || !elemWidth){
-      var style = window.getComputedStyle(tooltip);
-      elemWidth = style.width;
-      elemHeight = style.height;
-      console.log(elemWidth, elemWidth);
-      console.log('Not defined');
-    }
-
-    var finalX, finalY;
-
->>>>>>> f52826fa1edd4ef2f9942b4cfa6f4610c8c5cb95
     if(x + elemWidth  + offset < windowWidth){
       finalX = x + offset;
     }else{
