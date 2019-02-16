@@ -440,6 +440,10 @@ body {
   cursor: pointer;
 }
 
+.socMidIcon {
+  margin: 0px 3px;
+}
+
 .footSocIcons {
   font-size: 18px;
 }
