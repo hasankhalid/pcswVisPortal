@@ -86,7 +86,7 @@
             <div class="fadeMeRight">
               <div class="imageContainer">
                 <img id="landingImage" class="titleImage" src="./resources/landing.jpg"></img>
-                <div class="overlay_black"></div>
+                <div class="overlay_black_title"></div>
               </div>
             </div>
           </div>
@@ -220,7 +220,7 @@
          }
       });
 
-      $("#landingImage").on("load", function() {
+      $(window).on("load", function() {
         if (window.innerWidth > 775) {
           setTimeout(function () {
             $('#preTitle').show().addClass('animated fadeIn');}, 75

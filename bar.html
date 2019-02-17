@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+
+/*
+.chart rect {
+  fill: steelblue;
+}
+*/
+.chart .legend {
+  fill: black;
+  font-family: 'Lato', sans-serif;
+  text-anchor: start;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.chart .label {
+  fill: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  text-anchor: end;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+
+</style>
+<body style="max-width: 1000px;margin: 0px auto;">
+  <svg class="chart"></svg>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src = './js/ViolGrpBars.js'></script>
+  <script>
+    drawBars();
+  </script>
+</body>
