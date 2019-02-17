@@ -348,6 +348,13 @@ function createPVHeatmap(){
     upDate(newDat);
   }); */
 
+  $('#filterHeat').selectize({
+    onChange: function(value) {
+      let newDat = sortDistDesc(dataToPlayGlob, value);
+      upDate(newDat);
+    }
+  });
+
   let divisionDict = {
     'Bahawalpur': 'Bahawalpur',
     'Bahawalnagar': 'Bahawalpur',

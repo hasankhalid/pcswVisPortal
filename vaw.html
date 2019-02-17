@@ -83,7 +83,7 @@
             <img id="hamburger" class="nav_menu_icon" src="./resources/menu.png"/>
           </div>
           <div class="visualization_title_container">
-            <p class="proj_title">Violance Against Women</p>
+            <p class="proj_title">Violence Against Women</p>
           </div>
         </div>
       </div>
@@ -95,6 +95,7 @@
               <p class="guiding_head">Guiding questions</p>
             </div>
             <div class="questions_container">
+              <p class="section_question">What is the incidence of psychological, physical and sexual violence by spouse in Punjab?</p>
               <p class="section_question">How are physical, sexual and psychological violence by spouse related?</p>
             </div>
           </div>
@@ -113,11 +114,15 @@
               <iframe data-aos="zoom-out" src="./venn.html" frameBorder="0" scrolling="no" style="width: 100%; height : 550px" id="vennFrame">
               </iframe>
             </div>
+            <div class="text_container">
+              <p class="section_note" style="font-size: 12px;">The percentages in the venn diagram represent women who ever experienced violence in their lives</p>
+            </div>
           </div>
           <div class="text_container">
             <p class="section_text">The data also indicates that among the ever-married women, the 'divorced, separated or widowed' (combined) are more likely to have suffered violence from their spouse in their lifetime</p>
           </div>
           <div class="vaw_bar_wrapper vis_parent" style="padding-bottom: 10px; border-top: none;">
+            <h2 class="vis_heading">Women who ever experienced violence by marital status</h2>
             <div id="vaw_bar_container_main">
               <iframe data-aos="fade-in" src="./bar.html" frameBorder="0" scrolling="no" style="width: 100%; height: 250px" id="barFrame">
               </iframe>
@@ -337,12 +342,12 @@
          }
       });
 
-      $('#filterHeat').selectize({
-        onChange: function(value) {
-          let newDat = sortDistDesc(dataToPlayGlob, value);
-          upDate(newDat);
-        }
-      });
+      // $('#filterHeat').selectize({
+      //   onChange: function(value) {
+      //     let newDat = sortDistDesc(dataToPlayGlob, value);
+      //     upDate(newDat);
+      //   }
+      // });
 
       var partialAgree = false;
       var areaSelect = "Total";

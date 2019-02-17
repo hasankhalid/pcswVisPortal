@@ -126,7 +126,7 @@ async function readDataAndDrawDecChart(){
 
   // draw legends
   let ordColScale = d3.scaleOrdinal()
-                  .domain(["Financiall excluded", "Financially included"])
+                  .domain(["Financially excluded", "Financially included"])
                   .range([ "rgb(255, 111, 0, 0.5)", "rgb(128, 0, 128, 0.5)"]);
 
   SVG.append("g")
