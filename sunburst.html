@@ -246,9 +246,13 @@
           </div>
           <div class="edu_tree_wrapper vis_parent" data-aos="fade-in" data-aos-delay="400">
             <div id="sankey_container_main">
-              <h2 class="vis_heading">Breakdown of Employed Women by Type, Sector and Major Barriers to Work</h2>
+              <h2 class="vis_heading">Breakdown of Employed Women by Employment Type, Sector and Major Barriers to Work</h2>
               <div id="sankey_container">
                 <svg></svg>
+              </div>
+              <div class="text_container">
+                <p class="section_note" style="font-size: 12px;"><span style="color: rgba(142,36,170,1);">Unpaid workers </span> include contributing family workers and unpaid non-family apprentices</p>
+                <p class="section_note" style="font-size: 12px;"><span style="color: rgba(142,36,170,1);">Paid workers </span> are paid in cash or in kind</p>
               </div>
             </div>
           </div>
@@ -397,7 +401,7 @@
         window.location = "./";
       });
 
-      d3.csv('./js/files/laborHierarchyWOFormal.csv')
+      d3.csv('./js/files/laborHierarchyInfRev.csv')
         .then((data)=>{
           let sunBurstCTRL = createSunBurst(data);
           sunBurstCTRL.drawSunburst();

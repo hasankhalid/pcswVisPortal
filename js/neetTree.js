@@ -8,7 +8,7 @@ let notInList = ['education', 'employment', 'training', 'Youth NEET']
 // define dimensions
 let margin = {top: 30, right: 10, bottom: 20, left: 180},
     width = 1200 - margin.right - margin.left,
-    height = 975 - margin.top - margin.bottom;
+    height = 800 - margin.top - margin.bottom;
 
 // define counter, duration and root
 let i = 0,
@@ -250,7 +250,7 @@ async function readAndDraw(){
 
 
   // a nested circle legend for percentages
-  makeNestCircLegend(CSSSelect = 'svg', [50, 800], [10, 50, 100], radScale, "Percent Scale")
+  makeNestCircLegend(CSSSelect = 'svg', [50, 700], [10, 50, 100], radScale, "Percent Scale")
 
 }
 

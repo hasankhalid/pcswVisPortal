@@ -55,7 +55,7 @@ let arc = d3.arc()
 // async function that reads in data, conducts transforamtions and draws the visualization
 async function readAndDrawSunburst(){
     // read in the data asynchronously
-    let data = await d3.csv('./js/files/laborHierarchyWOFormal.csv');
+    let data = await d3.csv('./js/files/laborHierarchyInfRev.csv');
 
     drawSunburst(data);
 }
