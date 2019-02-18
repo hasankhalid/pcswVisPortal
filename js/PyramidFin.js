@@ -16,6 +16,40 @@ function createFinPyramid() {
   let width = widthSVG - margins.left - margins.right;
   let height = heightSVG - margins.top - margins.bottom;
 
+
+  var toolTipConfig = {
+    idPrefix : 'fin-tooltip',
+    templateSelector : '#finInc-tooltip',
+    selectorDataMap : {
+      '.s-p__tooltip-header h1' : function(d){
+        return d.category;
+      },
+      '.s-p__value-account' : function(d,i){
+        return (parseFloat(d.accountBank) + parseFloat(d.accountsOther)).toPrecision(3);
+      },
+      '.s-p__value-bank' : function(d,i){
+        return parseFloat(d.accountBank).toPrecision(3);
+      },
+      '.s-p__value-other-acc' : function(d,i){
+        return parseFloat(d.accountsOther).toPrecision(3);
+      },
+      '.s-p__value-mobile' : function(d,i){
+        return (parseFloat(d.finInc) - (parseFloat(d.accountsOther) + parseFloat(d.accountBank))).toPrecision(3);
+      },
+      '.s-p__value-credit' : function(d,i){
+        return (parseFloat(d.accessCreditOth) + parseFloat(d.accessCreditBus)).toPrecision(3);
+      },
+      '.s-p__value-credit-nb' : function(d,i){
+        return parseFloat(d.accessCreditOth).toPrecision(3);
+      },
+      '.s-p__value-credit-b' : function(d,i){
+        return parseFloat(d.accessCreditBus).toPrecision(3);
+      }
+    }
+  }
+
+  var toolTip = Tooltip(toolTipConfig);
+
   // defining SVG and SVGG
   let SVG = d3.select('svg#finIncPyramid')
             //  .attr("height", heightSVG)
@@ -97,7 +131,16 @@ function createFinPyramid() {
                         .enter()
                         .append('g')
                         .classed('barGroup', true)
-                        .attr('transform', (d,i) => `translate(${width/2}, ${(i+1)*interv})`);
+                        .attr('transform', (d,i) => `translate(${width/2}, ${(i+1)*interv})`)
+                        .on('mousemove', function(d) {
+                          if (d.accessCredit != 0) {
+                            toolTip.createTooltip(d, d3.event);
+                          }
+                        })
+                        .on('mouseout', function(d){
+                          toolTip.removeTooltip(d, d3.event);
+                        })
+
 
 
     // define colors for halves and darkening factor
