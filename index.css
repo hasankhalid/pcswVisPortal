@@ -582,7 +582,7 @@ body {
   margin-top: 45px;
 }
 
-.s-p__tooltip {
+.s-p__tooltip, .comparison__tooltip {
   display: flex;
   position: fixed;
   flex-direction: column;
@@ -596,7 +596,13 @@ body {
   box-shadow: 8px 13px 21px -10px rgba(177,179,178,0.65);
 }
 
-.s-p__tooltip-header{
+.comparison__tooltip {
+  max-width: 175px;
+  min-width: 125px;
+  position: relative;
+}
+
+.s-p__tooltip-header, .comparison__tooltip-header {
   background: linear-gradient(145deg, rgba(142,36,170,0.7) 0%, rgba(186,104,200,0.7) 100%);
   color: white;
   margin: -10px;
@@ -606,10 +612,18 @@ body {
   margin-bottom: 10px;
 }
 
+.comparison_header {
+  margin-bottom: 0px;
+}
+
 .s-p__tooltip-header h1 {
   font-size: 18px;
   font-weight: 500;
   margin: 5px;
+}
+
+.comparison_header  h1 {
+  font-size: 16px;
 }
 
 .s-p__tooltip-body p {
@@ -617,6 +631,38 @@ body {
   font-size: 15px;
   display: flex;
   justify-content: space-between;
+}
+
+.comparison__tooltip-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tooltip_half_section {
+  width: calc(50% - 0.5px);
+  margin: 5px 0px 5px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.tooltip_half_section:first-child {
+  border-right: 1px solid;
+  border-color: #BDBDBD;
+}
+
+.comparisonTool_section_container {
+  width: 100%;
+  display: flex;
+  font-size: 11px;
+}
+
+.sp-minority, .sp-baseline {
+  font-size: 16px;
+}
+
+.compTool_section_heading {
+  width: 50%;
+  text-align: center;
 }
 
 .sp-data {

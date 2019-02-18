@@ -25,7 +25,7 @@ function Tooltip({
 	var counter = getCounter();
 	var currTooltip;
 
-	function createTooltip(d, event){
+	function createTooltip(d, event,i){
 		if(!d[dataId]){
 			d[dataId] = counter.getVal();
 		}
@@ -33,7 +33,7 @@ function Tooltip({
 		var tooltipElement = document.getElementById(idPrefix + d[dataId]);
 		if(!tooltipElement){
 
-			var tooltip = d3.select(cloneTooltipFromTemplate(d));
+			var tooltip = d3.select(cloneTooltipFromTemplate.call(this,d,i));
 
 			currTooltip = tooltip;
 
@@ -144,7 +144,7 @@ function Tooltip({
 			return [finalX, finalY];
 	}
 
-	function cloneTooltipFromTemplate(d){
+	function cloneTooltipFromTemplate(d,i){
 
 		var template = document.querySelector(templateSelector);
 		var clone = document.importNode(template.content, true);
@@ -155,7 +155,7 @@ function Tooltip({
 			var res;
 
 			if(typeof mappedData === 'function'){
-				res = mappedData(d);
+				res = mappedData.call(this,d,i);
 			}else{
 				res = d[mappedData];
 			}
@@ -185,7 +185,7 @@ function Tooltip({
 
 		if(isTouch){
 			window.removeEventListener('touchend', touchListener);
-		} 
+		}
 	}
 
 	function touchListener(e){

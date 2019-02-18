@@ -17,6 +17,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="./js/tools/selectize/js/standalone/selectize.js"></script>
     <link rel="stylesheet" type="text/css" href="./js/tools/selectize/css/selectize.css">
+    <script src="./js/tooltip.js"></script>
     <script src="./js/RadarChart.js"></script>
   </head>
 
@@ -165,9 +166,33 @@
       </div>
     </div>
 
+    <template id="radar-tooltip">
+      <div class="comparison__tooltip">
+        <div class="s-p__tooltip-header comparison_header">
+          <h1></h1>
+        </div>
+        <div class="comparison__tooltip-body">
+          <div class="tooltip_half_section">
+            <p style="margin: 5px 0px;"><span class="s-p__value sp-minority"></span> %</p>
+          </div>
+          <div class="tooltip_half_section">
+            <p style="margin: 5px 0px;"><span class="s-p__value sp-baseline"></span> %</p>
+          </div>
+          <div class="comparisonTool_section_container">
+            <div class="compTool_section_heading">
+              <p class="no_margin"><span class="s-p__section_heading sp-minority-head no_margin">Minority Survey</span></p>
+            </div>
+            <div class="compTool_section_heading">
+              <p class="no_margin"><span class="s-p__section_heading sp-baseline-head no_margin">Baseline Survey</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+
     <script src="./js/script.js"></script>
     <script src="./menu.js"></script>
-
 
     <script>
       var granimInstance = new Granim({
