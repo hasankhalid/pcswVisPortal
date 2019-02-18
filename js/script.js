@@ -3,25 +3,23 @@ var w = 500,
 
 var colorscale = d3.scaleOrdinal().range(["#009688", "#EA80FC"]);
 
-async function readAndTrans(){
-	let data = await d3.csv('./js/files/minoritySpider.csv');
-	console.log(data)
-	let trans = [];
-	data.columns.forEach(d => {
-		if (d != "Category"){
-			console.log(d);
-			let temp = data.map(entry => {
-				return {
-					"axis": entry.Category,
-					"value": +entry[[d]]/100
-				}
-			})
-			trans.push(temp);
-		}
-	})
-	console.log(JSON.stringify(trans));
-}
-readAndTrans();
+// async function readAndTrans(){
+// 	let data = await d3.csv('./js/files/minoritySpider.csv');
+// 	let trans = [];
+// 	data.columns.forEach(d => {
+// 		if (d != "Category"){
+// 			console.log(d);
+// 			let temp = data.map(entry => {
+// 				return {
+// 					"axis": entry.Category,
+// 					"value": +entry[[d]]/100
+// 				}
+// 			})
+// 			trans.push(temp);
+// 		}
+// 	})
+// }
+// readAndTrans();
 
 
 //Legend titles

@@ -103,7 +103,7 @@ function createFinPyramid() {
     // define colors for halves and darkening factor
     let barRightCol = d3.rgb('#EC407A');
     let barLeftCol = d3.rgb('#BA68C8');
-    let darkenFactor = 0.4
+    let darkenFactor = 0.7
 
 
     // drawing bars to the right

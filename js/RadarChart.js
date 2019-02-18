@@ -11,7 +11,7 @@
 var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
-	 radius: 5,
+	 radius: 4,
 	 w: 600,
 	 h: 600,
 	 factor: 1,
@@ -111,8 +111,8 @@ var RadarChart = {
 		.style("stroke-width", "1px");
 
 	axis.append("text")
-		.attr("class", "legend")
-		.text(function(d){return d})
+		.attr("class", function(d, i){return "legend" + " ind" + i})
+		.text(function(d, i){return d})
 		//.style("font-family", "sans-serif")
 		.style("font-size", "11px")
 		.attr("text-anchor", "middle")
@@ -186,7 +186,33 @@ var RadarChart = {
 		})
 		.attr("data-id", function(j){return j.axis})
 		.style("fill", cfg.color(series)).style("fill-opacity", .9)
-		.on('mouseover', function (d){
+		.on('mouseover', function (d, i){
+          var index = "ind" + i;
+          var selectSeries = d3.select(this).attr('class').replace('radar-chart-', '');
+          var compSeries = selectSeries == "serie0" ? "serie1" : "serie0";
+          var ind = d.axis;
+
+          // getting value of comparison serie datum
+          var compDatumValue = d3.selectAll(`.radar-chart-${compSeries}`)
+            .data()
+            .filter(function(d, i){
+              return d.axis == ind;
+            })[0].value;
+
+          console.log(selectSeries, compSeries, d.value, compDatumValue);
+
+          // make the axis text label bold
+          d3.select(`.legend.${index}`)
+            .transition('label-bold')
+            .duration(200)
+            .style('font-weight', 'bold');
+
+          d3.selectAll(`.legend:not(.${index})`)
+            .transition('label-bold')
+            .duration(200)
+            .style('fill', 'grey');
+
+
 					newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 					newY =  parseFloat(d3.select(this).attr('cy')) - 5;
 
@@ -205,7 +231,19 @@ var RadarChart = {
 						.transition(200)
 						.style("fill-opacity", .7);
 				  })
-		.on('mouseout', function(){
+		.on('mouseout', function(d, i){
+          var index = "ind" + i;
+          // make the axis text label normal
+          d3.select(`.legend.${index}`)
+            .transition('label-bold')
+            .duration(200)
+            .style('font-weight', 'normal');
+
+          d3.selectAll(`.legend:not(.${index})`)
+            .transition('label-bold')
+            .duration(200)
+            .style('fill', 'black');
+
 					tooltip
 						.transition(200)
 						.style('opacity', 0);
