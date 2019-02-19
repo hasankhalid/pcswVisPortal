@@ -21,7 +21,7 @@ function createFinPyramid() {
     idPrefix : 'fin-tooltip',
     templateSelector : '#finInc-tooltip',
     selectorDataMap : {
-      '.s-p__tooltip-header h1' : function(d){
+      '.finInc-header h1' : function(d){
         return d.category;
       },
       '.s-p__value-account' : function(d,i){
@@ -139,7 +139,7 @@ function createFinPyramid() {
                         })
                         .on('mouseout', function(d){
                           toolTip.removeTooltip(d, d3.event);
-                        })
+                        });
 
 
 

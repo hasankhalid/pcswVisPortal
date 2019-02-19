@@ -599,6 +599,7 @@ body {
 .fin-inc__tooltip {
   max-width: 275px;
   min-width: 225px;
+  background: linear-gradient(145deg, rgba(224,224,224,0.9) 0%, rgba(255,255,255,0.9) 100%);
 }
 
 .comparison__tooltip {
@@ -615,6 +616,14 @@ body {
   border-top-right-radius: 8px;
   padding: 10px 10px;
   margin-bottom: 10px;
+}
+
+.finInc-header {
+  margin: -10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px 10px;
+  margin-bottom: 5px;
 }
 
 .comparison_header {
