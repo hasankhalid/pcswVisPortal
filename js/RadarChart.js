@@ -58,7 +58,7 @@ function computeValues(d, i) {
 var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
-	 radius: 4,
+	 radius: 4.5,
 	 w: 600,
 	 h: 600,
 	 factor: 1,
@@ -245,8 +245,9 @@ var RadarChart = {
 						.attr('x', newX)
 						.attr('y', newY)
 						.text(Format(d.value))
-						.transition(200)
-						.style('opacity', 1);
+						//.transition(200)
+						.style('opacity', 1)
+            .style('font-size', '13px');
 
 					z = "polygon."+d3.select(this).attr("class");
 					g.selectAll("polygon")
@@ -271,14 +272,13 @@ var RadarChart = {
             .style('fill', 'black');
 
 					tooltip
-						.transition(200)
-						.style('opacity', 0);
+						//.transition(200)
+						.style('opacity', 0)
+            .style('font-size', '0px');
 					g.selectAll("polygon")
 						.transition(200)
 						.style("fill-opacity", cfg.opacityArea);
 				  })
-		.append("svg:title")
-		.text(function(j){return Math.max(j.value, 0)});
 
 	  series++;
 	});
@@ -286,6 +286,6 @@ var RadarChart = {
 	tooltip = g.append('text')
 			   .style('opacity', 0)
 			   .style('font-family', 'sans-serif')
-			   .style('font-size', '13px');
+			   .style('font-size', '0px');
   }
 };

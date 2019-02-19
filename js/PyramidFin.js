@@ -25,25 +25,25 @@ function createFinPyramid() {
         return d.category;
       },
       '.s-p__value-account' : function(d,i){
-        return (parseFloat(d.accountBank) + parseFloat(d.accountsOther)).toPrecision(3);
+        return round2Dec(parseFloat(d.accountBank) + parseFloat(d.accountsOther), 1);
       },
       '.s-p__value-bank' : function(d,i){
-        return parseFloat(d.accountBank).toPrecision(3);
+        return round2Dec(parseFloat(d.accountBank), 1);
       },
       '.s-p__value-other-acc' : function(d,i){
-        return parseFloat(d.accountsOther).toPrecision(3);
+        return round2Dec(parseFloat(d.accountsOther), 1);
       },
       '.s-p__value-mobile' : function(d,i){
-        return (parseFloat(d.finInc) - (parseFloat(d.accountsOther) + parseFloat(d.accountBank))).toPrecision(3);
+        return round2Dec(parseFloat(d.finInc) - (parseFloat(d.accountsOther) + parseFloat(d.accountBank)), 1);
       },
       '.s-p__value-credit' : function(d,i){
-        return (parseFloat(d.accessCreditOth) + parseFloat(d.accessCreditBus)).toPrecision(3);
+        return round2Dec(parseFloat(d.accessCreditOth) + parseFloat(d.accessCreditBus), 1);
       },
       '.s-p__value-credit-nb' : function(d,i){
-        return parseFloat(d.accessCreditOth).toPrecision(3);
+        return round2Dec(parseFloat(d.accessCreditOth), 1);
       },
       '.s-p__value-credit-b' : function(d,i){
-        return parseFloat(d.accessCreditBus).toPrecision(3);
+        return round2Dec(parseFloat(d.accessCreditBus), 1);
       }
     }
   }
