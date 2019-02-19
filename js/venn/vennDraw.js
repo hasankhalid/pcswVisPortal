@@ -1,10 +1,10 @@
 var sets = [{"sets":["Physical"],"figure":19.5,"labels":"physical","size":19.5},
-            {"sets":["Psychological"],"figure":33.9,"labels":"psychological","size":33.9},
+            {"sets":["Psychological"],"figure":34,"labels":"psychological","size":34},
             {"sets":["Sexual"],"figure":7.8,"labels":"sexual","size":7.8},
             {"sets":["Physical", "Sexual"],"figure":5.5,"labels":"physical and sexual","size":5.5},
             {"sets":["Psychological", "Physical"],"figure":17.4,"labels":"psychological and physical","size":17.4},
             {"sets":["Sexual","Psychological"],"figure":7.0,"labels":"psychological and sexual","size":7.0},
-            {"sets":["Sexual","Psychological", "Physical"],"figure":5.2,"labels":"psychological, physical and sexual","size":5.2}];
+            {"sets":["Sexual","Psychological", "Physical"],"figure":5.3,"labels":"psychological, physical and sexual","size":5.3}];
 
 // color list for classes
 let colList = ['#FCD74E', '#CA0068', '#D34FFF'];

@@ -241,6 +241,14 @@ function createFinPyramid() {
     // draw axis
     initializeAxes();
 
+    // add interaction
+    barGroups.on('mouseover', function(d, i){
+      console.log(d, i);
+    })
+    // .on('mouseout', function(d, i){
+    //   console.log(d, i);
+    // })
+
     // function for drawing nested circle legend
     function makeNestCircLegend(CSSSelect = 'svg', transformArray, bubArray, bubScale, legendTitle){
         // appending a legendgroup

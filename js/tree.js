@@ -194,8 +194,8 @@ function createEmpTree(){
         .attr("class", "node")
         .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
         .on("click", click)
-        .on('mouseover', mouseover(true))
-        .on('mouseout',  mouseover(false))
+        .on('mouseover', mouseO(true))
+        .on('mouseout',  mouseO(false))
 
     nodeEnter.append("circle")
         .attr("r", 1)
@@ -213,7 +213,7 @@ function createEmpTree(){
 
 
     // Transition nodes to their new position.
-    var nodeUpdate = node.merge(nodeEnter).transition()
+    var nodeUpdate = node.merge(nodeEnter).transition('updateTrans')
         .duration(duration)
         .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
@@ -231,7 +231,7 @@ function createEmpTree(){
         .style("fill-opacity", 1);
 
     // Transition exiting nodes to the parent's new position.
-    var nodeExit = node.exit().transition()
+    var nodeExit = node.exit().transition('updateTrans')
         .duration(duration)
         .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
         .remove();
@@ -294,7 +294,7 @@ function createEmpTree(){
     update(d);
   }
 
-  function mouseover(over) {
+  function mouseO(over) {
     return function(d){
       let arrIDNames = d.ancestors().map(d => d.id);
 
@@ -304,7 +304,7 @@ function createEmpTree(){
 
       if (over == true){
         selection.style('stroke-opacity', 1);
-        textSelect.transition().duration(180).style('font-size', d => `${(18 - d.depth) * 1.4}px`);
+        textSelect.transition('mouseOtrans').duration(180).style('font-size', d => `${(18 - d.depth) * 1.4}px`);
 
 
             var percentage = Math.round(d.Perc * 10) / 10;

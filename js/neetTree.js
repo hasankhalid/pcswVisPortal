@@ -307,7 +307,7 @@ function update(source) {
       .style("fill-opacity", 0)
       .style('font-size', d => `${18 - d.depth}px`);
   // Transition nodes to their new position.
-  var nodeUpdate = node.merge(nodeEnter).transition()
+  var nodeUpdate = node.merge(nodeEnter).transition('updateTrans')
       .duration(duration)
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
@@ -322,7 +322,7 @@ function update(source) {
       .style("fill-opacity", 1);
 
   // Transition exiting nodes to the parent's new position.
-  var nodeExit = node.exit().transition()
+  var nodeExit = node.exit().transition('updateTrans')
       .duration(duration)
       .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
       .remove();
@@ -397,7 +397,7 @@ function mouseO(over) {
 
     if (over == true){
       selection.style('stroke-opacity', .8);
-      textSelect.transition().duration(180).style('font-size', d => `${(18 - d.depth) * 1.4}px`);
+      textSelect.transition('mouseOtrans').duration(180).style('font-size', d => `${(18 - d.depth) * 1.4}px`);
 
       console.log(d);
 
