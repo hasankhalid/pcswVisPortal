@@ -1352,7 +1352,7 @@ body {
     flex-direction: column;
   }
   #sunburst_container {
-    margin-top: -55px;
+    margin-top: -48px;
     max-width: 725px;
   }
 }
