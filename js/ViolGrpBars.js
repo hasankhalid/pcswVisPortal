@@ -6,12 +6,17 @@ function drawBars() {
     series: [
       {
         label: 'Currently Married',
-        values: [33.3, 18.4, 7.6]
+        values: [33.8, 19, 8.5]
       },
       {
-        label: 'Widowed/ divorced/ Separated',
-        values: [42.5, 33.5, 10.5]
-      }]
+        label: 'Divorced/ Separated',
+        values: [77.9, 60.5, 25.3]
+      },
+      {
+        label: 'Widowed',
+        values: [25.5, 19, 5.2]
+      }
+    ]
   };
 
   var chartWidth       = 400,
@@ -30,7 +35,7 @@ function drawBars() {
   }
 
   // Color scale
-  var color = d3.scaleOrdinal().range(['#F06292', '#8E24AA']);
+  var color = d3.scaleOrdinal().range(['#F06292', '#8E24AA', '#BDBDBD']);
   var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 
   var x = d3.scaleLinear()
