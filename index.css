@@ -876,6 +876,10 @@ body {
   right: 0px;
 }
 
+#sunburst_legend_small {
+  display: none;
+}
+
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
@@ -1334,6 +1338,22 @@ body {
   }
   .socIcons {
     font-size: 14px;
+  }
+  #sunburst_legend_small {
+    display: block;
+  }
+  #sunburst_legend {
+    display: none;
+  }
+  .legend_container {
+    flex-direction: column;
+  }
+  .legend_container_two {
+    flex-direction: column;
+  }
+  #sunburst_container {
+    margin-top: -55px;
+    max-width: 725px;
   }
 }
 
