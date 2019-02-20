@@ -79,7 +79,6 @@ function createSunBurst(data){
     let layerTypes = ["Area", "Labor Force Participation", "Employment", "Industry", "Major barrier to work", "Marital Status", "Employment Type", "Place of work", "Informal/ formal employment in non-agriculture sectors"];
 
 
-
     ////// Code to assign each category to a layer type
     let categs = [];
     let categLayerType = [];
@@ -245,6 +244,7 @@ function createSunBurst(data){
         .attr("fill-rule", "evenodd")
         .style("fill", d => scalColCateg(getParentCol(d)))
         .style("opacity", 1)
+        .attr('class', 'arc')
         .on("mouseover", mouseover);
 
     // Add the mouseleave handler to the bounding circle.
@@ -367,10 +367,10 @@ function createSunBurst(data){
       });
 
     // Deactivate all segments during transition.
-    d3.selectAll("path").on("mouseover", null);
+    d3.selectAll("path.arc").on("mouseover", null);
 
     // Transition each segment to full opacity and then reactivate it.
-    d3.selectAll("path")
+    d3.selectAll("path.arc")
         .transition()
         .duration(500)
         .style("opacity", 1)
