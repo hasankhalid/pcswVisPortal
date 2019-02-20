@@ -236,7 +236,7 @@ function createSunBurst(data){
 
 
 
-    let path = vis.data([json]).selectAll("path")
+    let path = vis.data([json]).selectAll("path.arc")
         .data(nodes)
         .enter().append("svg:path")
         .attr("display", function(d) { return d.depth ? null : "none"; })
@@ -336,11 +336,11 @@ function createSunBurst(data){
     updateBreadcrumbs(sequenceArray, percentageString);
 
     // Fade all the segments.
-    d3.selectAll("path")
+    d3.selectAll("path.arc")
         .style("opacity", 0.3);
 
     // Then highlight only those that are an ancestor of the current segment.
-    vis.selectAll("path")
+    vis.selectAll("path.arc")
         .filter(function(node) {
                   // if node exists in sequence (greater or equal to zero)
                   return (sequenceArray.indexOf(node) >= 0);
