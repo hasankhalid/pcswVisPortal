@@ -880,6 +880,12 @@ body {
   display: none;
 }
 
+.home_project_title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #263238;
+}
+
 @media only screen and (min-width: 1650px) {
   .contentContain {
     margin-left: 200px;
@@ -1056,6 +1062,9 @@ body {
   }
   .footer_partners {
     flex-wrap: wrap;
+  }
+  .home_project_title {
+    font-size: 18px;
   }
 }
 
