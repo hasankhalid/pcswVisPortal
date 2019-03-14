@@ -106,6 +106,7 @@ function SankeyChart({
 			pToolTip.createTooltip(d, d3.event);
 		});
 
+
 		//set up rects events listener
 		rects.on('mouseover', function(d){
 			var currEl = this;
