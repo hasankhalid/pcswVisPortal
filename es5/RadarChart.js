@@ -43,7 +43,7 @@ function computeValues(d, i) {
 var RadarChart = {
   draw: function (id, d, options) {
     var cfg = {
-      radius: 4.5,
+      radius: 6,
       w: 600,
       h: 600,
       factor: 1,
@@ -166,14 +166,14 @@ var RadarChart = {
         return j.axis;
       }).style("fill", cfg.color(series)).style("fill-opacity", .9).on('mouseover', function (d, i) {
         computeValues.call(this, d, i);
+        toolTip.createTooltip.call(this, d, d3.event, i); // make the axis text label bold
         newX = parseFloat(d3.select(this).attr('cx')) - 10;
-        newY = parseFloat(d3.select(this).attr('cy')) - 8;
+        newY = parseFloat(d3.select(this).attr('cy')) - 9;
         tooltip.attr('x', newX).attr('y', newY).text(Format(d.value)) //.transition(200)
         .style('opacity', 1).style('font-size', '13px');
         z = "polygon." + d3.select(this).attr("class");
         g.selectAll("polygon").transition(200).style("fill-opacity", 0.1);
         g.selectAll(z).transition(200).style("fill-opacity", .7);
-        toolTip.createTooltip.call(this, d, d3.event, i); // make the axis text label bold
       }).on('mouseout', function (d, i) {
         toolTip.removeTooltip.call(this, d, d3.event, i);
         var index = "ind" + i; // make the axis text label normal
