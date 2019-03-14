@@ -171,7 +171,8 @@ var RadarChart = {
         newX = parseFloat(d3.select(this).attr('cx')) - 10;
         newY = parseFloat(d3.select(this).attr('cy')) - 5;
         tooltip.attr('x', newX).attr('y', newY).text(Format(d.value)) //.transition(200)
-        .style('opacity', 1).style('font-size', '13px');
+        .style('opacity', 1).style('font-size', '13px')
+        .style('display', 'block');
         z = "polygon." + d3.select(this).attr("class");
         g.selectAll("polygon").transition(200).style("fill-opacity", 0.1);
         g.selectAll(z).transition(200).style("fill-opacity", .7);
@@ -182,7 +183,7 @@ var RadarChart = {
         d3.select(`.legend.${index}`).transition('label-bold').duration(200).style('font-weight', 'normal');
         d3.selectAll(`.legend:not(.${index})`).transition('label-bold').duration(200).style('fill', 'black');
         tooltip //.transition(200)
-        .style('opacity', 0).style('font-size', '0px');
+        .style('opacity', 0).style('font-size', '0px').style('display', 'none');
         g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea);
       });
       series++;
