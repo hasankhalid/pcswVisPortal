@@ -166,16 +166,14 @@ var RadarChart = {
         return j.axis;
       }).style("fill", cfg.color(series)).style("fill-opacity", .9).on('mouseover', function (d, i) {
         computeValues.call(this, d, i);
-        toolTip.createTooltip.call(this, d, d3.event, i); // make the axis text label bold
-
         newX = parseFloat(d3.select(this).attr('cx')) - 10;
-        newY = parseFloat(d3.select(this).attr('cy')) - 5;
+        newY = parseFloat(d3.select(this).attr('cy')) - 8;
         tooltip.attr('x', newX).attr('y', newY).text(Format(d.value)) //.transition(200)
-        .style('opacity', 1).style('font-size', '13px')
-        .style('display', 'block');
+        .style('opacity', 1).style('font-size', '13px');
         z = "polygon." + d3.select(this).attr("class");
         g.selectAll("polygon").transition(200).style("fill-opacity", 0.1);
         g.selectAll(z).transition(200).style("fill-opacity", .7);
+        toolTip.createTooltip.call(this, d, d3.event, i); // make the axis text label bold
       }).on('mouseout', function (d, i) {
         toolTip.removeTooltip.call(this, d, d3.event, i);
         var index = "ind" + i; // make the axis text label normal
@@ -183,7 +181,7 @@ var RadarChart = {
         d3.select(`.legend.${index}`).transition('label-bold').duration(200).style('font-weight', 'normal');
         d3.selectAll(`.legend:not(.${index})`).transition('label-bold').duration(200).style('fill', 'black');
         tooltip //.transition(200)
-        .style('opacity', 0).style('font-size', '0px').style('display', 'none');
+        .style('opacity', 0).style('font-size', '0px');
         g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea);
       });
       series++;
