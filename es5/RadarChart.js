@@ -43,7 +43,7 @@ function computeValues(d, i) {
 var RadarChart = {
   draw: function (id, d, options) {
     var cfg = {
-      radius: 5.5,
+      radius: 4.5,
       w: 600,
       h: 600,
       factor: 1,
