@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
 }
 
+#landingImageMobile {
+  display: none;
+}
+
 .applicationWrap {
   min-height: 100%;
 }
@@ -1245,6 +1249,13 @@ body {
   .footer_icon_p {
     height: 20px;
   }
+  #landingImage {
+    display: none;
+  }
+
+  #landingImageMobile {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -1406,10 +1417,10 @@ body {
   }
   .overlay_black_title {
     top: 0px;
-    width: 75%;
+    width: 90%;
   }
   .titleImage {
-    width: 75%;
+    width: 90%;
   }
   .project_image_container {
     display: flex;
