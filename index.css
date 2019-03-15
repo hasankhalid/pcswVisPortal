@@ -916,6 +916,10 @@ body {
   width: 65%;
 }
 
+#heat_container {
+  padding: 0px 70px;
+}
+
 #scatter_controls, #bubble_controls, #heat_controls {
   width: 35%;
 }
@@ -1118,6 +1122,9 @@ body {
   #sequence {
     height: 80px;
   }
+  #heat_container {
+    padding: 0px;
+  }
   #vaw_heat_container, #vaw_heat_SV_container {
     width: 65%;
   }
@@ -1263,6 +1270,7 @@ body {
     width: 100%;
     margin-top: 60px;
   }
+
   #scatter_controls, #bubble_controls, #heat_controls {
     width: 50%;
   }
