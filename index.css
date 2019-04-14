@@ -1021,6 +1021,19 @@ body {
   cursor: pointer;
 }
 
+.SDG_goals {
+  display: flex;
+  width: calc(100% - 160px);
+  padding: 20px 80px;
+}
+
+.SDG_card {
+  width: 90px;
+  height: 89px;
+  border-radius: 8px;
+  opacity: 0.85;
+}
+
 #radar_container {
   display: -webkit-box;
   display: -ms-flexbox;
