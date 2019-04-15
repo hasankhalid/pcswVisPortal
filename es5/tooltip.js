@@ -24,7 +24,7 @@ function Tooltip({
   var currTooltip;
 
   function createTooltip(d, event, i) {
-    if (!d[dataId]) {
+    if (!d[dataId] === undefined) {
       d[dataId] = counter.getVal();
     }
 
