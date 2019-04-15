@@ -1207,6 +1207,12 @@ body {
   .textOverlay {
     margin: 10px 40px;
   }
+
+  .SDG_goals {
+    width: calc(100% - 80px);
+    padding: 10px 40px;
+  }
+
   .projDesc {
     font-size: 16px;
   }
@@ -1351,6 +1357,12 @@ body {
   .textOverlay {
     margin: 20px 80px;
   }
+
+  .SDG_goals {
+    width: calc(100% - 160px);
+    padding: 20px 80px;
+  }
+
   .projDesc {
     font-size: 16px;
   }
@@ -1418,6 +1430,12 @@ body {
   .textOverlay {
     margin: 10px 40px;
   }
+
+  .SDG_goals {
+    width: calc(100% - 80px);
+    padding: 10px 40px;
+  }
+
   .projDesc {
     font-size: 16px;
   }
@@ -1539,6 +1557,12 @@ body {
   .textOverlay {
     margin: 8px 20px;
   }
+
+  .SDG_goals {
+    width: calc(100% - 40px);
+    padding: 8px 20px;
+  }
+
   .project_image_container {
     margin-left: 20px;
     margin-right: 20px;
