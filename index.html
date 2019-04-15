@@ -17,11 +17,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
+
     <link href="./animate.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
-    <script src="granim.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
@@ -109,8 +109,8 @@
             </div>
             <div class="fadeMeRight">
               <div class="imageContainer">
-                <img id="landingImage" class="titleImage" src="./resources/landing.jpg"></img>
-                <img id="landingImageMobile" class="titleImage" src="./resources/landing.jpg"></img>
+                <img id="landingImage" class="titleImage" src="./resources/landing.jpeg"></img>
+                <img id="landingImageMobile" class="titleImage" src="./resources/landing.jpeg"></img>
                 <div class="overlay_black_title"></div>
               </div>
             </div>
@@ -134,13 +134,13 @@
         <div class="sunBurstContainer">
         </div>
         <div class="half">
-          <img class="imagehalf" src="./resources/pcsw1.jpg"></img>
+          <img class="imagehalf" src="./resources/pcsw1.jpeg"></img>
           <div class="overlay_black overlay_sunburst" style="top: 0px; flex-direction: column;">
             <h2 class="textOverlay titleOverlay" style="align-self: flex-start; margin-bottom: 5px;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">ESW 2017-2018</h2>
             <p class="textOverlay projDesc" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">The ESW project aims to generate provincial and district level representative data on the economic and employment status of women in Punjab and establish a baseline for monitoring of Sustainable Development Goals 5 and 8 to support policy actions based on the evidence generated. The project aims to model evidence-based and targeted interventions to enhance women’s empowerment in Punjab and to reduce their vulnerability to various forms of discrimination and exclusion.</p>
             <p class="textOverlay projDesc" style="margin-top: 5px;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">This website allows user to explore the collected data through interactive visualizations. </p>
             <div class="SDG_goals" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">
-              <img class="SDG_card" src="./resources/sdg.jpg"></img>
+              <img class="SDG_card" src="./resources/sdg.jpeg"></img>
               <img style="margin-left: 10px" class="SDG_card" src="./resources/goal5.png"></img>
               <img style="margin-left: 10px" class="SDG_card" src="./resources/goal6.png"></img>
             </div>
@@ -174,7 +174,7 @@
           </a>
         </div>
         <div class="half">
-          <img class="imagehalf" src="./resources/12.jpg"></img>
+          <img class="imagehalf" src="./resources/12.jpeg"></img>
           <div class="overlay_black overlay_sunburst overlay_sankey" style="top: 0px; flex-direction: column;">
             <p class="textOverlay" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">"I have always maintained that no nation can ever be worthy of its existence that cannot take its women along with men."</p>
             <p class="textOverlay" style="align-self: flex-start; font-size: 14px; margin-top: 0px;" data-aos="fade-in" data-aos-delay="275" data-aos-offset="100" data-aos-duration="500">Quaid-e-Azam Mohammad Ali Jinnah</p>
@@ -185,7 +185,7 @@
 
       <div class="footer_contain">
         <div class="district_link_container">
-          <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/pcsw6.jpg"></img>
+          <img class="footer_link_image" data-aos="fade-left" data-aos-delay="50" data-aos-offset="50" data-aos-duration="1000" src="./resources/pcsw6.jpeg"></img>
           <a class="view_districts districtLevel" data-aos="fade-in" data-aos-delay="800" href="./districts.html" style="text-decoration: none">View district level indicator overview</a>
         </div>
         <footer class="footer">
@@ -215,8 +215,9 @@
       </div>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async src="./menu.js"></script>
+
     <script>
       var granimInstance = new Granim({
          element: '#granim-canvas',
@@ -250,7 +251,7 @@
          }
       });
 
-      $('.titleImage').on("load", function() {
+      $(window).on("load", function() {
         if (window.innerWidth > 775) {
           setTimeout(function () {
             $('#preTitle').show().addClass('animated fadeIn');}, 75
