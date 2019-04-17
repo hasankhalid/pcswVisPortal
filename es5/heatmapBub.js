@@ -75,7 +75,7 @@ function createPVHeatmap() {
     svg_g.append('g').attr('transform', 'translate(0, -15)').selectAll('text').data(categories).enter().append('text').style('text-anchor', 'middle').style('font-size', distLabelSize + 4).style('font-weight', d => bubCategs.includes(d) ? 700 : 400).style('fill', d => bubCategs.includes(d) ? '#E91E63' : 'black').text(d => categLabelScale(d)).attr('x', d => categScale(d) + xInterval / 2);
     d3.select('#vaw_heat_description').select('#perceptionStuff').selectAll('p').data(categories.filter(d => !bubCategs.includes(d))).enter().append('p').attr('class', 'CategListElem') //.classed('CategListElem'. true)
     .html(d => `<span class= "categLabel">${categLabelScale(d)}:</span> ${d}`);
-    d3.select('#LegendsAndStuff').select('#violOccurenceStuff').selectAll('p').data(categories.filter(d => bubCategs.includes(d))).enter().append('p') //.classed('CategListElem'. true)
+    d3.select('#vaw_heat_description').select('#violOccurenceStuff').selectAll('p').data(categories.filter(d => bubCategs.includes(d))).enter().append('p') //.classed('CategListElem'. true)
     .attr('class', 'CategListElem').html(d => `<span class= "categLabel">${categLabelScale(d)}:</span> ${d}`);
     d3.select('#legendsContain').append('svg').attr('viewBox', `0 0 300 200`) //  .attr("preserveAspectRatio", "xMinYMid meet")
     //.attr('width', 300)
